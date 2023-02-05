@@ -1,0 +1,1 @@
+export const HomePage = () => import('./index.vue')
