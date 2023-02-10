@@ -1,6 +1,9 @@
 <template>
   <section>
-    About Page
+    <h1>
+      В разработке...
+    </h1>
+    
   </section>
 </template>
 

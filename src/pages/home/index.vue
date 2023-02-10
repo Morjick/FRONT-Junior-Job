@@ -1,6 +1,8 @@
 <template>
   <section>
-    Главная
+    <p class="Generaltext">
+      Junior Job
+    </p>
   </section>
 </template>
 
