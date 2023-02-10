@@ -4,8 +4,19 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: 'AboutPage'
-}
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'AboutPage',
+  components: {},
+  data: () => ({
+  }),
+  computed: {
+  },
+  methods: {
+  },
+  mounted () {
+  }
+})
 </script>
