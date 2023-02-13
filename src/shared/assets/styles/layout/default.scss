@@ -1,8 +1,8 @@
 .pages{
-    background-color: #BFB9E2;
+    background-color: var(--color-primery);
 }
 .pages-header{
-    background-color: #BFB9E2;
+    background-color: var(--color-primery);
     height: 90px;
     display: flex;
     justify-content: space-between;
@@ -10,11 +10,11 @@
     padding: 0 30px;
 }
 .page-logo{
-    color: #fff;
+    color: var(--color-main);
     font-size: 30px;
 }
 .pages-body{
-    background-color: #fff;
+    background-color: var(--color-main);
     border-radius:60px 60px 0 0;
     //transform: translateY(-10px);
     min-height: calc(100vh - 90px);

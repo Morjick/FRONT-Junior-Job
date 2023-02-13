@@ -3,3 +3,12 @@
 @import url('./themes/light.scss');
 @import url('./pages/index.scss');
 @import url('./layout/index.scss');
+
+:root {
+  --color-primery: #BFB9E2;
+  --color-alternative: #AAA2D8;
+  --color-main: #FFFFFF;
+  --color-font: #2C1B47;
+  --color-font-alternative: #604D9E;
+  --color-accent: #FAFA00;
+}

@@ -1,6 +1,7 @@
 import { BuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
+import implementation from 'sass'
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   const { isDev } = options
@@ -23,9 +24,10 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     test: /\.s[ac]ss$/i,
     use: [
       isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+      'vue-style-loader',
       "css-loader",
       "sass-loader",
-    ],
+    ]
   }
   const svgLoader = {
     test: /\.svg$/,
@@ -55,8 +57,8 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     babelLoader,
     tsLoader,
     txtLoader,
-    vueLoader,
     cssLoaders,
+    vueLoader,
     svgLoader,
     fileLoader,
   ]

@@ -1,9 +1,9 @@
 import { router, store } from 'app'
 import { createApp, h } from 'vue'
 import App from './App.vue'
-import './shared/assets/styles/main.scss'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import 'shared/assets/styles/main.scss'
 
 const app = createApp({
   render: () =>h (App)
