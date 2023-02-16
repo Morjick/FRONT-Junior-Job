@@ -1,26 +1,33 @@
-.pages{
-    background-color: var(--color-primery);
+.pages {
+  background-color: var(--color-primery);
 }
-.pages-header{
-    background-color: var(--color-primery);
-    height: 90px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
+
+.pages-header {
+  background-color: var(--color-primery);
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+
+  div {
+    background: red;
+  }
 }
-.page-logo{
-    color: var(--color-main);
-    font-size: 30px;
+
+.page-logo {
+  color: var(--color-main);
+  font-size: 30px;
 }
-.pages-body{
-    background-color: var(--color-main);
-    border-radius:60px 60px 0 0;
-    //transform: translateY(-10px);
-    min-height: calc(100vh - 90px);
+
+.pages-body {
+  background-color: var(--color-main);
+  border-radius: 60px 60px 0 0;
+  //transform: translateY(-10px);
+  min-height: calc(100vh - 90px);
 }
-.burger-menu{
-    background-color: red;
-    width: 50px;
-    height: 50px;
+
+.burger-menu {
+  width: 50px;
+  height: 50px;
 }

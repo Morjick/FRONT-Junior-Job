@@ -1,12 +1,11 @@
 import { BuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
-import implementation from 'sass'
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   const { isDev } = options
   const tsLoader = {
-    test: /\.tsx?$/,
+    test: /\.ts$/,
     use: [
       {
         loader: 'ts-loader',
@@ -21,12 +20,14 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     loader: 'vue-loader'
   }
   const cssLoaders = {
+    // test: /\.s[ac]ss$/i,/\.scss$/
     test: /\.s[ac]ss$/i,
     use: [
       isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      'vue-style-loader',
+      "vue-style-loader",
       "css-loader",
       "sass-loader",
+      // "postcss-loader",
     ]
   }
   const svgLoader = {

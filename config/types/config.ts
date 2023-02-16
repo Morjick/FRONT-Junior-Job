@@ -7,11 +7,29 @@ export interface BuildPath {
   src: string
 }
 
+export interface BuildPerfomance {
+  hints: string | boolean,
+  maxEntrypointSize: number,
+  maxAssetSize: number
+}
+
+export interface BuildOptimization {
+  splitChunks: BuildSplitChunks
+}
+
+export interface BuildSplitChunks{
+  minSize: number,
+  maxSize: number
+}
+
 export interface BuildOptions {
   mode: BuildMode,
   paths: BuildPath,
   isDev: boolean,
   port: number,
+  performance: BuildPerfomance,
+  optimization: BuildOptimization,
+  devtool: string | boolean
 }
 
 export interface BuildEnv {

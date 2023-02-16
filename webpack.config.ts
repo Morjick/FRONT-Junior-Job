@@ -15,12 +15,28 @@ module.exports = (env: BuildEnv) => {
   
   const mode = env.mode || 'development'
   const isDev = mode === 'development'
+
+  const performance = {
+    hints: false,    
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  }
+
+  const optimization = {
+    splitChunks: {
+      minSize: 10000,
+      maxSize: 250000,
+    }
+  }
   
   const config: webpack.Configuration = buildWebpacklugins({
     paths,
     mode,
     isDev,
-    port: env.port || 3000
+    port: env.port || 3000,
+    performance,
+    optimization,
+    devtool: isDev ? 'inline-source-map' : false,
   })
 
   return config
