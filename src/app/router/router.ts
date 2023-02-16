@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { HomePage } from 'pages/home'
 import { AboutPage } from 'pages/about'
 import DefaultLayout from '../layout/default.vue'
+import EmptyLayout from '../layout/empty.vue'
+import { JoinPage } from 'pages/join'
 
 
 export const router = createRouter({
@@ -14,6 +16,13 @@ export const router = createRouter({
         { component: HomePage, path: '' },
         { component: AboutPage, path: '/about' },
       ],
+    },
+    {
+      component: EmptyLayout,
+      path: '/join',
+      children: [
+        { component: JoinPage, path: '' }
+      ]
     },
     {
       component: HomePage,
