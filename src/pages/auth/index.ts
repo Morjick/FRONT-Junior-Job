@@ -1,0 +1,1 @@
+//export const AuthPage = () => import('./index.vue')
