@@ -1,17 +1,18 @@
 <template>
   <section>
-    <p class="Generaltext">
-      Junior Job
-    </p>
+    <ui-search-form class="main-search-form"/>
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import UiSearchForm from 'widgets/ui/UiSearchForm.vue'
 
 export default defineComponent({
   name: 'HomePage',
-  components: {},
+  components: {
+    UiSearchForm
+  },
   data: () => ({
   }),
   computed: {

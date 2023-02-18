@@ -1,7 +1,14 @@
 <template>
   <div class="pages">
     <div class="pages-header">
-      <div class="burger-menu"></div>
+      <ui-navigation :showingClass="showingClass" @hideNav="hideNav"/>
+
+      <div class="burger-menu" @click="showNav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
       <span class="page-logo">Junior Job</span>
     </div>
     <div class="pages-body">
@@ -11,7 +18,25 @@
 </template>
 
 <script>
+import UiNavigation from 'widgets/ui/UiNavigation.vue'
+
 export default {
-  name: 'DefaultLayout'
+  name: 'DefaultLayout',
+  components: {
+    UiNavigation
+  },
+  data() {
+    return {
+      showingClass: ""
+    }
+  },
+  methods: {
+    showNav() {
+      this.showingClass = "navigation_show";
+    },
+    hideNav() {
+      this.showingClass = "";
+    }
+  }
 }
 </script>
