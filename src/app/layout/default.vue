@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import UiNavigation from '../../widgets/ui/UiNavigation.vue'
+import UiNavigation from 'widgets/ui/UiNavigation.vue'
 
 export default {
   name: 'DefaultLayout',

@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import UiSearchForm from '../../widgets/ui/UiSearchForm.vue'
+import UiSearchForm from 'widgets/ui/UiSearchForm.vue'
 
 export default defineComponent({
   name: 'HomePage',
