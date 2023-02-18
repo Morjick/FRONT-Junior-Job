@@ -2,18 +2,19 @@
   <div class="join_page">
     <h1 class="join_tittle">Junior Job</h1>
     <p class="join_p">Начни зарабатывать вместе с нами!</p>
-    <button class="join_btn">Я соискатель</button>
-    <button class="join_btn">Я работодатель</button>
+    <ui-button text="Я соискатель" />
+    <ui-button text="Я работодатель" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import UiButton from 'widgets/ui/UiButton.vue'
 
 export default defineComponent({
   name: "JoinPage",
   data: () => ({}),
-  components: {},
+  components: { UiButton },
   props: {},
   computed: {},
   methods: {},

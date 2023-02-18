@@ -22,13 +22,15 @@
   margin: 20px 0;
 }
 
-.join_btn{
+.join_btn, .ui-button{
   color: var(--color-main);
   background-color: var(--color-alternative);
   padding: 15px 35px;
   min-height: 60px;
   min-width: 274px;
   border-radius: 20px;
+  text-align: center;
+  margin: 10px;
 }
 
 .join_btn:last-child{
