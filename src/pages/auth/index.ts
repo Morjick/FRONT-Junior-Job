@@ -1,1 +1,1 @@
-//export const AuthPage = () => import('./index.vue')
+export const AuthPage = () => import('./auth.vue')
