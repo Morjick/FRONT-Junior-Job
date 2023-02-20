@@ -8,7 +8,7 @@ import { BuildOptions } from "./types/config";
 
 
 export function buildWebpacklugins (options: BuildOptions): webpack.Configuration {
-  const { mode, paths, isDev } = options
+  const { mode, paths, isDev, performance } = options
 
   return {
     mode: mode,
@@ -24,6 +24,7 @@ export function buildWebpacklugins (options: BuildOptions): webpack.Configuratio
     resolve: biuldResolve(options),
     plugins: buildPlugins(options),
     devtool: 'inline-source-map',
-    devServer: buildDevServer(options)
+    devServer: buildDevServer(options),
+    performance
   }
 }

@@ -14,7 +14,7 @@ export const router = createRouter({
       component: DefaultLayout,
       path: '/',
       children: [
-        { component: HomePage, path: '' },
+        { component: HomePage, path: '/' },
         { component: AboutPage, path: '/about' },
       ],
     },
@@ -27,7 +27,7 @@ export const router = createRouter({
       ]
     },
     {
-      component: HomePage,
+      component: EmptyLayout,
       path: '/:pathMatch(.*)*',
     }
   ]

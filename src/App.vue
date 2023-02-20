@@ -1,13 +1,14 @@
 <template>
   <section class="root" :class="theme">
-    <Suspense>
+    <!-- <Suspense>
       <template #default>
         <router-view />
       </template>
       <template #fallback>
         Loading...
       </template>
-    </Suspense>
+    </Suspense> -->
+    <router-view />
   </section>
 </template>
 

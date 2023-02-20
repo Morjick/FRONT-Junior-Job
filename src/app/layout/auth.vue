@@ -1,11 +1,11 @@
 <template>
-    <section>
-    </section>
+  <section>
     <router-view />
+  </section>
 </template>
 
 <script>
 export default {
-  name: 'AuthLayout'
-}
+  name: "AuthLayout",
+};
 </script>

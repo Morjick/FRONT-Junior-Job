@@ -15,11 +15,11 @@ export function buildPlugins (options: BuildOptions): webpack.WebpackPluginInsta
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: false
     }),
-    new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css'
     }),
+    new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     // new BundleAnalyzerPlugin({
     //   openAnalyzer: false
