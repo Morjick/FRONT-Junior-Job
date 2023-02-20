@@ -8,7 +8,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import UiSearchForm from 'widgets/ui/UiSearchForm.vue'
-import UiNews from 'widgets/ui/UiNews.vue';
+import UiNews from './UiNews.vue';
 
 export default defineComponent({
   name: 'HomePage',
@@ -18,8 +18,8 @@ export default defineComponent({
   },
   data: () => ({
     newsArr: [
-      {imgSrc: "#", imgAlt: "#", articleTitle: "Как стать востребованным сотрудником?"},
-      {imgSrc: "#", imgAlt: "#", articleTitle: "Самые необычные профессии"}
+      {imgSrc: "#", imgAlt: "#", articleTitle: "Как стать востребованным сотрудником?", id: 0},
+      {imgSrc: "#", imgAlt: "#", articleTitle: "Самые необычные профессии", id: 1}
     ]
   }),
   computed: {
