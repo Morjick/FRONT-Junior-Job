@@ -3,7 +3,7 @@ import { BuildOptions } from './types/config';
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import webpack from "webpack";
 import { VueLoaderPlugin } from 'vue-loader'
-import { BundleAnalyzerPlugin  } from 'webpack-bundle-analyzer'
+// import { BundleAnalyzerPlugin  } from 'webpack-bundle-analyzer'
 
 export function buildPlugins (options: BuildOptions): webpack.WebpackPluginInstance[] {
   return [
@@ -21,8 +21,8 @@ export function buildPlugins (options: BuildOptions): webpack.WebpackPluginInsta
       chunkFilename: 'css/[name].[contenthash:8].css'
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false
-    })
+    // new BundleAnalyzerPlugin({
+    //   openAnalyzer: false
+    // })
   ]
 }
