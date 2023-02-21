@@ -5,6 +5,7 @@ import DefaultLayout from '../layout/default.vue'
 import EmptyLayout from '../layout/empty.vue'
 import { JoinPage } from 'pages/join'
 import { AuthPage } from 'pages/auth'
+import { JoinVariable } from 'pages/joinVariable'
 
 
 export const router = createRouter({
@@ -24,6 +25,7 @@ export const router = createRouter({
       children: [
         { component: JoinPage, path: '' },
         { component: AuthPage, path: '/auth' },
+        { component: JoinVariable, path: '/join-variable'}
       ]
     },
     {
