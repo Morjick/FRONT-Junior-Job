@@ -3,8 +3,11 @@ import { HomePage } from 'pages/home'
 import { AboutPage } from 'pages/about'
 import DefaultLayout from '../layout/default.vue'
 import EmptyLayout from '../layout/empty.vue'
+import AuthLayout from '../layout/auth.vue'
 import { JoinPage } from 'pages/join'
 import { AuthPage } from 'pages/auth'
+import { JoinVariable } from 'pages/joinVariable'
+import { NotFound } from 'pages/notFound'
 
 
 export const router = createRouter({
@@ -14,7 +17,7 @@ export const router = createRouter({
       component: DefaultLayout,
       path: '/',
       children: [
-        { component: HomePage, path: '' },
+        { component: HomePage, path: '/' },
         { component: AboutPage, path: '/about' },
       ],
     },
@@ -24,11 +27,15 @@ export const router = createRouter({
       children: [
         { component: JoinPage, path: '' },
         { component: AuthPage, path: '/auth' },
+        { component: JoinVariable, path: '/join-variable'}
       ]
     },
     {
-      component: HomePage,
+      component: AuthLayout,
       path: '/:pathMatch(.*)*',
+      children: [
+        { component: NotFound, path: '' }
+      ]
     }
   ]
 })

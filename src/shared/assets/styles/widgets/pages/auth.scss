@@ -1,0 +1,47 @@
+.addPhoto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 35px;
+  cursor: pointer;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.addPhoto-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+  background-color: var(--color-placeholder);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.addPhoto-placeholder img {
+  margin: 0 auto;
+}
+
+.addPhoto p {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 25px;
+  font-family: 'Source Sans Pro', sans-serif;
+
+  margin-left: 20px;
+  color: var(--color-font-alternative);
+}
+
+.none-input {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}

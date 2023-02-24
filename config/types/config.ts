@@ -5,12 +5,7 @@ export interface BuildPath {
   build: string
   html: string
   src: string
-}
-
-export interface BuildPerfomance {
-  hints: string | boolean,
-  maxEntrypointSize: number,
-  maxAssetSize: number
+  favicon?: string
 }
 
 export interface BuildOptimization {
@@ -27,7 +22,8 @@ export interface BuildOptions {
   paths: BuildPath,
   isDev: boolean,
   port: number,
-  performance: BuildPerfomance,
+  // performance: BuildPerfomance,
+  performance: any,
   optimization: BuildOptimization,
   devtool: string | boolean
 }

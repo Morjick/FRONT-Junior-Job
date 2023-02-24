@@ -8,3 +8,48 @@
   text-align: center;
   margin: 10px;
 }
+
+.worker-form {
+  display: flex;
+  flex-direction: column;
+  
+  max-width: 520px;
+
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.worker-form input {
+  min-width: 300px;
+  height: 50px;
+
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.worker-form input::placeholder {
+  color: var(--color-alternative);
+}
+
+.worker-form textarea {
+  min-height: 250px;
+
+  resize: none;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  color: var(--color-alternative);
+}
+
+.worker-form p {
+  color: var(--color-alternative);
+  margin: 50px auto 20px;
+}
+
+.worker-form .validation-error-label {
+  color: red;
+  margin: 0 0 5px;
+  font-size: 15px;
+}

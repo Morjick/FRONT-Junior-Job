@@ -3,6 +3,7 @@
 @import url('./themes/light.scss');
 @import url('./pages/index.scss');
 @import url('./layout/index.scss');
+@import url('./widgets/wiget.scss');
 
 :root {
   --color-primery: #BFB9E2;
@@ -12,4 +13,6 @@
   --color-font-alternative: #604D9E;
   --color-accent: #FAFA00;
   --color-helper: #2C1B47;
+  --color-border: #A27EB8;
+  --color-placeholder: #D9D9D9;
 }

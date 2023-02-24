@@ -24,7 +24,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     test: /\.s[ac]ss$/i,
     use: [
       isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      "vue-style-loader",
+      // "vue-style-loader",
       "css-loader",
       "sass-loader",
       // "postcss-loader",

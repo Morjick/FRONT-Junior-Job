@@ -1,0 +1,26 @@
+.not-found-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+}
+
+.not-found-page h2 {
+  font-size: 55px;
+}
+
+.not-found-page p {
+  font-size: 25px;
+}
+
+.not-found-page a {
+  color: var(--color-font-alternative);
+  font-weight: bold;
+
+  border-bottom: 2px solid var(--color-font-alternative);
+  text-decoration: none;
+}

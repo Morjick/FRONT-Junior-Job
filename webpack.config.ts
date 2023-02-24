@@ -10,16 +10,20 @@ module.exports = (env: BuildEnv) => {
     entry: path.resolve(__dirname, 'src', 'index.ts'),
     html: path.resolve(__dirname, 'public', 'index.html'),
     build: path.resolve(__dirname, 'build'),
-    src: path.resolve(__dirname, 'src')
+    src: path.resolve(__dirname, 'src'),
+    favicon: path.resolve(__dirname, 'public', 'favicon.ico')
   }
-  
+
   const mode = env.mode || 'development'
   const isDev = mode === 'development'
 
   const performance = {
-    hints: false,    
+    hints: false,
     maxEntrypointSize: 512000,
-    maxAssetSize: 512000
+    maxAssetSize: 512000,
+    assetFilter: function (assetFilename: any) {
+      return assetFilename.endsWith('.js');
+    }
   }
 
   const optimization = {
@@ -28,14 +32,14 @@ module.exports = (env: BuildEnv) => {
       maxSize: 250000,
     }
   }
-  
+
   const config: webpack.Configuration = buildWebpacklugins({
     paths,
     mode,
     isDev,
     port: env.port || 3000,
-    performance,
     optimization,
+    performance,
     devtool: isDev ? 'inline-source-map' : false,
   })
 

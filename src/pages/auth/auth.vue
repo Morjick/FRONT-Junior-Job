@@ -1,24 +1,17 @@
 <template>
   <section>
-    <div class="photo">
-      <p class="text_photo">Cделайте фото или добавте его из галереи</p>
-      <img src="~/shared/assets/images/add_a_photo.png" alt="">
-    </div>
-    <div class="resume">
-      
-    </div>
-    <ui-button text="" />
-
+    <worker-form />
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import WorkerForm from "widgets/pages/auth/workerForm.vue";
 import UiButton from 'widgets/ui/UiButton.vue'
 
 export default defineComponent({
   name: "AuthPage",
-  components: { UiButton },
+  components: { UiButton, WorkerForm },
   data: () => ({}),
   props: {},
   computed: {},

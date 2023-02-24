@@ -1,0 +1,1 @@
+export const NotFound = import('./notFound.vue')
