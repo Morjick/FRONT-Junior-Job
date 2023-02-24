@@ -61,7 +61,8 @@
     <input 
       class="ui-input"
       placeholder="Предлагаемая услуга"
-      v-model="service"
+      v-model="v$.service.$model"
+      :class="{ error: v$.service.$error }"
     >
 
     <textarea placeholder="Резюме"></textarea>
@@ -85,7 +86,7 @@ import { minLength, required } from '@vuelidate/validators'
 
 
 export default defineComponent({
-  name: 'workerForm',  
+  name: 'workerForm',
   setup () {
     return {
       v$: useVuelidate()
@@ -119,9 +120,6 @@ export default defineComponent({
   props: {},
   computed: {},
   methods: {
-    ll (event: any) {
-      console.log(event)
-    },
     setImage (image: string) {
       this.image = image
     },

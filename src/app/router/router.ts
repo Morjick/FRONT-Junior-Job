@@ -3,9 +3,11 @@ import { HomePage } from 'pages/home'
 import { AboutPage } from 'pages/about'
 import DefaultLayout from '../layout/default.vue'
 import EmptyLayout from '../layout/empty.vue'
+import AuthLayout from '../layout/auth.vue'
 import { JoinPage } from 'pages/join'
 import { AuthPage } from 'pages/auth'
 import { JoinVariable } from 'pages/joinVariable'
+import { NotFound } from 'pages/notFound'
 
 
 export const router = createRouter({
@@ -29,8 +31,11 @@ export const router = createRouter({
       ]
     },
     {
-      component: EmptyLayout,
+      component: AuthLayout,
       path: '/:pathMatch(.*)*',
+      children: [
+        { component: NotFound, path: '' }
+      ]
     }
   ]
 })

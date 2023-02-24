@@ -23,7 +23,7 @@ export default defineComponent({
   computed: {},
   methods: {
     pushToAuthWorker () {
-      this.$router.push({ path: 'auth', params: { form: 'worker' } })
+      this.$router.push({ path: 'auth', query: { form: 'worker' } })
     }
   },
   mounted() {},

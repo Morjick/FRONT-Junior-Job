@@ -13,12 +13,7 @@ export default defineComponent({
   name: "AuthPage",
   components: { UiButton, WorkerForm },
   data: () => ({}),
-  props: {
-    form: {
-      type: String,
-      default: ''
-    }
-  },
+  props: {},
   computed: {},
   methods: {},
   mounted() {},
