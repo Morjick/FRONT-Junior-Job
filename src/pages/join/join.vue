@@ -13,7 +13,10 @@ import UiButton from 'widgets/ui/UiButton.vue'
 
 export default defineComponent({
   name: "JoinPage",
-  data: () => ({}),
+  data: () => ({
+    step: 1,
+    status: null
+  }),
   components: { UiButton },
   props: {},
   computed: {},
