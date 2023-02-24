@@ -3,10 +3,9 @@
     <div class="new-vacancies__title">Новые вакансии</div>
     
     <a href="#" class="vacancy"
-    v-for="{imgSrc, imgAlt, title, timing, task, id} in newVacancies"
+    v-for="{title, timing, task, id} in newVacancies"
     :key="id"
     >
-      <!-- <img :src="imgSrc" :alt="imgAlt" class="vacancy__img"> -->
       <div class="vacancy__img"></div>
 
       <div class="vacancy__text">
