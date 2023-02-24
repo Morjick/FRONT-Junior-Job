@@ -42,3 +42,14 @@
   padding: 10px;
   color: var(--color-alternative);
 }
+
+.worker-form p {
+  color: var(--color-alternative);
+  margin: 50px auto 20px;
+}
+
+.worker-form .validation-error-label {
+  color: red;
+  margin: 0 0 5px;
+  font-size: 15px;
+}

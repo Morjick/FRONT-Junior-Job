@@ -3,12 +3,12 @@ import { BuildOptions } from './types/config';
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import webpack from "webpack";
 import { VueLoaderPlugin } from 'vue-loader'
-// import { BundleAnalyzerPlugin  } from 'webpack-bundle-analyzer'
 
 export function buildPlugins (options: BuildOptions): webpack.WebpackPluginInstance[] {
   return [
     new HtmlWebpackPlugin({
-      template: options.paths.html
+      template: options.paths.html,
+      favicon: options.paths.favicon
     }),
     new webpack.ProgressPlugin(),
     new webpack.DefinePlugin({
@@ -21,8 +21,5 @@ export function buildPlugins (options: BuildOptions): webpack.WebpackPluginInsta
     }),
     new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    // new BundleAnalyzerPlugin({
-    //   openAnalyzer: false
-    // })
   ]
 }

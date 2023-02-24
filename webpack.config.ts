@@ -10,7 +10,8 @@ module.exports = (env: BuildEnv) => {
     entry: path.resolve(__dirname, 'src', 'index.ts'),
     html: path.resolve(__dirname, 'public', 'index.html'),
     build: path.resolve(__dirname, 'build'),
-    src: path.resolve(__dirname, 'src')
+    src: path.resolve(__dirname, 'src'),
+    favicon: path.resolve(__dirname, 'public', 'favicon.ico')
   }
 
   const mode = env.mode || 'development'

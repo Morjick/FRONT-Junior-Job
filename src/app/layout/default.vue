@@ -9,7 +9,7 @@
         <span></span>
       </div>
 
-      <span class="page-logo">Junior Job</span>
+      <logotype />
     </div>
     <div class="pages-body">
       <router-view />
@@ -18,12 +18,14 @@
 </template>
 
 <script>
+import Logotype from 'widgets/global/Logotype.vue'
 import UiNavigation from 'widgets/ui/UiNavigation.vue'
 
 export default {
   name: 'DefaultLayout',
   components: {
-    UiNavigation
+    UiNavigation,
+    Logotype
   },
   data() {
     return {

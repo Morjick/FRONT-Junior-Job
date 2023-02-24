@@ -12,8 +12,8 @@
         </svg>
 
         <div class="navigation__user-account">
-          <a href="#" class="navigation__user-enter">Вход</a>
-          <a href="#" class="navigation__user-registration">Регистрация</a>
+          <router-link to="/join" class="navigation__user-enter">Вход</router-link>
+          <router-link to="/join" class="navigation__user-registration">Регистрация</router-link>
         </div>
       </div>
 

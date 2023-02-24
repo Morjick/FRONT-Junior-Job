@@ -5,13 +5,9 @@ export interface BuildPath {
   build: string
   html: string
   src: string
+  favicon?: string
 }
 
-// export interface BuildPerfomance {
-//   hints: boolean,
-//   maxEntrypointSize: number,
-//   maxAssetSize: number
-// }
 export interface BuildOptimization {
   splitChunks: BuildSplitChunks
 }

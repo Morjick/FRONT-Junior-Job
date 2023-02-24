@@ -1,4 +1,4 @@
-.join_page{
+.join_page {
   align-items: center;
   position: absolute;
   top: 50%;
@@ -9,20 +9,24 @@
   justify-content: center;
 }
 
-.join_tittle{
+.join_tittle {
   color: var(--color-helper);
   font-size: 55px;
   text-align: center;
 }
 
-.join_p{
+.join_p {
   color: var(--color-helper);
   font-size: 25px;
   text-align: center;
   margin: 20px 0;
 }
 
-.join_btn, .ui-button{
+.join_btn,
+.ui-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--color-main);
   background-color: var(--color-alternative);
   padding: 15px 35px;
@@ -34,6 +38,6 @@
   cursor: pointer;
 }
 
-.join_btn:last-child{
+.join_btn:last-child {
   margin-top: 20px;
 }
