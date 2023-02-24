@@ -1,7 +1,10 @@
 <template>
   <div @click="pushToMain" class="logotype-component">
-    <img src="~/shared/assets/images/logo.png" alt="">
-    <span>unior Job</span>
+    <img v-if="theme == 'default'" src="~/shared/assets/images/logo.png" alt="">
+    <img v-if="theme == 'light'" src="~/shared/assets/images/logo-light.png" alt="">
+    <span :class="{
+      light: theme == 'light'
+    }">unior Job</span>
   </div>
 </template>
 
@@ -12,7 +15,13 @@ export default defineComponent({
   name: 'Logotype',
   data: () => ({}),
   components: {},
-  props: {},
+  props: {
+    //  theme="light"
+    theme: {
+      type: String,
+      default: 'default'
+    }
+  },
   computed: {},
   methods: {
     pushToMain () {

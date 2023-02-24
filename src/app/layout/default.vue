@@ -9,7 +9,7 @@
         <span></span>
       </div>
 
-      <logotype />
+      <logotype theme="light" />
     </div>
     <div class="pages-body">
       <router-view />
