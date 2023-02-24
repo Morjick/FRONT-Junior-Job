@@ -6,7 +6,8 @@
     v-for="{title, timing, task, id} in newVacancies"
     :key="id"
     >
-      <div class="vacancy__img"></div>
+      <img src="~/shared/assets/images/temp-home-logo.png" alt="" class="vacancy__img">
+      <!-- <div class="vacancy__img"></div> -->
 
       <div class="vacancy__text">
         <div class="vacancy__title">{{ title }}</div>
