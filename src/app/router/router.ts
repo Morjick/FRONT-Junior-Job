@@ -8,6 +8,7 @@ import { JoinPage } from 'pages/join'
 import { AuthPage } from 'pages/auth'
 import { JoinVariable } from 'pages/joinVariable'
 import { NotFound } from 'pages/notFound'
+import { searchResultsPage } from 'pages/searchResults'
 
 
 export const router = createRouter({
@@ -19,6 +20,7 @@ export const router = createRouter({
       children: [
         { component: HomePage, path: '/' },
         { component: AboutPage, path: '/about' },
+        { component: searchResultsPage, path: "/search-result" }
       ],
     },
     {

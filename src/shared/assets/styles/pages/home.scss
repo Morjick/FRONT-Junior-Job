@@ -2,7 +2,14 @@
   padding: 0 20px;
 }
 
-.main-search-form {
+.home__search {
   margin: 0 auto;
   transform: translateY(-50%);
+}
+
+.home__subtitle {
+  font-weight: 600;
+  font-size: 25px;
+  color: var(--color-helper);
+  margin-bottom: 10px;
 }
