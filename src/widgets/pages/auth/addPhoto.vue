@@ -7,7 +7,7 @@
     <div id="addPhotoBlock" class="addPhoto-placeholder">
       <img v-if="!isImage" src="~/shared/assets/images/add_a_photo.png" alt="">
     </div>
-    <p>{{ text }}</p>
+    <p v-html="text"></p>
 
     <input 
       ref="avatarInput" 
@@ -31,13 +31,13 @@ export default defineComponent({
   props: {
     text: {
       type: String,
-      default: 'Сделайте фото или добавьте его из галереи'
+      default: 'Сделайте фото <br /> или добавьте его <br /> из галереи'
     }
   },
   computed: {},
   methods: {
-    emitImage () {
-      this.$emit('loadImage', this.image)
+    emitImage (result: any) {
+      this.$emit('loadImage', result)
     },
     emitInputClick () {
       const avatar: any = this.$refs.avatarInput
@@ -57,7 +57,7 @@ export default defineComponent({
 
       fileReader.readAsDataURL(image);
       
-      this.emitImage()
+      this.emitImage(event.target.files[0])
     }
   },
   mounted () {}

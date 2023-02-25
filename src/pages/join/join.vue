@@ -4,6 +4,16 @@
     <p class="join_p">Начни зарабатывать вместе с нами!</p>
     <ui-button @click="pushToAuthWorker" text="Я соискатель" />
     <ui-button text="Я работодатель" />
+
+    <label @click="pushToForm('physical')" style="width: 276px; cursor: pointer;" for="physyc">
+        <input id="physyc" name="form" type="radio">
+        <span>Физическое лицо</span>
+      </label>
+
+    <label @click="pushToForm('legal')" style="width: 276px; cursor: pointer;" for="legal">
+        <input id="legal" name="form" type="radio">
+        <span>Юридическое лицо</span>
+      </label>
   </div>
 </template>
 
@@ -23,7 +33,10 @@ export default defineComponent({
   computed: {},
   methods: {
     pushToAuthWorker () {
-      this.$router.push({ path: 'auth', query: { form: 'worker' } })
+      this.$router.push({ path: 'auth', query: { form: 'worker', methods: this.$router.currentRoute.value.query.methods } })
+    },
+    pushToForm (form: string) {
+      this.$router.push({ path: 'auth', query: { form: form, methods: this.$router.currentRoute.value.query.methods } })
     }
   },
   mounted() {},

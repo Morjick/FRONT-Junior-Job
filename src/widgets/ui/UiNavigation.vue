@@ -12,8 +12,8 @@
         </svg>
 
         <div class="navigation__user-account">
-          <router-link to="/join" class="navigation__user-enter">Вход</router-link>
-          <router-link to="/join" class="navigation__user-registration">Регистрация</router-link>
+          <router-link to="/join?methods=singin" class="navigation__user-enter">Вход</router-link>
+          <router-link to="/join?methods=singup" class="navigation__user-registration">Регистрация</router-link>
         </div>
       </div>
 
