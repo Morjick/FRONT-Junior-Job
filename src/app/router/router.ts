@@ -4,11 +4,11 @@ import { AboutPage } from 'pages/about'
 import DefaultLayout from '../layout/default.vue'
 import EmptyLayout from '../layout/empty.vue'
 import AuthLayout from '../layout/auth.vue'
-import ErrorLayout from '../layout/error.vue'
 import { JoinPage } from 'pages/join'
 import { AuthPage } from 'pages/auth'
 import { JoinVariable } from 'pages/joinVariable'
 import { NotFound } from 'pages/notFound'
+import { searchResultsPage } from 'pages/searchResults'
 
 
 export const router = createRouter({
@@ -20,6 +20,7 @@ export const router = createRouter({
       children: [
         { component: HomePage, path: '/' },
         { component: AboutPage, path: '/about' },
+        { component: searchResultsPage, path: "/search-result" }
       ],
     },
     {
@@ -32,7 +33,7 @@ export const router = createRouter({
       ]
     },
     {
-      component: ErrorLayout,
+      component: AuthLayout,
       path: '/:pathMatch(.*)*',
       children: [
         { component: NotFound, path: '' }

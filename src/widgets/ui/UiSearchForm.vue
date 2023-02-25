@@ -1,12 +1,12 @@
 <template>
   <div class="search">
-    <input type="text" class="search__input" placeholder="Поиск вакансий">
+    <input type="text" class="search__input" placeholder="Поиск вакансий" v-model="inputValue" @keyup.enter="search">
 
-    <a href="#" class="search__link">
+    <div @click="search" class="search__link">
       <svg class="search__icon">
         <use xlink:href="icons/symbol-defs.svg#icon-search"></use>
       </svg>
-    </a>
+    </div>
   </div>
 </template>
 
@@ -14,7 +14,17 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'UiSearchForm'
+  name: 'UiSearchForm',
+  data: () => ({
+    inputValue: null
+  }),
+  methods: {
+    search() {
+      if (this.inputValue) {
+        this.$router.push('/search-result')
+      }
+    }
+  }
 })
 </script>
 
@@ -45,5 +55,6 @@ export default defineComponent({
     width: 18px;
     height: 18px;
     background: red;
+    cursor: pointer;
 }
 </style>
