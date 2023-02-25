@@ -1,0 +1,16 @@
+.error-layout-header {
+
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.empty-layout-header-part {
+  display: flex;
+  align-items: center;
+}
+
+.empty-layout-header-part span {
+  margin-left: 10px;
+  font-size: 25px;
+}
