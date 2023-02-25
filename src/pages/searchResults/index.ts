@@ -1,0 +1,1 @@
+export const searchResultsPage = import("./searchResultsPage.vue");
