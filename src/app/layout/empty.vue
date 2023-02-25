@@ -24,7 +24,7 @@ export default defineComponent({
   computed: {},
   methods: {
     pushToMainPage(){
-      this.$router.push('/')
+      this.$router.back()
     }
   },
   mounted () {}
