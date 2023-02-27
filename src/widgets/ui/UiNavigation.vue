@@ -7,13 +7,19 @@
     <div class="navigation__sidebar">
       <!-- Вход/регистрация -->
       <div class="navigation__user-wrapper">
-        <svg class="navigation__user-icon">
-          <use xlink:href="icons/symbol-defs.svg#icon-user"></use>
-        </svg>
-
+        <img src="../../shared/assets/images/account_circle.png" class="navigation__user-icon">
+        <use xlink:href="icons/symbol-defs.svg#icon-user"></use>
         <div class="navigation__user-account">
-          <router-link to="/auth?form=all&methods=singin" class="navigation__user-enter">Вход</router-link>
-          <router-link to="/join?methods=singup" class="navigation__user-registration">Регистрация</router-link>
+          <router-link
+            to="/auth?form=all&methods=singin"
+            class="navigation__user-enter"
+            >Вход</router-link
+          >
+          <router-link
+            to="/join?methods=singup"
+            class="navigation__user-registration"
+            >Регистрация</router-link
+          >
         </div>
       </div>
 
@@ -23,11 +29,10 @@
           <!-- Уведомления -->
           <li class="navigation__element">
             <a href="#" class="navigation__element-link">
-              <svg class="navigation__element-icon">
-                <use
-                  xlink:href="icons/symbol-defs.svg#icon-notifications"
-                ></use>
-              </svg>
+              <img src="../../shared/assets/images/notifications.png" class="navigation__element-icon">
+              <use
+                  xlink:href="icons/symbol-defs.svg#icon-notifications">
+              </use>
               <div class="navigation__element-text">Уведомления</div>
             </a>
           </li>
@@ -35,9 +40,8 @@
           <!-- Вакансии -->
           <li class="navigation__element">
             <a href="#" class="navigation__element-link">
-              <svg class="navigation__element-icon">
-                <use xlink:href="icons/symbol-defs.svg#icon-work"></use>
-              </svg>
+              <img src="../../shared/assets/images/work.png" class="navigation__element-icon">
+              <use xlink:href="icons/symbol-defs.svg#icon-work"></use>
               <div class="navigation__element-text">Вакансии</div>
             </a>
           </li>
@@ -45,9 +49,8 @@
           <!-- Статьи -->
           <li class="navigation__element">
             <a href="#" class="navigation__element-link">
-              <svg class="navigation__element-icon">
-                <use xlink:href="icons/symbol-defs.svg#icon-note"></use>
-              </svg>
+              <img src="../../shared/assets/images/note.png" class="navigation__element-icon">
+              <use xlink:href="icons/symbol-defs.svg#icon-note"></use>
               <div class="navigation__element-text">Статьи</div>
             </a>
           </li>
@@ -55,9 +58,8 @@
           <!-- Мои отзывы -->
           <li class="navigation__element">
             <a href="#" class="navigation__element-link">
-              <svg class="navigation__element-icon">
-                <use xlink:href="icons/symbol-defs.svg#icon-star"></use>
-              </svg>
+              <img src="../../shared/assets/images/star.png" class="navigation__element-icon">
+              <use xlink:href="icons/symbol-defs.svg#icon-star"></use>
               <div class="navigation__element-text">Мои отзывы</div>
             </a>
           </li>
@@ -65,9 +67,8 @@
           <!-- Настройки -->
           <li class="navigation__element">
             <a href="#" class="navigation__element-link">
-              <svg class="navigation__element-icon">
-                <use xlink:href="icons/symbol-defs.svg#icon-settings"></use>
-              </svg>
+              <img src="../../shared/assets/images/settings.png" class="navigation__element-icon">
+               <use xlink:href="icons/symbol-defs.svg#icon-settings"></use>
               <div class="navigation__element-text">Настройки</div>
             </a>
           </li>
@@ -139,7 +140,6 @@ export default defineComponent({
 }
 
 .navigation__user-icon {
-  background: red;
   width: 36px;
   height: 36px;
   margin-right: 15px;
@@ -170,7 +170,6 @@ export default defineComponent({
   width: 28px;
   height: 28px;
   margin-right: 15px;
-  background: red;
 }
 
 .navigation__element-text {
