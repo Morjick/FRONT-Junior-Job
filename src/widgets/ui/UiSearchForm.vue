@@ -3,9 +3,8 @@
     <input type="text" class="search__input" placeholder="Поиск вакансий" v-model="inputValue" @keyup.enter="search">
 
     <div @click="search" class="search__link">
-      <svg class="search__icon">
-        <use xlink:href="icons/symbol-defs.svg#icon-search"></use>
-      </svg>
+      <img src="../../shared/assets/images/search.png" class="search__icon">
+       <use xlink:href="icons/symbol-defs.svg#icon-search"></use>
     </div>
   </div>
 </template>
@@ -52,9 +51,10 @@ export default defineComponent({
 }
 
   .search__icon {
-    width: 18px;
-    height: 18px;
-    background: red;
+    display: flex;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
+    pointer-events: all
 }
 </style>
