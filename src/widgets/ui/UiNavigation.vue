@@ -7,8 +7,7 @@
     <div class="navigation__sidebar">
       <!-- Вход/регистрация -->
       <div class="navigation__user-wrapper">
-        <img src="../../shared/assets/images/account_circle.png" class="navigation__user-icon">
-        <use xlink:href="icons/symbol-defs.svg#icon-user"></use>
+        <img src="~/shared/assets/images/account_circle.png" class="navigation__user-icon">
         <div class="navigation__user-account">
           <router-link
             to="/auth?form=all&methods=singin"
@@ -29,10 +28,7 @@
           <!-- Уведомления -->
           <li class="navigation__element">
             <a href="#" class="navigation__element-link">
-              <img src="../../shared/assets/images/notifications.png" class="navigation__element-icon">
-              <use
-                  xlink:href="icons/symbol-defs.svg#icon-notifications">
-              </use>
+              <img src="~/shared/assets/images/notifications.png" class="navigation__element-icon">
               <div class="navigation__element-text">Уведомления</div>
             </a>
           </li>
@@ -40,8 +36,7 @@
           <!-- Вакансии -->
           <li class="navigation__element">
             <a href="#" class="navigation__element-link">
-              <img src="../../shared/assets/images/work.png" class="navigation__element-icon">
-              <use xlink:href="icons/symbol-defs.svg#icon-work"></use>
+              <img src="~/shared/assets/images/work.png" class="navigation__element-icon">
               <div class="navigation__element-text">Вакансии</div>
             </a>
           </li>
@@ -49,8 +44,7 @@
           <!-- Статьи -->
           <li class="navigation__element">
             <a href="#" class="navigation__element-link">
-              <img src="../../shared/assets/images/note.png" class="navigation__element-icon">
-              <use xlink:href="icons/symbol-defs.svg#icon-note"></use>
+              <img src="~/shared/assets/images/note.png" class="navigation__element-icon">
               <div class="navigation__element-text">Статьи</div>
             </a>
           </li>
@@ -58,8 +52,7 @@
           <!-- Мои отзывы -->
           <li class="navigation__element">
             <a href="#" class="navigation__element-link">
-              <img src="../../shared/assets/images/star.png" class="navigation__element-icon">
-              <use xlink:href="icons/symbol-defs.svg#icon-star"></use>
+              <img src="~/shared/assets/images/star.png" class="navigation__element-icon">
               <div class="navigation__element-text">Мои отзывы</div>
             </a>
           </li>
@@ -67,19 +60,8 @@
           <!-- Настройки -->
           <li class="navigation__element">
             <a href="#" class="navigation__element-link">
-              <img src="../../shared/assets/images/settings.png" class="navigation__element-icon">
-               <use xlink:href="icons/symbol-defs.svg#icon-settings"></use>
+              <img src="~/shared/assets/images/settings.png" class="navigation__element-icon">
               <div class="navigation__element-text">Настройки</div>
-            </a>
-          </li>
-
-          <!-- Помощь -->
-          <li class="navigation__element">
-            <a href="#" class="navigation__element-link">
-              <svg class="navigation__element-icon">
-                <use xlink:href="icons/symbol-defs.svg#icon-support"></use>
-              </svg>
-              <div class="navigation__element-text">Помощь</div>
             </a>
           </li>
         </ul>
