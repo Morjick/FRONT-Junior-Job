@@ -9,6 +9,7 @@ import { AuthPage } from 'pages/auth'
 import { JoinVariable } from 'pages/joinVariable'
 import { NotFound } from 'pages/notFound'
 import { searchResultsPage } from 'pages/searchResults'
+import { ServerError } from 'pages/serverError'
 
 
 export const router = createRouter({
@@ -36,7 +37,8 @@ export const router = createRouter({
       component: ErrorLayout,
       path: '/:pathMatch(.*)*',
       children: [
-        { component: NotFound, path: '' }
+        { component: NotFound, path: '' },
+        { component: ServerError, path: '' }
       ]
     }
   ]
