@@ -2,8 +2,10 @@
   <div class="admin-layout">
     <div class="admin-sidebar"></div>
     <div class="admin-window">
-      <div class="admin-window-header"></div>
-      <div class="admin-window-body"></div>
+      <div class="admin-window-header">header</div>
+      <div class="admin-window-body">
+        <router-view />
+      </div>
     </div>
   </div>
 </template>
