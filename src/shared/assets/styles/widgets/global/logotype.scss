@@ -6,3 +6,9 @@
 .logotype-component img {
   transform: translateX(6px);
 }
+
+.logotype-component span.light {
+  color: var(--color-main);
+  font-size: 30px;
+  margin-left: 7px;
+}

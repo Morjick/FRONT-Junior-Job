@@ -2,8 +2,7 @@
   <div class="not-found-page">
     <img src="~/shared/assets/images/not-found.png" alt="">
     <h2>404</h2>
-    <p>Страница не найдена</p>
-    <router-link to="/">Вернуться на главную</router-link>
+    <p>Страница <br /> не найдена</p>
   </div>
 </template>
 
