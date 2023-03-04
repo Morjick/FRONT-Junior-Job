@@ -43,10 +43,10 @@
 
           <!-- Статьи -->
           <li class="navigation__element">
-            <a href="#" class="navigation__element-link">
+            <router-link to="/articles" class="navigation__element-link">
               <img src="~/shared/assets/images/note.png" class="navigation__element-icon">
               <div class="navigation__element-text">Статьи</div>
-            </a>
+            </router-link >
           </li>
 
           <!-- Мои отзывы -->
