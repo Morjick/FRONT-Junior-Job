@@ -1,1 +1,1 @@
-export const ServerError = import('./serverError.vue')
+export const ServerError = () => import('./serverError.vue')

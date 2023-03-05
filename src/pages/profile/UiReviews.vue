@@ -4,7 +4,7 @@
 
     <div 
     class="reviews__review"
-    v-for="{imgSrc, imgAlt, name, surname, rating, descr, id} in reviews"
+    v-for="{imgSrc, name, surname, rating, descr, id} in reviews"
     :key="id"
     >
       <div class="reviews__review-user">
@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import UiRating from './UiRating.vue';
+import UiRating from 'widgets/ui/UiRating.vue';
 
 export default defineComponent({
   name: 'UiReviews',
