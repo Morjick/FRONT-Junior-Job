@@ -1,3 +1,4 @@
+import { ArticlesPage } from 'pages/articles';
 import { createRouter, createWebHistory } from 'vue-router'
 import { HomePage } from 'pages/home'
 import { AboutPage } from 'pages/about'
@@ -22,9 +23,10 @@ export const router = createRouter({
       component: DefaultLayout,
       path: '/',
       children: [
-        { component: HomePage, path: '/', },
-        { component: AboutPage, path: '/about', },
-        { component: searchResultsPage, path: '/search-result', },
+        { component: HomePage, path: '/' },
+        { component: AboutPage, path: '/about' },
+        { component: searchResultsPage, path: "/search-result" },
+        { component: ArticlesPage, path: "/articles" }
       ],
     },
     {
