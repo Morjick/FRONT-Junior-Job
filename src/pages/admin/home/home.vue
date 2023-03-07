@@ -14,6 +14,6 @@ export default defineComponent({
   props: {},
   computed: {},
   methods: {},
-  mounted () {}
+  mounted () {},
 })
 </script>

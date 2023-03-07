@@ -51,3 +51,9 @@ input[type=radio] ~ span {
 a {
   color: var(--color-alternative);
 }
+
+.flexer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

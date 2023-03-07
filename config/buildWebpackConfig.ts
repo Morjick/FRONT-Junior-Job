@@ -1,22 +1,22 @@
-import path from 'path';
-import webpack from 'webpack';
-import { buildDevServer } from './devserver';
-import { buildLoaders } from './loaders';
-import { buildPlugins } from './plugins';
-import { biuldResolve } from './resolvers';
-import { BuildOptions } from "./types/config";
-
+import path from 'path'
+import type webpack from 'webpack'
+import { buildDevServer } from './devserver'
+import { buildLoaders } from './loaders'
+import { buildPlugins } from './plugins'
+import { biuldResolve } from './resolvers'
+import { type BuildOptions } from './types/config'
 
 export function buildWebpacklugins (options: BuildOptions): webpack.Configuration {
-  const { mode, paths, isDev, performance } = options
+  const { mode, paths, isDev, performance, } = options
 
   return {
-    mode: mode,
+    mode,
     entry: paths.entry,
     output: {
       filename: '[name].[contenthash].js',
       path: paths.build,
-      clean: true
+      clean: true,
+      publicPath: '/',
     },
     module: {
       rules: buildLoaders(options),
@@ -25,6 +25,6 @@ export function buildWebpacklugins (options: BuildOptions): webpack.Configuratio
     plugins: buildPlugins(options),
     devtool: 'inline-source-map',
     devServer: buildDevServer(options),
-    performance
+    performance,
   }
 }

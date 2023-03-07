@@ -1,7 +1,6 @@
 <template>
   <div 
     class="ui-button"
-    @click="handler"
   >{{ text }}</div>
 </template>
 

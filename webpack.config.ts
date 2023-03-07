@@ -1,9 +1,8 @@
-import webpack from 'webpack'
+import type webpack from 'webpack'
 import path from 'path'
 
 import { buildWebpacklugins } from './config/buildWebpackConfig'
-import { BuildEnv, BuildPath } from './config/types/config'
-
+import { type BuildEnv, type BuildPath } from './config/types/config'
 
 module.exports = (env: BuildEnv) => {
   const paths: BuildPath = {
@@ -11,7 +10,7 @@ module.exports = (env: BuildEnv) => {
     html: path.resolve(__dirname, 'public', 'index.html'),
     build: path.resolve(__dirname, 'build'),
     src: path.resolve(__dirname, 'src'),
-    favicon: path.resolve(__dirname, 'public', 'favicon.ico')
+    favicon: path.resolve(__dirname, 'public', 'favicon.ico'),
   }
 
   const mode = env.mode || 'development'
@@ -22,15 +21,15 @@ module.exports = (env: BuildEnv) => {
     maxEntrypointSize: 512000,
     maxAssetSize: 512000,
     assetFilter: function (assetFilename: any) {
-      return assetFilename.endsWith('.js');
-    }
+      return assetFilename.endsWith('.js')
+    },
   }
 
   const optimization = {
     splitChunks: {
       minSize: 10000,
       maxSize: 250000,
-    }
+    },
   }
 
   const config: webpack.Configuration = buildWebpacklugins({
