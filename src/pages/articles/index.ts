@@ -1,0 +1,1 @@
+export const ArticlesPage = () => import('./articles.vue')
