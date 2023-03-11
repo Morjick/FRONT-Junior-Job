@@ -16,24 +16,11 @@ jobs:
         node-version: [ 18.x ]
 
     steps:
-    - uses: actions/checkout@v2
-      - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@v2
+        - name: Staring Node.js ${{ matrix.node-version }}
+          uses: actions/setup-node@v1
+          with:
+            node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
-    # - run: npm install
-      run: npm ci --force
-
-    # - name: Linting app
-    # - run: npm run lint
-
-    # - name: Fix linting error
-    # - run: npm run lint:fix
-
-    # - name: Format with prettier app
-    # - run: npm run format
-
-    # - name: Building app
-    #   run: npm run build
+      - name: Install dependencies
+        run: npm ci --force
