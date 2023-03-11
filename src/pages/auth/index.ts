@@ -1,1 +1,1 @@
-export const AuthPage = async () => await import('./auth.vue')
+export const AuthPage = (): any => import('./auth.vue')

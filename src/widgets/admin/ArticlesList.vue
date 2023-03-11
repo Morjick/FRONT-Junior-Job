@@ -51,7 +51,12 @@ const articles: articlesItem[] = [
     id: 1,
     // eslint-disable-next-line max-len
     title:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
+      `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
+      Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
+      optio beatae officia possimus repudiandae. Quidem dolorem repellat 
+      earum suscipit doloremque iusto obcaecati.
+      Perspiciatis optio iusto dignissimos.`,
     // eslint-disable-next-line max-len
     body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
     autor: 'Matvey',
@@ -68,7 +73,12 @@ const articles: articlesItem[] = [
     id: 1,
     // eslint-disable-next-line max-len
     title:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
+    `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
+      Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
+      optio beatae officia possimus repudiandae. Quidem dolorem repellat 
+      earum suscipit doloremque iusto obcaecati.
+      Perspiciatis optio iusto dignissimos.`,
     // eslint-disable-next-line max-len
     body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
     autor: 'Matvey',
@@ -85,7 +95,12 @@ const articles: articlesItem[] = [
     id: 1,
     // eslint-disable-next-line max-len
     title:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
+    `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
+      Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
+      optio beatae officia possimus repudiandae. Quidem dolorem repellat 
+      earum suscipit doloremque iusto obcaecati.
+      Perspiciatis optio iusto dignissimos.`,
     // eslint-disable-next-line max-len
     body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
     autor: 'Matvey',
@@ -102,7 +117,12 @@ const articles: articlesItem[] = [
     id: 1,
     // eslint-disable-next-line max-len
     title:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
+    `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
+      Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
+      optio beatae officia possimus repudiandae. Quidem dolorem repellat 
+      earum suscipit doloremque iusto obcaecati.
+      Perspiciatis optio iusto dignissimos.`,
     // eslint-disable-next-line max-len
     body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
     autor: 'Matvey',
@@ -119,7 +139,12 @@ const articles: articlesItem[] = [
     id: 1,
     // eslint-disable-next-line max-len
     title:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
+    `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
+      Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
+      optio beatae officia possimus repudiandae. Quidem dolorem repellat 
+      earum suscipit doloremque iusto obcaecati.
+      Perspiciatis optio iusto dignissimos.`,
     // eslint-disable-next-line max-len
     body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
     autor: 'Matvey',

@@ -1,6 +1,6 @@
 <template>
   <div class="worker-form physicalForm">
-    <add-photo @loadImage="setImage" />
+    <add-photo />
     <p class="validation-error-label"
 v-if="v$.$error">
       Заполните все обязательные поля
@@ -112,7 +112,7 @@ export default defineComponent({
   methods: {
     async sendForm () {
       const isError = await this.v$.$validate()
-      if (isError) return
+      if (isError) return false
     },
   },
   mounted () {},

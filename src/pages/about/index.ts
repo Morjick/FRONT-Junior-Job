@@ -1,1 +1,1 @@
-export const AboutPage = async () => await import('./index.vue')
+export const AboutPage = (): any => import('./index.vue')

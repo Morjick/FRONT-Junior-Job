@@ -43,8 +43,7 @@ export default defineComponent({
       const editor: any = this.$refs.editor
       this.editorData = editor.emitText()
     },
-    checkUniqueTitle (e: any) {
-      console.log(e)
+    checkUniqueTitle () {
     },
   },
   mounted () {},

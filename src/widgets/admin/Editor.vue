@@ -14,7 +14,7 @@ import { defineComponent } from 'vue'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 export default defineComponent({
-  name: 'Editor',
+  name: 'EditorComponent',
   data: () => ({
     editor: ClassicEditor,
     editorData: '',

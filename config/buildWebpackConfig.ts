@@ -1,4 +1,3 @@
-import path from 'path'
 import type webpack from 'webpack'
 import { buildDevServer } from './devserver'
 import { buildLoaders } from './loaders'
@@ -9,7 +8,7 @@ import { type BuildOptions } from './types/config'
 export function buildWebpacklugins (
   options: BuildOptions
 ): webpack.Configuration {
-  const { mode, paths, isDev, performance, } = options
+  const { mode, paths, performance, } = options
 
   return {
     mode,

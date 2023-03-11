@@ -5,7 +5,7 @@ v-if="reviews.length > 0">Отзывы</h2>
 
     <div
       class="reviews__review"
-      v-for="{ imgSrc, name, surname, rating, descr, id } in reviews"
+      v-for="{ name, surname, rating, descr, id } in reviews as Review[]"
       :key="id"
     >
       <div class="reviews__review-user">
@@ -31,12 +31,21 @@ v-if="reviews.length > 0">Отзывы</h2>
 import { defineComponent } from 'vue'
 import UiRating from 'widgets/ui/UiRating.vue'
 
+interface Review {
+  id: number
+  imgSrc: string
+  name: string
+  surname: string
+  rating: number
+  descr: string
+}
+
 export default defineComponent({
   name: 'UiReviews',
   props: {
     reviews: {
       type: Array,
-      default: () => [],
+      default: (): Review[] => [],
     },
   },
   components: {

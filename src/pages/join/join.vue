@@ -35,7 +35,6 @@ type="radio" />
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import workerForm from 'widgets/pages/auth/workerForm.vue'
 import UiButton from 'widgets/ui/UiButton.vue'
 
 export default defineComponent({

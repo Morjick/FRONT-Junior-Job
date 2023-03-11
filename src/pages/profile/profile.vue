@@ -58,7 +58,7 @@ import UiButton from 'widgets/ui/UiButton.vue'
 import UiVacancies from './UiVacancies.vue'
 
 export default defineComponent({
-  name: 'profile',
+  name: 'ProfilePage',
   data: () => ({
     userData: {
       name: 'Иван',

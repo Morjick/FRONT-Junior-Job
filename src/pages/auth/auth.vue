@@ -16,16 +16,19 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import WorkerForm from 'widgets/pages/auth/workerForm.vue'
-import WorkerLoginForm from 'widgets/pages/auth/workerLoginForm.vue'
-import PhysicalForm from 'widgets/pages/auth/physicalForm.vue'
-import UiButton from 'widgets/ui/UiButton.vue'
-import LegalForm from 'widgets/pages/auth/legalForm.vue'
+import WorkerFormI from 'widgets/pages/auth/workerForm.vue'
+import WorkerLoginFormI from 'widgets/pages/auth/workerLoginForm.vue'
+import PhysicalFormI from 'widgets/pages/auth/physicalForm.vue'
+import LegalFormI from 'widgets/pages/auth/legalForm.vue'
+
+const WorkerForm: any = WorkerFormI
+const WorkerLoginForm: any = WorkerLoginFormI
+const PhysicalForm: any = PhysicalFormI
+const LegalForm: any = LegalFormI
 
 export default defineComponent({
   name: 'AuthPage',
   components: {
-    UiButton,
     WorkerForm,
     WorkerLoginForm,
     PhysicalForm,
@@ -38,6 +41,7 @@ export default defineComponent({
       const { form, methods, } = this.$router.currentRoute.value.query
 
       if (!form || !methods) {
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
         this.$router.push('/join')
       }
 

@@ -17,18 +17,18 @@
       />
     </div>
     <ul
-      class="ui-select-body"
-      :class="{
-        show: showBody,
-      }"
+    class="ui-select-body"
+    :class="{
+      show: showBody,
+    }"
     >
       <li
-        v-for="item in items"
-        :key="item[itemKey]"
+        v-for="item in items as Item[]"
+        :key="item.id"
         @click="selectItem(item)"
         class="ui-select-body-item"
       >
-        {{ item[itemText] }}
+        {{ item.value }}
       </li>
     </ul>
   </div>
@@ -36,6 +36,20 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+
+interface Item {
+  id: number
+  value: string
+}
+
+const items: Item[] = [
+  { id: 1, value: 'Cat1', },
+  { id: 2, value: 'Cat2', },
+  { id: 3, value: 'Cat3', },
+  { id: 4, value: 'Cat4', },
+  { id: 5, value: 'Cat5', },
+  { id: 6, value: 'Cat6', },
+]
 
 export default defineComponent({
   name: 'UiSelect',
@@ -51,14 +65,7 @@ export default defineComponent({
     },
     items: {
       type: Array,
-      default: [
-        { id: 1, value: 'Cat1', },
-        { id: 2, value: 'Cat2', },
-        { id: 3, value: 'Cat3', },
-        { id: 4, value: 'Cat4', },
-        { id: 5, value: 'Cat5', },
-        { id: 6, value: 'Cat6', },
-      ],
+      default: items,
     },
     itemText: {
       type: String,
@@ -81,7 +88,7 @@ export default defineComponent({
       this.$emit('select', item)
     },
   },
-  mounted () {},
+  mounted () { },
 })
 </script>
 

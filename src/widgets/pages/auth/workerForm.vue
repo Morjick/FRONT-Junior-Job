@@ -132,6 +132,7 @@ export default defineComponent({
     service: '',
     resume: '',
     image: '',
+    date: '',
   }),
   validations () {
     return {
@@ -154,21 +155,21 @@ export default defineComponent({
     },
     async sendForm () {
       const isError = await this.v$.$validate()
-      if (isError) return
+      if (isError) return false
 
-      const {
-        lastname,
-        name,
-        email,
-        password,
-        birsday,
-        city,
-        learn,
-        inn,
-        service,
-        resume,
-        image,
-      } = this
+      // const {
+      //   lastname,
+      //   name,
+      //   email,
+      //   password,
+      //   birsday,
+      //   city,
+      //   learn,
+      //   inn,
+      //   service,
+      //   resume,
+      //   image,
+      // } = this
     },
   },
   mounted () {},

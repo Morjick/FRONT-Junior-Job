@@ -5,12 +5,12 @@
     <a
       class="article"
       href="#"
-      v-for="{ imgSrc, imgAlt, articleTitle, id } in newsArr"
-      :key="id"
+      v-for="news in newsArr as News[]"
+      :key="news.id"
     >
       <div class="article__img"></div>
       <!-- <img :src="imgSrc" :alt="imgAlt" class="article__img"> -->
-      <div class="article__subtitle">{{ articleTitle }}</div>
+      <div class="article__subtitle">{{ news.title }}</div>
     </a>
   </section>
 </template>
@@ -18,12 +18,24 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
+interface News {
+  id: number
+  title: string
+}
+
+const NewsArr: News[] = [
+  {
+    id: 1,
+    title: 'title',
+  },
+]
+
 export default defineComponent({
   name: 'UiNews',
   props: {
     newsArr: {
       type: Array,
-      default: [],
+      default: NewsArr,
     },
   },
 })

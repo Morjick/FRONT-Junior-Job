@@ -1,6 +1,8 @@
 <template>
-  <div @click="pushToMain"
-class="logotype-component">
+  <div
+    @click="pushToMain"
+    class="logotype-component"
+  >
     <img
       v-if="theme == 'default'"
       src="~/shared/assets/images/logo.png"
@@ -24,7 +26,7 @@ class="logotype-component">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Logotype',
+  name: 'LogotypeComponent',
   data: () => ({}),
   components: {},
   props: {

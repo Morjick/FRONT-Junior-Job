@@ -57,9 +57,9 @@ export default defineComponent({
     },
     elasticSearch (): void {
       this.visibleData = []
-      const count: number = 0
+      // const count: number = 0
 
-      this.data.forEach((item: any) => {
+      this.data.forEach(() => {
         // if (item[this.dataProperty].toLowerCase().search(this.inputValue.toLowerCase())
         // !== -1 && this.inputValue.length > 0 && count < 5) {
         //   this.visibleData.push(item[this.dataProperty])
