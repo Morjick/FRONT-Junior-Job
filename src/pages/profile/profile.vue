@@ -32,7 +32,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import UiRating from './UiRating.vue';
+import UiRating from 'widgets/ui/UiRating.vue';
 import UiReviews from './UiReviews.vue';
 import UiButton from 'widgets/ui/UiButton.vue';
 import UiVacancies from './UiVacancies.vue';
@@ -51,9 +51,9 @@ export default defineComponent({
         любое время с 15:00 до 19:00
       `,
       reviews: [
-        {imgSrc: "#", imgAlt: "#", name: "Елена", surname: "Карпова", rating: 4, descr: "Шпицы довольны. 5 звезд!", id: 1},
-        {imgSrc: "#", imgAlt: "#", name: "Андрей", surname: "Алхимов", rating: 3, descr: "Все хорошо", id: 2},
-        {imgSrc: "#", imgAlt: "#", name: "Алина", surname: "Киселева", rating: 5, descr: "Супер!", id: 3}
+        {imgSrc: "#", name: "Елена", surname: "Карпова", rating: 4, descr: "Шпицы довольны. 5 звезд!", id: 1},
+        {imgSrc: "#", name: "Андрей", surname: "Алхимов", rating: 3, descr: "Все хорошо", id: 2},
+        {imgSrc: "#", name: "Алина", surname: "Киселева", rating: 5, descr: "Супер!", id: 3}
       ],
       vacancies: [
         {time: "Ежедневно 10:00-15:00", tasks: "Собирать продукцию...", id: 1},

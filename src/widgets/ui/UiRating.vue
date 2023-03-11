@@ -1,11 +1,11 @@
 <template>
   <div class="rating">
     <img 
-    src="~shared/assets/images/star.png" 
-    alt="star" 
-    class="rating__item"
-    v-for="(rate, index) in rating"
-    :key="index"
+      src="~shared/assets/images/star.png" 
+      alt="star" 
+      class="rating__item"
+      v-for="(rate, index) in rating"
+      :key="index"
     >
   </div>
 </template>
