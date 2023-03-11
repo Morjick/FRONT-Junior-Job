@@ -2,7 +2,8 @@
   <div 
     :class="'ui-button ' + classMod"
     @click="handler"
-
+  <div
+    class="ui-button"
   >{{ text }}</div>
 </template>
 
@@ -16,11 +17,11 @@ export default defineComponent({
   props: {
     text: {
       type: String,
-      default: 'Подтвердить'
+      default: 'Подтвердить',
     },
     mod: {
       type: String,
-      default: 'primery'
+      default: 'primery',
     },
     handler: {
       type: Function,
@@ -33,7 +34,7 @@ export default defineComponent({
   },
   computed: {},
   methods: {},
-  mounted () {}
+  mounted () {},
 })
 </script>
 

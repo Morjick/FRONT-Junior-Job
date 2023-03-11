@@ -1,10 +1,13 @@
 <template>
-  <section class="new-items">    
-    <a href="#" class="item"
+  <section class="new-items">
+    <a href="#"
+class="item"
     v-for="{title, timing, task, id} in newItems"
     :key="id"
     >
-      <img src="~/shared/assets/images/temp-home-logo.png" alt="" class="item__img">
+      <img src="~/shared/assets/images/temp-home-logo.png"
+alt=""
+class="item__img">
       <!-- <div class="vacancy__img"></div> -->
 
       <div class="item__text">
@@ -24,9 +27,9 @@ export default defineComponent({
   props: {
     newItems: {
       type: Array,
-      default: () => []
-    }
-  }
+      default: () => [],
+    },
+  },
 })
 </script>
 

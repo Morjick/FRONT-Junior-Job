@@ -2,8 +2,15 @@
   <div class="search">
     <input type="text" class="search__input" placeholder="Поиск вакансий" @input="elasticSearch" v-model="inputValue" @keyup.enter="search">
 
-    <div @click="search" class="search__link">
-      <img src="../../shared/assets/images/search.png" class="search__icon">
+class="search__input"
+placeholder="Поиск вакансий"
+v-model="inputValue"
+@keyup.enter="search">
+
+    <div @click="search"
+class="search__link">
+      <img src="../../shared/assets/images/search.png"
+class="search__icon">
        <use xlink:href="icons/symbol-defs.svg#icon-search"></use>
     </div>
 
@@ -38,6 +45,7 @@ export default defineComponent({
   data: () => ({
     inputValue: '',
     visibleData: [] as Array<string>
+    inputValue: null,
   }),
   methods: {
     search () {
@@ -62,6 +70,7 @@ export default defineComponent({
       this.search()
     }
   }
+  },
 })
 </script>
 
@@ -110,4 +119,11 @@ export default defineComponent({
       }
     }
   }
+  .search__icon {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    pointer-events: all
+}
 </style>

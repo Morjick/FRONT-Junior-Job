@@ -1,17 +1,20 @@
 <template>
-  <div 
-    @click="emitInputClick" 
+  <div
+    @click="emitInputClick"
     class="addPhoto"
     ref="addPhotoBlock"
   >
-    <div id="addPhotoBlock" class="addPhoto-placeholder">
-      <img v-if="!isImage" src="~/shared/assets/images/add_a_photo.png" alt="">
+    <div id="addPhotoBlock"
+class="addPhoto-placeholder">
+      <img v-if="!isImage"
+src="~/shared/assets/images/add_a_photo.png"
+alt="">
     </div>
     <p v-html="text"></p>
 
-    <input 
-      ref="avatarInput" 
-      type="file" 
+    <input
+      ref="avatarInput"
+      type="file"
       class="none-input"
       @change="setImage"
     >
@@ -25,14 +28,14 @@ export default defineComponent({
   name: 'AddPhoto',
   data: () => ({
     isImage: false,
-    image: null
+    image: null,
   }),
   components: {},
   props: {
     text: {
       type: String,
-      default: 'Сделайте фото <br /> или добавьте его <br /> из галереи'
-    }
+      default: 'Сделайте фото <br /> или добавьте его <br /> из галереи',
+    },
   },
   computed: {},
   methods: {
@@ -52,14 +55,14 @@ export default defineComponent({
       const fileReader = new FileReader()
 
       fileReader.onload = () => {
-        container.style["background-image"] = `url(${fileReader.result})`;
+        container.style['background-image'] = `url(${fileReader.result})`
       }
 
-      fileReader.readAsDataURL(image);
-      
+      fileReader.readAsDataURL(image)
+
       this.emitImage(event.target.files[0])
-    }
+    },
   },
-  mounted () {}
+  mounted () {},
 })
 </script>

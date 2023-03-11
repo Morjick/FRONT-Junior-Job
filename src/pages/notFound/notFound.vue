@@ -1,6 +1,7 @@
 <template>
   <div class="not-found-page">
-    <img src="~/shared/assets/images/not-found.png" alt="">
+    <img src="~/shared/assets/images/not-found.png"
+alt="">
     <h2>404</h2>
     <p>Страница <br /> не найдена</p>
   </div>
@@ -16,6 +17,6 @@ export default defineComponent({
   props: {},
   computed: {},
   methods: {},
-  mounted () {}
+  mounted () {},
 })
 </script>

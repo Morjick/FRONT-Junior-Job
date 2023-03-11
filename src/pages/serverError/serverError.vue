@@ -1,6 +1,8 @@
 <template>
   <div class="server-error-page">
-    <img src="~/shared/assets/images/server-error.png" alt="" class="server-error-page__logo">
+    <img src="~/shared/assets/images/server-error.png"
+alt=""
+class="server-error-page__logo">
     <h2 class="server-error-page__title">501</h2>
     <div class="server-error-page__text">
       Ремонтируем<br>
@@ -19,7 +21,7 @@ export default defineComponent({
   props: {},
   computed: {},
   methods: {},
-  mounted () {}
+  mounted () {},
 })
 </script>
 

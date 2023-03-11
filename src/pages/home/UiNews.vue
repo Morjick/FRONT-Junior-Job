@@ -2,7 +2,10 @@
   <section class="news">
     <div class="news__title">Статьи</div>
 
-    <a class="article" href="#" v-for="{imgSrc, imgAlt, articleTitle, id} in newsArr" :key="id">
+    <a class="article"
+href="#"
+v-for="{imgSrc, imgAlt, articleTitle, id} in newsArr"
+:key="id">
       <div class="article__img"></div>
       <!-- <img :src="imgSrc" :alt="imgAlt" class="article__img"> -->
       <div class="article__subtitle">{{ articleTitle }}</div>
@@ -18,9 +21,9 @@ export default defineComponent({
   props: {
     newsArr: {
       type: Array,
-      default: []
-    }
-  }
+      default: [],
+    },
+  },
 })
 </script>
 

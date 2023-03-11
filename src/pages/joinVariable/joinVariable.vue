@@ -8,16 +8,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import UiButton from "widgets/ui/UiButton.vue";
+import { defineComponent } from 'vue'
+import UiButton from 'widgets/ui/UiButton.vue'
 
 export default defineComponent({
-  name: "joinVariable",
+  name: 'joinVariable',
   data: () => ({}),
-  components: {UiButton},
+  components: { UiButton, },
   props: {},
   computed: {},
   methods: {},
-  mounted() {},
-});
+  mounted () {},
+})
 </script>

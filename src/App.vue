@@ -1,5 +1,8 @@
 <template>
-  <section class="root" :class="theme">
+  <section
+    class="root"
+    :class="theme"
+  >
     <router-view />
   </section>
 </template>
@@ -10,20 +13,18 @@ import { useVuelidate } from '@vuelidate/core'
 
 export default defineComponent({
   name: 'AppComponent',
-  components: {},  
+  components: {},
   setup () {
     return {
-      v$: useVuelidate()
+      v$: useVuelidate(),
     }
   },
   data () {
     return {
-      theme: 'light'
+      theme: 'light',
     }
   },
   methods: {
   },
-  mounted () {
-  }
 })
 </script>
