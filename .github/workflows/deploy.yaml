@@ -13,17 +13,18 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.14.0]
+        node-version: [ 18.x ]
 
     steps:
-    # - uses: actions/checkout@v2
-    # - name: Use Node.js ${{ matrix.node-version }}
-    #   uses: actions/setup-node@v1
-    #   with:
-    #     node-version: ${{ matrix.node-version }}
+    - uses: actions/checkout@v2
+      - name: Staring Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
-    - run: npm install
+    # - run: npm install
+      run: npm install
 
     # - name: Linting app
     # - run: npm run lint
@@ -35,4 +36,4 @@ jobs:
     # - run: npm run format
 
     - name: Building app
-    - run: npm run build
+      run: npm run build
