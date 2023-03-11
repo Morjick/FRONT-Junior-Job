@@ -2,7 +2,7 @@
   <div
     class="ui-input"
     :class="{
-      error: !valid
+      error: !valid,
     }"
   >
     <input

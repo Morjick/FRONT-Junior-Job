@@ -4,8 +4,7 @@
       Оставьте заявку на регистрацию, мы рассмотрим ее в ручном режиме и поможем
       настроить работу индивидуально
     </p>
-    <add-photo @loadImage="setImage"
-text="Добавьте логотип <br> копнании" />
+    <add-photo text="Добавьте логотип <br> копнании" />
     <p class="validation-error-label"
 v-if="v$.$error">
       Заполните все обязательные поля
@@ -48,13 +47,13 @@ v-if="v$.$error">
       placeholder="Город"
       v-model="v$.city.$model"
       :class="{ error: v$.city.$error }"
-    >
+    />
 
     <textarea placeholder="Какая помощь необходима?"></textarea>
 
     <ui-button
       text="Зарегистрироваться"
-      style="font-weight: bold; margin: 10px 0;"
+      style="font-weight: bold; margin: 10px 0"
       @click="sendForm"
     />
   </div>
@@ -89,9 +88,7 @@ export default defineComponent({
   props: {},
   computed: {},
   methods: {
-    async sendForm () {
-
-    },
+    async sendForm () {},
   },
   mounted () {},
 })

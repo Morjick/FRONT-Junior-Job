@@ -3,7 +3,12 @@
     <div class="flexer">
       <h1>Статьи</h1>
       <ui-button
-        style="min-height: 30px; height: 40px; max-width: 150px; min-width: 200px;"
+        style="
+          min-height: 30px;
+          height: 40px;
+          max-width: 150px;
+          min-width: 200px;
+        "
         text="Создать статью"
         @click="pushToCreateArticle"
       />
@@ -19,8 +24,7 @@ import UiButton from 'widgets/ui/UiButton.vue'
 
 export default defineComponent({
   name: 'ArticlesPage',
-  data: () => ({
-  }),
+  data: () => ({}),
   components: { ArticlesList, UiButton, },
   props: {},
   computed: {},

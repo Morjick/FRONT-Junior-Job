@@ -1,8 +1,6 @@
 <template>
   <section>
-    <h1>
-      В разработке...
-    </h1>
+    <h1>В разработке...</h1>
   </section>
 </template>
 
@@ -12,13 +10,9 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'AboutPage',
   components: {},
-  data: () => ({
-  }),
-  computed: {
-  },
-  methods: {
-  },
-  mounted () {
-  },
+  data: () => ({}),
+  computed: {},
+  methods: {},
+  mounted () {},
 })
 </script>

@@ -7,23 +7,22 @@
       @input="elasticSearch"
       v-model="inputValue"
       @keyup.enter="search"
-    >
+    />
 
-    <div
-      @click="search"
-      class="search__link">
-      <img
-        src="~/shared/assets/images/search.png"
-        class="search__icon"
-      >
+    <div @click="search"
+class="search__link">
+      <img src="~/shared/assets/images/search.png"
+class="search__icon" />
       <use xlink:href="icons/symbol-defs.svg#icon-search"></use>
     </div>
 
     <ul class="search__autocomplete">
-      <li v-for="(data, index) in visibleData"
+      <li
+        v-for="(data, index) in visibleData"
         :key="index"
         class="search__autocomplete-item"
-        @click="useAutocomplete">
+        @click="useAutocomplete"
+      >
         {{ data }}
       </li>
     </ul>
@@ -58,9 +57,9 @@ export default defineComponent({
     },
     elasticSearch (): void {
       this.visibleData = []
-      const count: number = 0
+      // const count: number = 0
 
-      this.data.forEach((item: any) => {
+      this.data.forEach(() => {
         // if (item[this.dataProperty].toLowerCase().search(this.inputValue.toLowerCase())
         // !== -1 && this.inputValue.length > 0 && count < 5) {
         //   this.visibleData.push(item[this.dataProperty])
@@ -132,6 +131,6 @@ export default defineComponent({
   width: 20px;
   height: 20px;
   cursor: pointer;
-  pointer-events: all
+  pointer-events: all;
 }
 </style>

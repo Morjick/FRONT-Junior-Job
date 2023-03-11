@@ -4,7 +4,9 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
 import { VueLoaderPlugin } from 'vue-loader'
 
-export function buildPlugins (options: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins (
+  options: BuildOptions
+): webpack.WebpackPluginInstance[] {
   return [
     new HtmlWebpackPlugin({
       template: options.paths.html,

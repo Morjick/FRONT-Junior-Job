@@ -1,8 +1,6 @@
 <template>
-  <div
-    class="admin-layout"
-    :class="theme"
-  >
+  <div class="admin-layout"
+:class="theme">
     <div class="admin-sidebar">
       <h1 @click="toMainPage">In Theme</h1>
       <ul class="admin-sidebar-list">
@@ -11,24 +9,20 @@
           :key="item.id"
           class="admin-sidebar-list-item"
           :class="{
-            active: $route && $route.path == `/admin/${item.path}`
+            active: $route && $route.path == `/admin/${item.path}`,
           }"
           @click="pushToMenuPage(item)"
         >
-          {{  item.title  }}
+          {{ item.title }}
         </li>
       </ul>
     </div>
     <div class="admin-window">
       <div class="admin-window-header">
-        <router-link
-          to="/tasks"
-          class="admin-window-header-link"
-        >
-          <img
-            src="~/shared/assets/images/task.png"
-            alt=""
-          >
+        <router-link to="/tasks"
+class="admin-window-header-link">
+          <img src="~/shared/assets/images/task.png"
+alt="" />
         </router-link>
         <ui-user-picker />
       </div>
@@ -141,11 +135,12 @@ export default defineComponent({
 
     &-item {
       color: var(--admin-alternative-color-font);
-      transition: all .2s;
+      transition: all 0.2s;
       cursor: pointer;
       padding: 10px 15px;
 
-      &:hover, &.active {
+      &:hover,
+      &.active {
         background: var(--admin-main-color);
         color: var(--admin-color-primery);
       }
