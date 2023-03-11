@@ -1,8 +1,6 @@
 <template>
-  <div 
-    :class="'ui-button ' + classMod"
-    @click="handler"
   <div
+    :class="'ui-button ' + classMod"
     class="ui-button"
   >{{ text }}</div>
 </template>
@@ -25,12 +23,12 @@ export default defineComponent({
     },
     handler: {
       type: Function,
-      default: () => ({})
+      default: () => ({}),
     },
     classMod: {
       type: String,
-      default: () => ""
-    }
+      default: () => '',
+    },
   },
   computed: {},
   methods: {},
