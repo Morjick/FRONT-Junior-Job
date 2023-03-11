@@ -22,11 +22,11 @@ jobs:
       matrix:
         node-version: [ 18.x ]
     steps:
+      - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         # run: npm ci --force
-        run: node --version
         run: npm install --package-lock-only
