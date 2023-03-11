@@ -12,19 +12,19 @@ export interface BuildOptimization {
   splitChunks: BuildSplitChunks
 }
 
-export interface BuildSplitChunks{
-  minSize: number,
+export interface BuildSplitChunks {
+  minSize: number
   maxSize: number
 }
 
 export interface BuildOptions {
-  mode: BuildMode,
-  paths: BuildPath,
-  isDev: boolean,
-  port: number,
+  mode: BuildMode
+  paths: BuildPath
+  isDev: boolean
+  port: number
   // performance: BuildPerfomance,
-  performance: any,
-  optimization: BuildOptimization,
+  performance: any
+  optimization: BuildOptimization
   devtool: string | boolean
 }
 

@@ -1,1 +1,1 @@
-export const AdminHomePage = () => import('./home.vue')
+export const AdminHomePage = (): any => import('./home.vue')

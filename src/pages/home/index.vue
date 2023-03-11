@@ -1,11 +1,13 @@
 <template>
   <section class="home">
-    <ui-search-form class="home__search"
-:data="cities"
-:dataProperty="cityProperty"/>
+    <ui-search-form
+      class="home__search"
+      :data="cities"
+      :dataProperty="cityProperty"
+    />
     <div class="home__subtitle">Новые вакансии</div>
-    <ui-new-items :newItems="newVacancies"/>
-    <ui-news :newsArr="newsArr"/>
+    <ui-new-items :newItems="newVacancies" />
+    <ui-news :newsArr="newsArr" />
   </section>
 </template>
 
@@ -25,8 +27,18 @@ export default defineComponent({
   },
   data: () => ({
     newsArr: [
-      { imgSrc: '#', imgAlt: '#', articleTitle: 'Как стать востребованным сотрудником?', id: 0, },
-      { imgSrc: '#', imgAlt: '#', articleTitle: 'Самые необычные профессии', id: 1, },
+      {
+        imgSrc: '#',
+        imgAlt: '#',
+        articleTitle: 'Как стать востребованным сотрудником?',
+        id: 0,
+      },
+      {
+        imgSrc: '#',
+        imgAlt: '#',
+        articleTitle: 'Самые необычные профессии',
+        id: 1,
+      },
     ],
     newVacancies: [
       {
@@ -57,11 +69,8 @@ export default defineComponent({
     cities: Cities.getCity((element: any) => element, ['name_with_type', ]),
     cityProperty: 'name_with_type',
   }),
-  computed: {
-  },
-  methods: {
-  },
-  mounted () {
-  },
+  computed: {},
+  methods: {},
+  mounted () {},
 })
 </script>

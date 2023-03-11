@@ -10,21 +10,21 @@ const userStore = {
       {
         id: 1,
         name: 'Matvey',
-        age: 21
-      }
-    ]
+        age: 21,
+      },
+    ],
   }),
   getters: {
     getUsers (state: usersStore) {
       return state.users
-    }
-  }
+    },
+  },
 }
 
 const store = createStore({
   modules: {
-    users: userStore
-  }
+    users: userStore,
+  },
 })
 
 export default store

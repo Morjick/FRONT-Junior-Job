@@ -1,1 +1,1 @@
-export const Profile = () => import("./profile.vue");
+export const Profile = (): any => import('./profile.vue')

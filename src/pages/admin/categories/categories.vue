@@ -19,5 +19,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.categories {}
+.categories {
+}
 </style>

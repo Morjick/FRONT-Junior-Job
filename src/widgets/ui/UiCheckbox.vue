@@ -1,8 +1,6 @@
 <template>
-  <label
-    :for="name"
-    class="ui-checkbox"
-  >
+  <label :for="name"
+class="ui-checkbox">
     <input
       type="checkbox"
       :value="modelValue"
@@ -10,12 +8,10 @@
       @input="onInput"
       @change="onChange"
       :id="name"
-    >
-    <img
-      src="~/shared/assets/images/approve.png"
-      alt=""
-      v-if="checked"
-    >
+    />
+    <img src="~/shared/assets/images/approve.png"
+alt=""
+v-if="checked" />
     <p>{{ label }}</p>
   </label>
 </template>

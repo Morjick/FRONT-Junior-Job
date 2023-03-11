@@ -1,16 +1,16 @@
-.empty-layout-header{
+.empty-layout-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 40px 20px;
 }
-.empty-layout-header span{
+.empty-layout-header span {
   color: var(--color-alternative);
   font-size: 30px;
   font-family: 'Marmelad', sans-serif;
   cursor: pointer;
 }
-.empty-layout-header img{
+.empty-layout-header img {
   cursor: pointer;
   pointer-events: all;
 }

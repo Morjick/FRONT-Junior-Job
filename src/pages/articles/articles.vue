@@ -18,10 +18,30 @@ export default defineComponent({
         articleTitle: 'Как зарегистрироваться в приложении "Мой налог?" ',
         id: 0,
       },
-      { imgSrc: '#', imgAlt: '#', articleTitle: 'Самые необычные профессии', id: 1, },
-      { imgSrc: '#', imgAlt: '#', articleTitle: 'Самые необычные профессии', id: 2, },
-      { imgSrc: '#', imgAlt: '#', articleTitle: 'Самые необычные профессии', id: 3, },
-      { imgSrc: '#', imgAlt: '#', articleTitle: 'Самые необычные профессии', id: 4, },
+      {
+        imgSrc: '#',
+        imgAlt: '#',
+        articleTitle: 'Самые необычные профессии',
+        id: 1,
+      },
+      {
+        imgSrc: '#',
+        imgAlt: '#',
+        articleTitle: 'Самые необычные профессии',
+        id: 2,
+      },
+      {
+        imgSrc: '#',
+        imgAlt: '#',
+        articleTitle: 'Самые необычные профессии',
+        id: 3,
+      },
+      {
+        imgSrc: '#',
+        imgAlt: '#',
+        articleTitle: 'Самые необычные профессии',
+        id: 4,
+      },
     ],
   }),
   components: {
@@ -30,11 +50,11 @@ export default defineComponent({
   props: {},
   computed: {},
   methods: {},
-  mounted () { },
+  mounted () {},
 })
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .articles {
   padding: 33px 5px;
 }
