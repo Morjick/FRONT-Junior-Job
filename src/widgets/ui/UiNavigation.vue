@@ -7,7 +7,8 @@
     <div class="navigation__sidebar">
       <!-- Вход/регистрация -->
       <div class="navigation__user-wrapper">
-        <img src="~/shared/assets/images/account_circle.png" class="navigation__user-icon">
+        <img src="~/shared/assets/images/account_circle.png"
+class="navigation__user-icon">
         <div class="navigation__user-account">
           <router-link
             to="/auth?form=all&methods=singin"
@@ -27,40 +28,50 @@
         <ul class="navigation__list">
           <!-- Уведомления -->
           <li class="navigation__element">
-            <a href="#" class="navigation__element-link">
-              <img src="~/shared/assets/images/notifications.png" class="navigation__element-icon">
+            <a href="#"
+class="navigation__element-link">
+              <img src="~/shared/assets/images/notifications.png"
+class="navigation__element-icon">
               <div class="navigation__element-text">Уведомления</div>
             </a>
           </li>
 
           <!-- Вакансии -->
           <li class="navigation__element">
-            <a href="#" class="navigation__element-link">
-              <img src="~/shared/assets/images/work.png" class="navigation__element-icon">
+            <a href="#"
+class="navigation__element-link">
+              <img src="~/shared/assets/images/work.png"
+class="navigation__element-icon">
               <div class="navigation__element-text">Вакансии</div>
             </a>
           </li>
 
           <!-- Статьи -->
           <li class="navigation__element">
-            <router-link to="/articles" class="navigation__element-link">
-              <img src="~/shared/assets/images/note.png" class="navigation__element-icon">
+            <router-link to="/articles"
+class="navigation__element-link">
+              <img src="~/shared/assets/images/note.png"
+class="navigation__element-icon">
               <div class="navigation__element-text">Статьи</div>
             </router-link >
           </li>
 
           <!-- Мои отзывы -->
           <li class="navigation__element">
-            <a href="#" class="navigation__element-link">
-              <img src="~/shared/assets/images/star.png" class="navigation__element-icon">
+            <a href="#"
+class="navigation__element-link">
+              <img src="~/shared/assets/images/star.png"
+class="navigation__element-icon">
               <div class="navigation__element-text">Мои отзывы</div>
             </a>
           </li>
 
           <!-- Настройки -->
           <li class="navigation__element">
-            <a href="#" class="navigation__element-link">
-              <img src="~/shared/assets/images/settings.png" class="navigation__element-icon">
+            <a href="#"
+class="navigation__element-link">
+              <img src="~/shared/assets/images/settings.png"
+class="navigation__element-icon">
               <div class="navigation__element-text">Настройки</div>
             </a>
           </li>
@@ -71,19 +82,19 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "UiNavigation",
-  props: ["showingClass"],
+  name: 'UiNavigation',
+  props: ['showingClass', ],
   methods: {
-    hideNav(event) {
+    hideNav (event) {
       if (event.target === this.$refs.closeArea) {
-        this.$emit("hideNav");
+        this.$emit('hideNav')
       }
     },
   },
-});
+})
 </script>
 
 <style lang="scss">

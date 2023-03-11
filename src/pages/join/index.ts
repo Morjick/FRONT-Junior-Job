@@ -1,1 +1,1 @@
-export const JoinPage = import('./join.vue')
+export const JoinPage = (): any => import('./join.vue')
