@@ -17,10 +17,10 @@
       />
     </div>
     <ul
-    class="ui-select-body"
-    :class="{
-      show: showBody,
-    }"
+      class="ui-select-body"
+      :class="{
+        show: showBody,
+      }"
     >
       <li
         v-for="item in items as Item[]"
@@ -88,7 +88,7 @@ export default defineComponent({
       this.$emit('select', item)
     },
   },
-  mounted () { },
+  mounted () {},
 })
 </script>
 

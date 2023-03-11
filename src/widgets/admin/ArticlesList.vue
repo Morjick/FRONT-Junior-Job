@@ -50,8 +50,7 @@ const articles: articlesItem[] = [
   {
     id: 1,
     // eslint-disable-next-line max-len
-    title:
-      `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    title: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
       Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
       optio beatae officia possimus repudiandae. Quidem dolorem repellat 
@@ -72,8 +71,7 @@ const articles: articlesItem[] = [
   {
     id: 1,
     // eslint-disable-next-line max-len
-    title:
-    `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    title: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
       Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
       optio beatae officia possimus repudiandae. Quidem dolorem repellat 
@@ -94,8 +92,7 @@ const articles: articlesItem[] = [
   {
     id: 1,
     // eslint-disable-next-line max-len
-    title:
-    `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    title: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
       Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
       optio beatae officia possimus repudiandae. Quidem dolorem repellat 
@@ -116,8 +113,7 @@ const articles: articlesItem[] = [
   {
     id: 1,
     // eslint-disable-next-line max-len
-    title:
-    `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    title: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
       Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
       optio beatae officia possimus repudiandae. Quidem dolorem repellat 
@@ -138,8 +134,7 @@ const articles: articlesItem[] = [
   {
     id: 1,
     // eslint-disable-next-line max-len
-    title:
-    `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    title: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
       Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
       optio beatae officia possimus repudiandae. Quidem dolorem repellat 

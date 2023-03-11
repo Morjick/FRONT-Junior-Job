@@ -1,8 +1,6 @@
 <template>
-  <div
-    @click="pushToMain"
-    class="logotype-component"
-  >
+  <div @click="pushToMain"
+class="logotype-component">
     <img
       v-if="theme == 'default'"
       src="~/shared/assets/images/logo.png"
