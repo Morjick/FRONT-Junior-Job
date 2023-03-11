@@ -1,1 +1,1 @@
-export const NotFound = import('./notFound.vue')
+export const NotFound = (): any => import('./notFound.vue')
