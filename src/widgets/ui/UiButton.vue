@@ -1,5 +1,5 @@
 <template>
-  <div 
+  <div
     class="ui-button"
   >{{ text }}</div>
 </template>
@@ -14,19 +14,19 @@ export default defineComponent({
   props: {
     text: {
       type: String,
-      default: 'Подтвердить'
+      default: 'Подтвердить',
     },
     mod: {
       type: String,
-      default: 'primery'
+      default: 'primery',
     },
     handler: {
       type: Function,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   computed: {},
   methods: {},
-  mounted () {}
+  mounted () {},
 })
 </script>

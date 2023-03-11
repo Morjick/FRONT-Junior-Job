@@ -1,8 +1,9 @@
 <template>
   <section class="new-vacancies">
     <div class="new-vacancies__title">Новые вакансии</div>
-    
-    <a href="#" class="vacancy"
+
+    <a href="#"
+class="vacancy"
     v-for="{title, timing, task, id} in newVacancies"
     :key="id"
     >
@@ -25,9 +26,9 @@ export default defineComponent({
   props: {
     newVacancies: {
       type: Array,
-      default: () => []
-    }
-  }
+      default: () => [],
+    },
+  },
 })
 </script>
 

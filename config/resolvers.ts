@@ -3,10 +3,10 @@ import { type ResolveOptions } from 'webpack'
 
 export function biuldResolve (options: BuildOptions): ResolveOptions {
   return {
-    extensions: ['.ts', '.js',],
+    extensions: ['.ts', '.js', ],
     preferAbsolute: true,
-    modules: [options.paths.src, 'node_modules',],
+    modules: [options.paths.src, 'node_modules', ],
     alias: {},
-    mainFiles: ['index',]
+    mainFiles: ['index', ],
   }
 }

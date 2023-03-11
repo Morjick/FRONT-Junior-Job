@@ -2,16 +2,17 @@
   <div class="error-layout">
     <div class="error-layout-header">
       <div class="empty-layout-header">
-        <div @click="pushToMainPage" class="empty-layout-header-part">
+        <div @click="pushToMainPage"
+class="empty-layout-header-part">
           <img
             src="~/shared/assets/images/arrow-back.png"
             alt=""
           />
           <span>На главную</span>
         </div>
-        <img 
+        <img
           @click="reload"
-          src="~/shared/assets/images/cached.png" 
+          src="~/shared/assets/images/cached.png"
           alt=""
         >
       </div>
@@ -23,23 +24,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue"
+import { defineComponent } from 'vue'
 import Logotype from 'widgets/global/Logotype.vue'
 
 export default defineComponent({
-  name: "ErrorLayout",
+  name: 'ErrorLayout',
   data: () => ({}),
-  components: { Logotype },
+  components: { Logotype, },
   props: {},
   computed: {},
   methods: {
-    pushToMainPage(){
+    pushToMainPage () {
       this.$router.push('/')
     },
     reload () {
       location.reload()
-    }
+    },
   },
-  mounted() {},
-});
+  mounted () {},
+})
 </script>

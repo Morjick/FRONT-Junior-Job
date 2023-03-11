@@ -26,18 +26,18 @@ export default defineComponent({
   props: {
     value: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {},
   methods: {
     emitText () {
       const editor: any = this.$refs.editor
-      
+
       this.$emit(editor.modelValue)
 
       return editor.modelValue
-    }
+    },
   },
   mounted () {},
 })

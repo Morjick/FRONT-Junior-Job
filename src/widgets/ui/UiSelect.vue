@@ -1,6 +1,6 @@
 <template>
   <div class="ui-select">
-    <div 
+    <div
       class="ui-select-header"
       :class="{
         placehloder: !value || !value.length
@@ -8,21 +8,21 @@
       @click="targetToSelect"
     >
       {{ value && value.length ? value : placehlod }}
-      <img 
-        src="~/shared/assets/images/arrow_down.png" 
+      <img
+        src="~/shared/assets/images/arrow_down.png"
         alt=""
         :class="{
           rotate: showBody
         }"
       >
     </div>
-    <ul 
+    <ul
       class="ui-select-body"
       :class="{
         show: showBody
       }"
     >
-      <li 
+      <li
         v-for="item in items"
         :key="item[itemKey]"
         @click="selectItem(item)"
@@ -39,33 +39,33 @@ export default defineComponent({
   name: 'UiSelect',
   data: () => ({
     value: '',
-    showBody: false
+    showBody: false,
   }),
   components: {},
   props: {
     placehlod: {
       type: String,
-      default: 'Введите данные'
+      default: 'Введите данные',
     },
     items: {
       type: Array,
       default: [
-        { id: 1, value: 'Cat1' },
-        { id: 2, value: 'Cat2' },
-        { id: 3, value: 'Cat3' },
-        { id: 4, value: 'Cat4' },
-        { id: 5, value: 'Cat5' },
-        { id: 6, value: 'Cat6' },
-      ]
+        { id: 1, value: 'Cat1', },
+        { id: 2, value: 'Cat2', },
+        { id: 3, value: 'Cat3', },
+        { id: 4, value: 'Cat4', },
+        { id: 5, value: 'Cat5', },
+        { id: 6, value: 'Cat6', },
+      ],
     },
     itemText: {
       type: String,
-      default: 'value'
+      default: 'value',
     },
     itemKey: {
       type: String,
-      default: 'id'
-    }
+      default: 'id',
+    },
   },
   computed: {},
   methods: {
@@ -77,9 +77,9 @@ export default defineComponent({
       this.value = item[this.itemText]
 
       this.$emit('select', item)
-    }
+    },
   },
-  mounted () {}
+  mounted () {},
 })
 </script>
 
