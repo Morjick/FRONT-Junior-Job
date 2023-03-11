@@ -18,6 +18,7 @@ import { CreateArticlesPage } from 'pages/admin/articles/create'
 import { EditArticlesPage } from 'pages/admin/articles/edit'
 import { CategoriesPage } from 'pages/admin/categories'
 import { NotificationPage } from 'pages/notification'
+import { MessagePage } from 'pages/message'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -31,6 +32,7 @@ export const router = createRouter({
         { component: searchResultsPage, path: '/search-result', },
         { component: ArticlesPage, path: '/articles', },
         { component: NotificationPage, path: '/notifications', },
+        { component: MessagePage, path: '/messages', },
       ],
     },
     {

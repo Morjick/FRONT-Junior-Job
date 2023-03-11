@@ -1,6 +1,6 @@
 <template>
   <div
-    v-bind:class="'navigation' + ' ' + showingClass"
+    :class="'navigation ' + showingClass"
     @click="hideNav"
     ref="closeArea"
   >
