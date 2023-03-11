@@ -9,7 +9,7 @@
     "start": "webpack serve --env port=3000 mode=production",
     "prod": "webpack --env port=3000 mode=production",
     "unit": "jest --config ./config/jest/jest.config.ts",
-    "lint": "npx eslint webpack.config.ts"
+    "lint": "npx eslint \"**/*.{ts,tsx,vue}\""
   },
   "author": "Morjick <matvey-khramov@inbox.ru>",
   "license": "ISC",
