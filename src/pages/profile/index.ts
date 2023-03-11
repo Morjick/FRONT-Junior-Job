@@ -1,1 +1,1 @@
-export const Profile = () => import("./profile.vue");
+export const Profile = async () => await import('./profile.vue')

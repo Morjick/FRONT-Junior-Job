@@ -1,8 +1,6 @@
 <template>
-  <section
-    class="root"
-    :class="theme"
-  >
+  <section class="root"
+:class="theme">
     <router-view />
   </section>
 </template>
@@ -24,7 +22,6 @@ export default defineComponent({
       theme: 'light',
     }
   },
-  methods: {
-  },
+  methods: {},
 })
 </script>

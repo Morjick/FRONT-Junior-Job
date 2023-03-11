@@ -1,1 +1,1 @@
-export const AdminHomePage = () => import('./home.vue')
+export const AdminHomePage = async () => await import('./home.vue')

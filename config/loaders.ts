@@ -14,7 +14,11 @@ export function buildLoaders (options: BuildOptions): webpack.RuleSetRule[] {
     ],
     exclude: /node_modules/,
   }
-  const txtLoader = { test: /\.txt$/, use: 'raw-loader', exclude: /node_modules/, }
+  const txtLoader = {
+    test: /\.txt$/,
+    use: 'raw-loader',
+    exclude: /node_modules/,
+  }
   const vueLoader = {
     test: /\.vue$/,
     loader: 'vue-loader',

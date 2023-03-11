@@ -3,7 +3,7 @@
     <div
       class="ui-select-header"
       :class="{
-        placehloder: !value || !value.length
+        placehloder: !value || !value.length,
       }"
       @click="targetToSelect"
     >
@@ -12,14 +12,14 @@
         src="~/shared/assets/images/arrow_down.png"
         alt=""
         :class="{
-          rotate: showBody
+          rotate: showBody,
         }"
-      >
+      />
     </div>
     <ul
       class="ui-select-body"
       :class="{
-        show: showBody
+        show: showBody,
       }"
     >
       <li
@@ -27,7 +27,9 @@
         :key="item[itemKey]"
         @click="selectItem(item)"
         class="ui-select-body-item"
-      >{{ item[itemText] }}</li>
+      >
+        {{ item[itemText] }}
+      </li>
     </ul>
   </div>
 </template>
@@ -92,7 +94,7 @@ export default defineComponent({
 
   border: 1px solid var(--color-border);
   border-radius: 20px;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .ui-select-header {
@@ -106,7 +108,7 @@ export default defineComponent({
   cursor: pointer;
 
   img {
-    transition: all .2s;
+    transition: all 0.2s;
   }
 
   img.rotate {
@@ -141,7 +143,7 @@ export default defineComponent({
   pointer-events: none;
   opacity: 0;
   transform: translateY(-10px);
-  transition: all .2s;
+  transition: all 0.2s;
 
   &.show {
     opacity: 1;
@@ -153,7 +155,7 @@ export default defineComponent({
     width: 100%;
     border-bottom: 1px solid var(--color-alternative);
     padding: 10px;
-    transition: all .1s;
+    transition: all 0.1s;
     cursor: pointer;
 
     &:hover {

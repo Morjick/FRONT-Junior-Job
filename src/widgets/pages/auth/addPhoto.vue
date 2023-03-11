@@ -1,14 +1,14 @@
 <template>
-  <div
-    @click="emitInputClick"
-    class="addPhoto"
-    ref="addPhotoBlock"
-  >
+  <div @click="emitInputClick"
+class="addPhoto"
+ref="addPhotoBlock">
     <div id="addPhotoBlock"
 class="addPhoto-placeholder">
-      <img v-if="!isImage"
-src="~/shared/assets/images/add_a_photo.png"
-alt="">
+      <img
+        v-if="!isImage"
+        src="~/shared/assets/images/add_a_photo.png"
+        alt=""
+      />
     </div>
     <p v-html="text"></p>
 
@@ -17,7 +17,7 @@ alt="">
       type="file"
       class="none-input"
       @change="setImage"
-    >
+    />
   </div>
 </template>
 

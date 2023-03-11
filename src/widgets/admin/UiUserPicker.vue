@@ -1,8 +1,6 @@
 <template>
-  <div
-    class="ui-user-picker"
-    @click="targetShow"
-  >
+  <div class="ui-user-picker"
+@click="targetShow">
     <div class="ui-user-picker-inner">
       <div class="ui-user-picker-avatar"></div>
       <div class="ui-user-picker-name">Matvey Khramov</div>
@@ -10,7 +8,7 @@
     <div
       class="ui-user-picker-body"
       :class="{
-        active: showPicker
+        active: showPicker,
       }"
     >
       <p>Настройки</p>
@@ -57,10 +55,10 @@ export default defineComponent({
   padding: 6px;
   border-radius: 5px;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 
   &:hover {
-    background: rgba(#000, .1);
+    background: rgba(#000, 0.1);
   }
 
   &-inner {
@@ -88,13 +86,14 @@ export default defineComponent({
 
     transform: translate(-10px, -10px);
     background: var(--admin-main-color);
-    transition: all .2s;
+    transition: all 0.2s;
     z-index: 30;
 
     opacity: 0;
     pointer-events: none;
 
-    &.active, &:hover {
+    &.active,
+    &:hover {
       opacity: 1;
       pointer-events: all;
       transform: translate(-10px, 0);
@@ -103,7 +102,7 @@ export default defineComponent({
     p {
       margin-bottom: 5px;
 
-      transition: all .2s;
+      transition: all 0.2s;
 
       &:last-child {
         margin-bottom: 0;

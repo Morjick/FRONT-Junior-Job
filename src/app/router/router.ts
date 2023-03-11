@@ -26,14 +26,14 @@ export const router = createRouter({
       component: DefaultLayout,
       path: '/',
       children: [
-        { component: HomePage, path: '/' },
-        { component: AboutPage, path: '/about' },
-        { component: searchResultsPage, path: "/search-result" },
+        { component: HomePage, path: '/', },
+        { component: AboutPage, path: '/about', },
+        { component: searchResultsPage, path: '/search-result', },
         { component: HomePage, path: '/', },
         { component: AboutPage, path: '/about', },
         { component: searchResultsPage, path: '/search-result', },
         { component: ArticlesPage, path: '/articles', },
-        { component: Profile, path: "/profile" }
+        { component: Profile, path: '/profile', },
       ],
     },
     {
@@ -54,8 +54,16 @@ export const router = createRouter({
           component: AdminArticlesPage,
           path: '/admin/articles',
         },
-        { component: CreateArticlesPage, path: '/admin/create-articles', props: true, },
-        { component: EditArticlesPage, path: '/admin/edit-articles/:id', props: true, },
+        {
+          component: CreateArticlesPage,
+          path: '/admin/create-articles',
+          props: true,
+        },
+        {
+          component: EditArticlesPage,
+          path: '/admin/edit-articles/:id',
+          props: true,
+        },
         { component: CategoriesPage, path: '/admin/categories', },
       ],
     },

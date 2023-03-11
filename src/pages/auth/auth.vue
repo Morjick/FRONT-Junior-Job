@@ -1,8 +1,14 @@
 <template>
   <section>
-    <worker-form v-if="formWatcher.form == 'worker' && formWatcher.methods == 'singup'" />
-    <physical-form v-if="formWatcher.form == 'physical' && formWatcher.methods == 'singup'" />
-    <legal-form v-if="formWatcher.form == 'legal' && formWatcher.methods == 'singup'" />
+    <worker-form
+      v-if="formWatcher.form == 'worker' && formWatcher.methods == 'singup'"
+    />
+    <physical-form
+      v-if="formWatcher.form == 'physical' && formWatcher.methods == 'singup'"
+    />
+    <legal-form
+      v-if="formWatcher.form == 'legal' && formWatcher.methods == 'singup'"
+    />
 
     <worker-login-form v-if="formWatcher.methods == 'singin'" />
   </section>
@@ -18,7 +24,13 @@ import LegalForm from 'widgets/pages/auth/legalForm.vue'
 
 export default defineComponent({
   name: 'AuthPage',
-  components: { UiButton, WorkerForm, WorkerLoginForm, PhysicalForm, LegalForm, },
+  components: {
+    UiButton,
+    WorkerForm,
+    WorkerLoginForm,
+    PhysicalForm,
+    LegalForm,
+  },
   data: () => ({}),
   props: {},
   computed: {

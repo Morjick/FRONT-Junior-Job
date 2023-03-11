@@ -1,4 +1,4 @@
-import getTransplit from "./getTreansplit"
+import getTransplit from './getTreansplit'
 
 describe('transplit', () => {
   test('transplit test', async () => {

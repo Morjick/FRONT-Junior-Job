@@ -4,17 +4,13 @@
       <div class="empty-layout-header">
         <div @click="pushToMainPage"
 class="empty-layout-header-part">
-          <img
-            src="~/shared/assets/images/arrow-back.png"
-            alt=""
-          />
+          <img src="~/shared/assets/images/arrow-back.png"
+alt="" />
           <span>На главную</span>
         </div>
-        <img
-          @click="reload"
-          src="~/shared/assets/images/cached.png"
-          alt=""
-        >
+        <img @click="reload"
+src="~/shared/assets/images/cached.png"
+alt="" />
       </div>
     </div>
     <div class="error-layout-body">

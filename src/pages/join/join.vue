@@ -7,23 +7,27 @@ text="Я соискатель" />
     <ui-button @click="setRadio"
 text="Я работодатель" />
 
-    <label v-if="showRadio"
-@click="pushToForm('physical')"
-style="width: 276px; cursor: pointer;"
-for="physyc">
+    <label
+      v-if="showRadio"
+      @click="pushToForm('physical')"
+      style="width: 276px; cursor: pointer"
+      for="physyc"
+    >
       <input id="physyc"
 name="form"
-type="radio">
+type="radio" />
       <span>Физическое лицо</span>
     </label>
 
-    <label v-if="showRadio"
-@click="pushToForm('legal')"
-style="width: 276px; cursor: pointer;"
-for="legal">
+    <label
+      v-if="showRadio"
+      @click="pushToForm('legal')"
+      style="width: 276px; cursor: pointer"
+      for="legal"
+    >
       <input id="legal"
 name="form"
-type="radio">
+type="radio" />
       <span>Юридическое лицо</span>
     </label>
   </div>
@@ -45,10 +49,19 @@ export default defineComponent({
   computed: {},
   methods: {
     pushToAuthWorker () {
-      this.$router.push({ path: 'auth', query: { form: 'worker', methods: this.$router.currentRoute.value.query.methods, }, })
+      this.$router.push({
+        path: 'auth',
+        query: {
+          form: 'worker',
+          methods: this.$router.currentRoute.value.query.methods,
+        },
+      })
     },
     pushToForm (form: string) {
-      this.$router.push({ path: 'auth', query: { form, methods: this.$router.currentRoute.value.query.methods, }, })
+      this.$router.push({
+        path: 'auth',
+        query: { form, methods: this.$router.currentRoute.value.query.methods, },
+      })
     },
     setRadio () {
       this.showRadio = true
@@ -56,5 +69,4 @@ export default defineComponent({
   },
   mounted () {},
 })
-
 </script>

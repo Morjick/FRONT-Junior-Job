@@ -7,8 +7,10 @@
     <div class="navigation__sidebar">
       <!-- Вход/регистрация -->
       <div class="navigation__user-wrapper">
-        <img src="~/shared/assets/images/account_circle.png"
-class="navigation__user-icon">
+        <img
+          src="~/shared/assets/images/account_circle.png"
+          class="navigation__user-icon"
+        />
         <div class="navigation__user-account">
           <router-link
             to="/auth?form=all&methods=singin"
@@ -30,8 +32,10 @@ class="navigation__user-icon">
           <li class="navigation__element">
             <a href="#"
 class="navigation__element-link">
-              <img src="~/shared/assets/images/notifications.png"
-class="navigation__element-icon">
+              <img
+                src="~/shared/assets/images/notifications.png"
+                class="navigation__element-icon"
+              />
               <div class="navigation__element-text">Уведомления</div>
             </a>
           </li>
@@ -40,8 +44,10 @@ class="navigation__element-icon">
           <li class="navigation__element">
             <a href="#"
 class="navigation__element-link">
-              <img src="~/shared/assets/images/work.png"
-class="navigation__element-icon">
+              <img
+                src="~/shared/assets/images/work.png"
+                class="navigation__element-icon"
+              />
               <div class="navigation__element-text">Вакансии</div>
             </a>
           </li>
@@ -50,18 +56,22 @@ class="navigation__element-icon">
           <li class="navigation__element">
             <router-link to="/articles"
 class="navigation__element-link">
-              <img src="~/shared/assets/images/note.png"
-class="navigation__element-icon">
+              <img
+                src="~/shared/assets/images/note.png"
+                class="navigation__element-icon"
+              />
               <div class="navigation__element-text">Статьи</div>
-            </router-link >
+            </router-link>
           </li>
 
           <!-- Мои отзывы -->
           <li class="navigation__element">
             <a href="#"
 class="navigation__element-link">
-              <img src="~/shared/assets/images/star.png"
-class="navigation__element-icon">
+              <img
+                src="~/shared/assets/images/star.png"
+                class="navigation__element-icon"
+              />
               <div class="navigation__element-text">Мои отзывы</div>
             </a>
           </li>
@@ -70,8 +80,10 @@ class="navigation__element-icon">
           <li class="navigation__element">
             <a href="#"
 class="navigation__element-link">
-              <img src="~/shared/assets/images/settings.png"
-class="navigation__element-icon">
+              <img
+                src="~/shared/assets/images/settings.png"
+                class="navigation__element-icon"
+              />
               <div class="navigation__element-text">Настройки</div>
             </a>
           </li>

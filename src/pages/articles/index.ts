@@ -1,1 +1,1 @@
-export const ArticlesPage = () => import('./articles.vue')
+export const ArticlesPage = async () => await import('./articles.vue')

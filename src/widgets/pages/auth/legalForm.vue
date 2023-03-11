@@ -48,13 +48,13 @@ v-if="v$.$error">
       placeholder="Город"
       v-model="v$.city.$model"
       :class="{ error: v$.city.$error }"
-    >
+    />
 
     <textarea placeholder="Какая помощь необходима?"></textarea>
 
     <ui-button
       text="Зарегистрироваться"
-      style="font-weight: bold; margin: 10px 0;"
+      style="font-weight: bold; margin: 10px 0"
       @click="sendForm"
     />
   </div>
@@ -89,9 +89,7 @@ export default defineComponent({
   props: {},
   computed: {},
   methods: {
-    async sendForm () {
-
-    },
+    async sendForm () {},
   },
   mounted () {},
 })

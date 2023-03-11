@@ -1,12 +1,10 @@
 <template>
-  <div
-    class="create-articles-page"
-  >
+  <div class="create-articles-page">
     <h1>Создание статьи</h1>
     <ui-input
       placeholder="Введите название статьи"
       v-model="title"
-      style="margin: 10px 0;"
+      style="margin: 10px 0"
       @overTime="checkUniqueTitle"
       :valid="validation.title"
     />
@@ -15,7 +13,7 @@
       v-model="show"
       name="isShow"
       label="Опубликовать новость"
-      style="margin: 15px 0;"
+      style="margin: 15px 0"
     />
   </div>
 </template>

@@ -1,12 +1,12 @@
 <template>
   <div class="rating">
-    <img 
-      src="~shared/assets/images/star.png" 
-      alt="star" 
+    <img
+      src="~shared/assets/images/star.png"
+      alt="star"
       class="rating__item"
       v-for="(rate, index) in rating"
       :key="index"
-    >
+    />
   </div>
 </template>
 
@@ -18,13 +18,11 @@ export default defineComponent({
   props: {
     rating: {
       type: Number,
-      default: () => 0
-    }
+      default: () => 0,
+    },
   },
-  data: () => ({})
+  data: () => ({}),
 })
 </script>
 
-<style lang="scss">
-  
-</style>
+<style lang="scss"></style>

@@ -6,7 +6,9 @@ import { buildPlugins } from './plugins'
 import { biuldResolve } from './resolvers'
 import { type BuildOptions } from './types/config'
 
-export function buildWebpacklugins (options: BuildOptions): webpack.Configuration {
+export function buildWebpacklugins (
+  options: BuildOptions
+): webpack.Configuration {
   const { mode, paths, isDev, performance, } = options
 
   return {

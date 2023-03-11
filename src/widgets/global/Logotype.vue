@@ -1,15 +1,22 @@
 <template>
   <div @click="pushToMain"
 class="logotype-component">
-    <img v-if="theme == 'default'"
-src="~/shared/assets/images/logo.png"
-alt="">
-    <img v-if="theme == 'light'"
-src="~/shared/assets/images/logo-light.png"
-alt="">
-    <span :class="{
-      light: theme == 'light'
-    }">unior Job</span>
+    <img
+      v-if="theme == 'default'"
+      src="~/shared/assets/images/logo.png"
+      alt=""
+    />
+    <img
+      v-if="theme == 'light'"
+      src="~/shared/assets/images/logo-light.png"
+      alt=""
+    />
+    <span
+      :class="{
+        light: theme == 'light',
+      }"
+      >unior Job</span
+    >
   </div>
 </template>
 

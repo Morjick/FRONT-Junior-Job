@@ -2,7 +2,7 @@
   <div class="pages">
     <div class="pages-header">
       <ui-navigation :showingClass="showingClass"
-@hideNav="hideNav"/>
+@hideNav="hideNav" />
 
       <div class="burger-menu"
 @click="showNav">
@@ -14,7 +14,8 @@
       <logotype theme="light" />
     </div>
 
-    <div class="pages__space" v-if="$route.path === '/profile'"></div>
+    <div class="pages__space"
+v-if="$route.path === '/profile'"></div>
 
     <div class="pages-body">
       <router-view />

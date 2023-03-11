@@ -17,33 +17,31 @@ export default {
   clearMocks: true,
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: [
-    "\\\\node_modules\\\\"
-  ],
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\', ],
 
   // The test environment that will be used for testing
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
 
   // An array of file extensions your modules use
   moduleFileExtensions: [
-    "js",
-    "mjs",
-    "cjs",
-    "jsx",
-    "ts",
-    "tsx",
-    "json",
-    "node"
+    'js',
+    'mjs',
+    'cjs',
+    'jsx',
+    'ts',
+    'tsx',
+    'json',
+    'node',
   ],
 
   // The root directory that Jest should scan for tests and modules within
   rootDir: '../../',
-  
+
   // The glob patterns Jest uses to detect test files
   testMatch: [
     // "**/__tests__/**/*.[jt]s?(x)",
     // "**/?(*.)+(spec|test).[tj]s?(x)"
-    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
+    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
   ],
 
   // Indicates whether the coverage information should be collected while executing the test
@@ -100,7 +98,6 @@ export default {
   //   "node_modules"
   // ],
 
-
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
 
@@ -134,7 +131,6 @@ export default {
   // Automatically restore mock state and implementation before every test
   // restoreMocks: false,
 
-
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
   //   "<rootDir>"
@@ -154,7 +150,6 @@ export default {
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
-
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -196,4 +191,4 @@ export default {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-};
+}

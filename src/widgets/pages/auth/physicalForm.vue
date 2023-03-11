@@ -1,50 +1,52 @@
 <template>
   <div class="worker-form physicalForm">
     <add-photo @loadImage="setImage" />
-    <p
-      class="validation-error-label"
-      v-if="v$.$error"
-    >Заполните все обязательные поля</p>
+    <p class="validation-error-label"
+v-if="v$.$error">
+      Заполните все обязательные поля
+    </p>
 
     <input
       class="ui-input"
       placeholder="Фамилия"
       v-model="v$.lastname.$model"
       :class="{ error: v$.lastname.$error }"
-    >
+    />
 
     <input
       class="ui-input"
       placeholder="Имя"
       v-model="v$.name.$model"
       :class="{ error: v$.name.$error }"
-    >
+    />
 
     <input
       class="ui-input"
       placeholder="Имя"
       v-model="v$.patronomic.$model"
       :class="{ error: v$.patronomic.$error }"
-    >
+    />
 
     <input
       class="ui-input"
       placeholder="Email"
       v-model="v$.email.$model"
       :class="{ error: v$.email.$error }"
-    >
+    />
 
     <p
       class="validation-error-label"
       v-if="v$.password.$errors[0]?.$params?.type == 'minLength'"
-    >Минимальная длинна пароля - 6 символов</p>
+    >
+      Минимальная длинна пароля - 6 символов
+    </p>
     <input
       type="password"
       class="ui-input"
       placeholder="Пароль"
       v-model="v$.password.$model"
       :class="{ error: v$.password.$error }"
-    >
+    />
 
     <p></p>
 
@@ -53,18 +55,24 @@
       placeholder="Город"
       v-model="v$.city.$model"
       :class="{ error: v$.city.$error }"
-    >
+    />
 
     <textarea placeholder="Какая помощь необходима?"></textarea>
 
-    <p style="margin: 20px 0 30px;">Чтобы создавать вакансии, <br> необходимо авторизоваться <br> через Госуслуги</p>
-    <img style="cursor: pointer; pointer-events: all;"
-src="~/shared/assets/images/singin-in-MyPay.png"
-alt="">
+    <p style="margin: 20px 0 30px">
+      Чтобы создавать вакансии, <br />
+      необходимо авторизоваться <br />
+      через Госуслуги
+    </p>
+    <img
+      style="cursor: pointer; pointer-events: all"
+      src="~/shared/assets/images/singin-in-MyPay.png"
+      alt=""
+    />
 
     <ui-button
       text="Зарегистрироваться"
-      style="font-weight: bold; margin: 10px 0;"
+      style="font-weight: bold; margin: 10px 0"
       @click="sendForm"
     />
   </div>
