@@ -1,7 +1,7 @@
 <template>
- <div class="articles">
-    <ui-news :newsArr="newsArr"/>
- </div>
+  <div class="articles">
+    <ui-news :newsArr="newsArr" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -9,10 +9,15 @@ import { defineComponent } from 'vue'
 import UiNews from 'pages/home/UiNews.vue'
 
 export default defineComponent({
-  name: 'articles',
+  name: 'ArticlesPage',
   data: () => ({
     newsArr: [
-      { imgSrc: '#', imgAlt: '#', articleTitle: 'Как зарегистрироваться в приложении "Мой налог?" ', id: 0, },
+      {
+        imgSrc: '#',
+        imgAlt: '#',
+        articleTitle: 'Как зарегистрироваться в приложении "Мой налог?" ',
+        id: 0,
+      },
       { imgSrc: '#', imgAlt: '#', articleTitle: 'Самые необычные профессии', id: 1, },
       { imgSrc: '#', imgAlt: '#', articleTitle: 'Самые необычные профессии', id: 2, },
       { imgSrc: '#', imgAlt: '#', articleTitle: 'Самые необычные профессии', id: 3, },
@@ -25,13 +30,12 @@ export default defineComponent({
   props: {},
   computed: {},
   methods: {},
-  mounted () {},
+  mounted () { },
 })
 </script>
 
 <style lang="scss" >
-    .articles{
-
-        padding: 33px 5px ;
-    }
+.articles {
+  padding: 33px 5px;
+}
 </style>
