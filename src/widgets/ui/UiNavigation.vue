@@ -27,13 +27,15 @@ class="navigation__user-icon">
       <nav class="navigation__nav">
         <ul class="navigation__list">
           <!-- Уведомления -->
-          <li class="navigation__element">
-            <a href="#"
-class="navigation__element-link">
+          <li 
+          @click="hideNav"
+          class="navigation__element">
+            <router-link to="/notifications"
+            class="navigation__element-link">
               <img src="~/shared/assets/images/notifications.png"
-class="navigation__element-icon">
+            class="navigation__element-icon">
               <div class="navigation__element-text">Уведомления</div>
-            </a>
+            </router-link>
           </li>
 
           <!-- Вакансии -->

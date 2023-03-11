@@ -36,3 +36,9 @@ export default defineComponent({
   mounted () {},
 })
 </script>
+
+<style lang="scss">
+.logotype-component{
+  cursor: pointer;
+}
+</style>
