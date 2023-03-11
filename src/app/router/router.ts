@@ -12,6 +12,7 @@ import { JoinVariable } from 'pages/joinVariable'
 import { NotFound } from 'pages/notFound'
 import { searchResultsPage } from 'pages/searchResults'
 import { ServerError } from 'pages/serverError'
+import { Profile } from 'pages/profile'
 import { AdminHomePage } from 'pages/admin/home'
 import { AdminArticlesPage } from 'pages/admin/articles'
 import { CreateArticlesPage } from 'pages/admin/articles/create'
@@ -25,10 +26,14 @@ export const router = createRouter({
       component: DefaultLayout,
       path: '/',
       children: [
+        { component: HomePage, path: '/' },
+        { component: AboutPage, path: '/about' },
+        { component: searchResultsPage, path: "/search-result" },
         { component: HomePage, path: '/', },
         { component: AboutPage, path: '/about', },
         { component: searchResultsPage, path: '/search-result', },
         { component: ArticlesPage, path: '/articles', },
+        { component: Profile, path: "/profile" }
       ],
     },
     {

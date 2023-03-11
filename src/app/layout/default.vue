@@ -13,6 +13,9 @@
 
       <logotype theme="light" />
     </div>
+
+    <div class="pages__space" v-if="$route.path === '/profile'"></div>
+
     <div class="pages-body">
       <router-view />
     </div>
