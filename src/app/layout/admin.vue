@@ -4,7 +4,7 @@
     :class="theme"
   >
     <div class="admin-sidebar">
-      <h1>In Theme</h1>
+      <h1 @click="toMainPage">In Theme</h1>
       <ul class="admin-sidebar-list">
         <li
           v-for="item in menu"
@@ -93,6 +93,9 @@ export default defineComponent({
     pushToMenuPage (item: menuItem) {
       this.$router.push(item.path)
     },
+    toMainPage () {
+      this.$router.push('/admin/')
+    },
   },
   mounted () {},
 })
@@ -113,6 +116,8 @@ export default defineComponent({
   height: 100vh;
 
   background: var(--admin-color-primery);
+  border-left: 5px solid var(--admin-color-primery);
+  border-right: 5px solid var(--admin-color-primery);
 
   h1 {
     font-size: 34px;
@@ -123,6 +128,7 @@ export default defineComponent({
     font-weight: bold;
     text-shadow: 0 0 2px var(--admin-main-color-font);
     border: 1px solid var(--admin-alternative-color-font);
+    cursor: pointer;
   }
 
   &-list {

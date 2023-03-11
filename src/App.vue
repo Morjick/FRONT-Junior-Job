@@ -25,6 +25,7 @@ export default defineComponent({
   methods: {
   },
   mounted () {
+    console.log('$c' + 'С 8 марта!', 'color: #e42c64;')
   },
 })
 </script>

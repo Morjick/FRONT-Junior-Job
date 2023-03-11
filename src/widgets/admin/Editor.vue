@@ -23,7 +23,12 @@ export default defineComponent({
     },
   }),
   components: {},
-  props: {},
+  props: {
+    value: {
+      type: String,
+      default: ''
+    }
+  },
   computed: {},
   methods: {
     emitText () {

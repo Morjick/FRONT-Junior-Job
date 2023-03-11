@@ -1,4 +1,4 @@
-import { ArticlesPage } from 'pages/articles';
+import { ArticlesPage } from 'pages/articles'
 import { createRouter, createWebHistory } from 'vue-router'
 import { HomePage } from 'pages/home'
 import { AboutPage } from 'pages/about'
@@ -15,6 +15,8 @@ import { ServerError } from 'pages/serverError'
 import { AdminHomePage } from 'pages/admin/home'
 import { AdminArticlesPage } from 'pages/admin/articles'
 import { CreateArticlesPage } from 'pages/admin/articles/create'
+import { EditArticlesPage } from 'pages/admin/articles/edit'
+import { CategoriesPage } from 'pages/admin/categories'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -23,10 +25,10 @@ export const router = createRouter({
       component: DefaultLayout,
       path: '/',
       children: [
-        { component: HomePage, path: '/' },
-        { component: AboutPage, path: '/about' },
-        { component: searchResultsPage, path: "/search-result" },
-        { component: ArticlesPage, path: "/articles" }
+        { component: HomePage, path: '/', },
+        { component: AboutPage, path: '/about', },
+        { component: searchResultsPage, path: '/search-result', },
+        { component: ArticlesPage, path: '/articles', },
       ],
     },
     {
@@ -48,6 +50,8 @@ export const router = createRouter({
           path: '/admin/articles',
         },
         { component: CreateArticlesPage, path: '/admin/create-articles', props: true, },
+        { component: EditArticlesPage, path: '/admin/edit-articles/:id', props: true, },
+        { component: CategoriesPage, path: '/admin/categories', },
       ],
     },
     {

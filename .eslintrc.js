@@ -53,6 +53,6 @@ module.exports = {
     "no-console": "warn",
     "max-len": ["error", { "code": 100 }],
     "@typescript-eslint/strict-boolean-expressions": "off",
-    'array-bracket-spacing': 'never'
+    'array-bracket-spacing': 0
   },
 }

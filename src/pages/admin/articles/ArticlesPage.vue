@@ -19,13 +19,14 @@ import UiButton from 'widgets/ui/UiButton.vue'
 
 export default defineComponent({
   name: 'ArticlesPage',
-  data: () => ({}),
+  data: () => ({
+  }),
   components: { ArticlesList, UiButton, },
   props: {},
   computed: {},
   methods: {
     pushToCreateArticle () {
-
+      this.$router.push('/admin/create-articles')
     },
   },
   mounted () {},
