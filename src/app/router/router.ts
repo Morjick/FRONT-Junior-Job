@@ -6,6 +6,8 @@ import DefaultLayout from '../layout/default.vue'
 import EmptyLayout from '../layout/empty.vue'
 import ErrorLayout from '../layout/error.vue'
 import AdminLayout from '../layout/admin.vue'
+import MessageLayout from '../layout/messageLayout.vue'
+import { MessagePage } from 'pages/message'
 import { JoinPage } from 'pages/join'
 import { AuthPage } from 'pages/auth'
 import { JoinVariable } from 'pages/joinVariable'
@@ -17,7 +19,7 @@ import { AdminHomePage } from 'pages/admin/home'
 import { AdminArticlesPage } from 'pages/admin/articles'
 import { CreateArticlesPage } from 'pages/admin/articles/create'
 import { EditArticlesPage } from 'pages/admin/articles/edit'
-import { CategoriesPage } from 'pages/admin/categories'
+import { CategoriesPage } from 'pages/admin/categories' 
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -75,5 +77,12 @@ export const router = createRouter({
         { component: ServerError, path: '', },
       ],
     },
+    {
+      component: MessageLayout,
+      path: '/message',
+      children: [
+        { component:  MessagePage, path: '', }
+      ]
+    }
   ],
 })

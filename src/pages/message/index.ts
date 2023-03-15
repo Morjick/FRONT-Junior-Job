@@ -1,0 +1,1 @@
+export const MessagePage = () => import('./message.vue')
