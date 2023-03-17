@@ -6,6 +6,8 @@ import DefaultLayout from '../layout/default.vue'
 import EmptyLayout from '../layout/empty.vue'
 import ErrorLayout from '../layout/error.vue'
 import AdminLayout from '../layout/admin.vue'
+import MessageLayout from '../layout/message.vue'
+import { MessagePage } from 'pages/message'
 import { JoinPage } from 'pages/join'
 import { AuthPage } from 'pages/auth'
 import { JoinVariable } from 'pages/joinVariable'
@@ -72,6 +74,13 @@ export const router = createRouter({
       children: [
         { component: NotFound, path: '', },
         { component: ServerError, path: '', },
+      ],
+    },
+    {
+      component: MessageLayout,
+      path: '/message',
+      children: [
+        { component: MessagePage, path: '', },
       ],
     },
   ],
