@@ -1,7 +1,7 @@
 <template>
  <div class="message">
   <div class="message__letter-list">
-    <ui-letter 
+    <ui-letter
       v-for="{name, text, time, author, id} in messages"
       :key="id"
       :name="name"
@@ -13,8 +13,16 @@
 
   <div class="message__send-wrapper">
     <div class="message__send">
-      <ui-input :placeholder="inputPlaceholder" class="message__input" v-model="inputValue"/>
-      <img src="~/shared/assets/images/send.png" alt="click to send message" class="message__send-btn">
+      <ui-input
+        :placeholder="inputPlaceholder"
+        class="message__input"
+        v-model="inputValue"
+      />
+      <img
+        src="~/shared/assets/images/send.png"
+        alt="click to send message"
+        class="message__send-btn"
+      >
     </div>
   </div>
  </div>
@@ -25,24 +33,68 @@ import { defineComponent } from 'vue'
 import UiInput from 'widgets/ui/UiInput.vue'
 import UiLetter from './UiLetter.vue'
 
+interface Message {
+  name: string,
+  text: string,
+  time: string,
+  author: string,
+  id: number
+}
+
 export default defineComponent({
-  name: 'Message',
+  name: 'MessagePage',
   props: {},
   components: {
     UiInput,
-    UiLetter
+    UiLetter,
   },
   data: () => ({
     inputPlaceholder: 'Сообщение' as string,
     messages: [
-      { name: 'Елена', text: 'Илья, добрый день!', time: '00:00', author: 'elena', id: 1 },
-      { name: '', text: 'Здравствуйте!', time: '00:00', author: 'user', id: 2 },
-      { name: 'Елена', text: 'Хотим предложить вам работу', time: '00:01', author: 'elena', id: 3 },
-      { name: '', text: 'Извините, но я уже нашел работу', time: '00:02', author: 'user', id: 4 },
-      { name: 'Елена', text: 'Вы уверены, что не нуждаетесь в работе? Мы можем предложить большую зарплату', time: '00:02', author: 'elena', id: 5 },
-      { name: '', text: 'Да, я уверен в этом', time: '00:02', author: 'user', id: 6 },
-    ] as Array<{name: string, text: string, time: string, author: string, id: number}>,
-    inputValue: ''
+      {
+        name: 'Елена',
+        text: 'Илья, добрый день!',
+        time: '00:00',
+        author: 'elena',
+        id: 1,
+      },
+      {
+        name: '',
+        text: 'Здравствуйте!',
+        time: '00:00',
+        author: 'user',
+        id: 2,
+      },
+      {
+        name: 'Елена',
+        text: 'Хотим предложить вам работу',
+        time: '00:01',
+        author: 'elena',
+        id: 3,
+      },
+      {
+        name: '',
+        text: 'Извините, но я уже нашел работу',
+        time: '00:02',
+        author: 'user',
+        id: 4,
+      },
+      {
+        name: 'Елена',
+        text: 'Вы уверены, что не нуждаетесь в работе? Мы можем предложить большую зарплату',
+        time: '00:02',
+        author: 'elena',
+        id: 5,
+      },
+      {
+        name: '',
+        text: 'Да, я уверен в этом',
+        time: '00:02',
+        author: 'user',
+        id: 6,
+      },
+    ] as Array<Message>,
+    inputValue: '',
   }),
   computed: {},
   methods: {},

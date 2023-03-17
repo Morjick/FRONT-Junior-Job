@@ -2,10 +2,19 @@
  <div class="message-layout">
     <header class="message-layout__header">
       <div class="message-layout__header-left">
-        <img @click="pushToPrevPage" src="~/shared/assets/images/arrow_back_white.png" alt="click to go back" class="message-layout__prev">
+        <img
+          @click="pushToPrevPage"
+          src="~/shared/assets/images/arrow_back_white.png"
+          alt="click to go back"
+          class="message-layout__prev"
+        >
 
         <div class="destination-user">
-          <img :src="imageSrc" class="destination-user__avatar" @click="pushToProfile">
+          <img
+            :src="imageSrc"
+            class="destination-user__avatar"
+            @click="pushToProfile"
+          >
           <div class="destination-user__name">{{ name }}</div>
         </div>
       </div>
@@ -30,12 +39,12 @@ export default defineComponent({
   props: {},
   computed: {},
   methods: {
-    pushToPrevPage() {
+    pushToPrevPage () {
       this.$router.back()
     },
-    pushToProfile() {
+    pushToProfile () {
       this.$router.push('/profile')
-    }
+    },
   },
   mounted () {},
 })
