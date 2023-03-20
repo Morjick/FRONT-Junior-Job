@@ -30,9 +30,3 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" >
-    .articles{
-    
-        padding: 33px 5px ;
-    }
-</style>

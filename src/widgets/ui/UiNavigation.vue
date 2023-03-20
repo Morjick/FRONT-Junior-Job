@@ -19,6 +19,7 @@
             class="navigation__user-registration"
             >Регистрация</router-link
           >
+          
         </div>
       </div>
 
@@ -34,11 +35,11 @@
           </li>
 
           <!-- Вакансии -->
-          <li class="navigation__element">
-            <a href="#" class="navigation__element-link">
+          <li class="navigation__element-link">
+            <router-link to="/creating_vacancies">
               <img src="~/shared/assets/images/work.png" class="navigation__element-icon">
               <div class="navigation__element-text">Вакансии</div>
-            </a>
+            </router-link>
           </li>
 
           <!-- Статьи -->

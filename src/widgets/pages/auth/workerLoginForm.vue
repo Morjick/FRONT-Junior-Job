@@ -43,6 +43,7 @@ import useVuelidate from '@vuelidate/core'
 import { email, minLength, required } from '@vuelidate/validators'
 import { defineComponent } from 'vue'
 import UiButton from 'widgets/ui/UiButton.vue'
+import UiSelect from 'widgets/ui/UiSelect.vue'
 
 export default defineComponent({
   name: 'workerLoginForm',
@@ -58,7 +59,7 @@ export default defineComponent({
     }
   },
   data: () => ({}),
-  components: { UiButton },
+  components: { UiButton, UiSelect },
   props: {},
   computed: {},
   methods: {

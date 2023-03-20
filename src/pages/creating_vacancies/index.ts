@@ -1,0 +1,1 @@
+export const CreatingPage = () => import('./creating_vacancies.vue')
