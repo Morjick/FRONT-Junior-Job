@@ -29,8 +29,6 @@ export const router = createRouter({
         { component: HomePage, path: '/', },
         { component: AboutPage, path: '/about', },
         { component: searchResultsPage, path: '/search-result', },
-        { component: AboutPage, path: '/about', },
-        { component: searchResultsPage, path: '/search-result', },
         { component: ArticlesPage, path: '/articles', },
         { component: Profile, path: '/profile', },
       ],
