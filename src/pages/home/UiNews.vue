@@ -1,42 +1,46 @@
 <template>
   <section class="news">
-    <div class="news__title">Статьи</div>
+    <div
+      class="news__title"
+      v-if="news.length"
+    >
+    Статьи
+  </div>
 
     <a
       class="article"
-      href="#"
-      v-for="news in newsArr as News[]"
-      :key="news.id"
+      v-for="article in news"
+      :key="article.id"
+      :href="article.href"
     >
-      <div class="article__img"></div>
-      <!-- <img :src="imgSrc" :alt="imgAlt" class="article__img"> -->
-      <div class="article__subtitle">{{ news.title }}</div>
+      <img
+        :src="getImgUrl(article.imgName)"
+        class="article__img"
+      >
+      <div class="article__subtitle">{{ article.title }}</div>
     </a>
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
-interface News {
-  id: number
-  title: string
-}
-
-const NewsArr: News[] = [
-  {
-    id: 1,
-    title: 'title',
-  },
-]
+import { Article } from './news.store'
 
 export default defineComponent({
   name: 'UiNews',
-  props: {
-    newsArr: {
-      type: Array,
-      default: NewsArr,
+  props: {},
+  computed: {
+    news (): Article[] {
+      return this.$store.getters.getArticles
     },
+  },
+  methods: {
+    getImgUrl (imgName: string) {
+      return require('shared/assets/images/' + imgName).default
+    },
+  },
+  async mounted () {
+    this.$store.dispatch('fetchArticles')
   },
 })
 </script>
