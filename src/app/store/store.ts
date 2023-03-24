@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import { newsStore } from 'pages/home/news.store'
 
 interface usersStore {
   users: object[]
@@ -24,6 +25,7 @@ const userStore = {
 const store = createStore({
   modules: {
     users: userStore,
+    news: newsStore,
   },
 })
 

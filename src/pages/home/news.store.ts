@@ -15,8 +15,14 @@ const newsStore = {
       {
         id: 1,
         title: 'Как искать работу',
-        imgName: 'account_circle.png',
-        href: '#',
+        imgName: '#',
+        href: '/',
+      },
+      {
+        id: 2,
+        title: 'Как не потерять работу',
+        imgName: 'settings.png',
+        href: '/',
       },
     ] as Article[],
   },

@@ -7,18 +7,18 @@
     Статьи
   </div>
 
-    <a
+    <router-link
       class="article"
       v-for="article in news"
       :key="article.id"
-      :href="article.href"
+      :to="article.href"
     >
       <img
-        :src="getImgUrl(article.imgName)"
+        :src="imgUrls[article.id - 1]"
         class="article__img"
       >
       <div class="article__subtitle">{{ article.title }}</div>
-    </a>
+    </router-link>
   </section>
 </template>
 
@@ -34,13 +34,25 @@ export default defineComponent({
       return this.$store.getters.getArticles
     },
   },
+  data: () => ({
+    imgUrls: [] as Array<string>,
+  }),
   methods: {
-    getImgUrl (imgName: string) {
-      return require('shared/assets/images/' + imgName).default
+    async getImgUrl (imgName: string) {
+      try {
+        const request = await fetch(require('shared/assets/images/' + imgName).default)
+        this.imgUrls.push(await request.url)
+      } catch {
+        const request = await fetch(require('shared/assets/images/default.jpg').default)
+        this.imgUrls.push(await request.url)
+      }
     },
   },
   async mounted () {
     this.$store.dispatch('fetchArticles')
+    this.news.forEach(article => {
+      this.getImgUrl(article.imgName)
+    })
   },
 })
 </script>
@@ -60,16 +72,13 @@ export default defineComponent({
   transition: 0.1s all;
 }
 
-.article:hover {
-  transform: scale(1.05);
-}
-
 .article__img {
   width: 100%;
   height: 103px;
   background: #d9d9d9;
   border-radius: 10px;
   margin-bottom: 10px;
+  object-fit: cover;
 }
 
 .article__subtitle {
