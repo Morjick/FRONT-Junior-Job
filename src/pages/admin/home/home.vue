@@ -1,7 +1,5 @@
 <template>
-  <div class="home">
-    HomePage
-  </div>
+  <div class="home">HomePage</div>
 </template>
 
 <script lang="ts">
@@ -14,6 +12,6 @@ export default defineComponent({
   props: {},
   computed: {},
   methods: {},
-  mounted () {}
+  mounted () {},
 })
 </script>

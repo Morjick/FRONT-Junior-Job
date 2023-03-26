@@ -34,20 +34,26 @@ img {
 input {
   min-width: 300px;
   min-height: 35px;
-  padding:  10px;
+  padding: 10px;
   border-radius: 4px;
 }
 
-input[type=radio] {
+input[type='radio'] {
   min-width: auto;
   min-height: auto;
   padding: 0;
 }
 
-input[type=radio] ~ span {
+input[type='radio'] ~ span {
   margin-left: 20px;
 }
 
 a {
   color: var(--color-alternative);
+}
+
+.flexer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

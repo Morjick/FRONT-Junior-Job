@@ -1,9 +1,11 @@
 <template>
   <div class="pages">
     <div class="pages-header">
-      <ui-navigation :showingClass="showingClass" @hideNav="hideNav"/>
+      <ui-navigation :showingClass="showingClass"
+@hideNav="hideNav" />
 
-      <div class="burger-menu" @click="showNav">
+      <div class="burger-menu"
+@click="showNav">
         <span></span>
         <span></span>
         <span></span>
@@ -11,6 +13,10 @@
 
       <logotype theme="light" />
     </div>
+
+    <div class="pages__space"
+v-if="$route.path === '/profile'"></div>
+
     <div class="pages-body">
       <router-view />
     </div>
@@ -25,20 +31,20 @@ export default {
   name: 'DefaultLayout',
   components: {
     UiNavigation,
-    Logotype
+    Logotype,
   },
-  data() {
+  data () {
     return {
-      showingClass: ""
+      showingClass: '',
     }
   },
   methods: {
-    showNav() {
-      this.showingClass = "navigation_show";
+    showNav () {
+      this.showingClass = 'navigation_show'
     },
-    hideNav() {
-      this.showingClass = "";
-    }
-  }
+    hideNav () {
+      this.showingClass = ''
+    },
+  },
 }
 </script>

@@ -1,20 +1,30 @@
+<<<<<<< HEAD
 import { CreatingPage } from 'pages/creating_vacancies';
 import { ArticlesPage } from 'pages/articles';
+=======
+import { ArticlesPage } from 'pages/articles'
+>>>>>>> de1c7c7207ff7c93abbf6401f99a2f8283fff8df
 import { createRouter, createWebHistory } from 'vue-router'
 import { HomePage } from 'pages/home'
 import { AboutPage } from 'pages/about'
 import DefaultLayout from '../layout/default.vue'
 import EmptyLayout from '../layout/empty.vue'
 import ErrorLayout from '../layout/error.vue'
-import AdminLAyout from '../layout/admin.vue'
+import AdminLayout from '../layout/admin.vue'
+import MessageLayout from '../layout/message.vue'
+import { MessagePage } from 'pages/message'
 import { JoinPage } from 'pages/join'
 import { AuthPage } from 'pages/auth'
 import { JoinVariable } from 'pages/joinVariable'
 import { NotFound } from 'pages/notFound'
 import { searchResultsPage } from 'pages/searchResults'
 import { ServerError } from 'pages/serverError'
+import { Profile } from 'pages/profile'
 import { AdminHomePage } from 'pages/admin/home'
-
+import { AdminArticlesPage } from 'pages/admin/articles'
+import { CreateArticlesPage } from 'pages/admin/articles/create'
+import { EditArticlesPage } from 'pages/admin/articles/edit'
+import { CategoriesPage } from 'pages/admin/categories'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -23,36 +33,66 @@ export const router = createRouter({
       component: DefaultLayout,
       path: '/',
       children: [
+<<<<<<< HEAD
         { component: HomePage, path: '/' },
         { component: AboutPage, path: '/about' },
         { component: searchResultsPage, path: "/search-result" },
         { component: ArticlesPage, path: "/articles" },
         { component: CreatingPage, path: "/creating_vacancies"}
+=======
+        { component: HomePage, path: '/', },
+        { component: AboutPage, path: '/about', },
+        { component: searchResultsPage, path: '/search-result', },
+        { component: ArticlesPage, path: '/articles', },
+        { component: Profile, path: '/profile', },
+>>>>>>> de1c7c7207ff7c93abbf6401f99a2f8283fff8df
       ],
     },
     {
       component: EmptyLayout,
       path: '/join',
       children: [
-        { component: JoinPage, path: '' },
-        { component: AuthPage, path: '/auth' },
-        { component: JoinVariable, path: '/join-variable'}
-      ]
+        { component: JoinPage, path: '', },
+        { component: AuthPage, path: '/auth', },
+        { component: JoinVariable, path: '/join-variable', },
+      ],
     },
     {
-      component: AdminLAyout,
-      path: '/admin',
+      component: AdminLayout,
+      path: '/admin/',
       children: [
-        { component: AdminHomePage, path: '' }
-      ]
+        { component: AdminHomePage, path: '', },
+        {
+          component: AdminArticlesPage,
+          path: '/admin/articles',
+        },
+        {
+          component: CreateArticlesPage,
+          path: '/admin/create-articles',
+          props: true,
+        },
+        {
+          component: EditArticlesPage,
+          path: '/admin/edit-articles/:id',
+          props: true,
+        },
+        { component: CategoriesPage, path: '/admin/categories', },
+      ],
     },
     {
       component: ErrorLayout,
       path: '/:pathMatch(.*)*',
       children: [
-        { component: NotFound, path: '' },
-        { component: ServerError, path: '' }
-      ]
-    }
-  ]
+        { component: NotFound, path: '', },
+        { component: ServerError, path: '', },
+      ],
+    },
+    {
+      component: MessageLayout,
+      path: '/message',
+      children: [
+        { component: MessagePage, path: '', },
+      ],
+    },
+  ],
 })

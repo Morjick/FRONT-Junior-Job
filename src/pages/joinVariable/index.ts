@@ -1,1 +1,1 @@
-export const JoinVariable = import('./joinVariable.vue')
+export const JoinVariable = (): any => import('./joinVariable.vue')

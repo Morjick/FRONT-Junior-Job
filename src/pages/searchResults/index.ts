@@ -1,1 +1,1 @@
-export const searchResultsPage = import("./searchResultsPage.vue");
+export const searchResultsPage = (): any => import('./searchResultsPage.vue')

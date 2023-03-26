@@ -1,1 +1,1 @@
-export const HomePage = () => import('./index.vue')
+export const HomePage = (): any => import('./index.vue')

@@ -1,8 +1,6 @@
 <template>
-  <div 
-    class="ui-button"
-    @click="handler"
-  >{{ text }}</div>
+  <div :class="'ui-button ' + classMod"
+class="ui-button">{{ text }}</div>
 </template>
 
 <script lang="ts">
@@ -15,19 +13,44 @@ export default defineComponent({
   props: {
     text: {
       type: String,
-      default: 'Подтвердить'
+      default: 'Подтвердить',
     },
     mod: {
       type: String,
-      default: 'primery'
+      default: 'primery',
     },
     handler: {
       type: Function,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
+    classMod: {
+      type: String,
+      default: () => '',
+    },
   },
   computed: {},
   methods: {},
-  mounted () {}
+  mounted () {},
 })
 </script>
+
+<style lang="scss">
+.ui-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-main);
+  background-color: var(--color-alternative);
+  padding: 15px 35px;
+  min-height: 60px;
+  min-width: 274px;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+  &_invisible {
+    background: none;
+    color: var(--color-alternative);
+    font-size: 25px;
+  }
+}
+</style>

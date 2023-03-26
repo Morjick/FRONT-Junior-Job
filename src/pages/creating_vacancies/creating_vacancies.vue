@@ -3,7 +3,7 @@
       <div class="creating__title">Создание вакансии</div>
         <ui-select class="category" placehlod="Категрия "  />
         <ui-select class="time" placeholder="Время"/>
-        <ui-input type="text" v-model="values" placeholder="Место"/>
+        <ui-input type="text"  placeholder="Место"/>
         <textarea  placeholder="Описание"></textarea>
         <ui-button text="Создать"/>
     </div>
@@ -11,7 +11,7 @@
   
   <script lang="ts">
   
-  import { text } from 'body-parser';
+  
   import { defineComponent } from 'vue';
   import UiButton from 'widgets/ui/UiButton.vue';
   import UiInput from 'widgets/ui/UiInput.vue';

@@ -1,91 +1,106 @@
 <template>
-  <div @loadImage="setImage" class="worker-form">
+  <div @loadImage="setImage"
+class="worker-form">
     <add-photo @loadImage="setImage" />
-    <p 
-      class="validation-error-label" 
-      v-if="v$.$error"
-    >Заполните все обязательные поля</p>
+    <p class="validation-error-label"
+v-if="v$.$error">
+      Заполните все обязательные поля
+    </p>
 
-    <input 
+    <input
       class="ui-input"
       placeholder="Фамилия"
       v-model="v$.lastname.$model"
       :class="{ error: v$.lastname.$error }"
-    >
-    
-    <input 
+    />
+
+    <input
       class="ui-input"
       placeholder="Имя"
       v-model="v$.name.$model"
       :class="{ error: v$.name.$error }"
-    >
+    />
 
-    <input 
+    <input
       class="ui-input"
       placeholder="Email"
       v-model="v$.email.$model"
       :class="{ error: v$.email.$error }"
-    >
+    />
 
-    <p 
-      class="validation-error-label" 
+    <p
+      class="validation-error-label"
       v-if="v$.password.$errors[0]?.$params?.type == 'minLength'"
-    >Минимальная длинна пароля - 6 символов</p>
-    <input 
+    >
+      Минимальная длинна пароля - 6 символов
+    </p>
+    <input
       type="password"
       class="ui-input"
       placeholder="Пароль"
       v-model="v$.password.$model"
       :class="{ error: v$.password.$error }"
-    >
+    />
 
     <p></p>
 
-    <input 
+    <input
       type="date"
       class="ui-input"
       placeholder="Дата рождения"
       v-model="date"
-    >
-    <input 
+    />
+    <input
       class="ui-input"
       placeholder="Город"
       v-model="v$.city.$model"
       :class="{ error: v$.city.$error }"
-    >
-    <input 
+    />
+    <input
       class="ui-input"
       placeholder="Место учёбы"
       v-model="v$.learn.$model"
       :class="{ error: v$.learn.$error }"
+    />
+
+    <p
+      class="validation-error-label"
+      v-if="
+        v$.inn.$errors[0]?.$params?.type == 'minLength' ||
+        v$.inn.$errors[0]?.$params?.type == 'maxLength'
+      "
     >
-    
-    <p 
-      class="validation-error-label" 
-      v-if="v$.inn.$errors[0]?.$params?.type == 'minLength' || v$.inn.$errors[0]?.$params?.type == 'maxLength'"
-    >ИНН должен содержать 12 символов</p>
-    <input 
+      ИНН должен содержать 12 символов
+    </p>
+    <input
       class="ui-input"
       placeholder="ИНН"
       v-model="v$.inn.$model"
       :class="{ error: v$.inn.$error }"
-    >
-    <input 
+    />
+    <input
       class="ui-input"
       placeholder="Предлагаемая услуга"
       v-model="v$.service.$model"
       :class="{ error: v$.service.$error }"
-    >
+    />
 
     <textarea placeholder="Резюме"></textarea>
 
-    <p>Чтобы откликнуться на вакансии, необходимо авторизоваться через приложение  «Мой налог»</p>
+    <p>
+      Чтобы откликнуться на вакансии, необходимо авторизоваться через приложение
+      «Мой налог»
+    </p>
 
-    <img style="cursor: pointer; pointer-events: all;" src="~/shared/assets/images/singin-in-MyPay.png" alt="">
+    <img
+      style="cursor: pointer; pointer-events: all"
+      src="~/shared/assets/images/singin-in-MyPay.png"
+      alt=""
+    />
 
-    <ui-button 
-      text="Зарегистрироваться" 
-      style="font-weight: bold; margin: 10px 0;" 
+    <ui-button
+      text="Зарегистрироваться"
+      style="font-weight: bold; margin: 10px 0"
       @click="sendForm"
     />
   </div>
@@ -98,12 +113,11 @@ import AddPhoto from './addPhoto.vue'
 import { useVuelidate } from '@vuelidate/core'
 import { email, maxLength, minLength, required } from '@vuelidate/validators'
 
-
 export default defineComponent({
   name: 'workerForm',
   setup () {
     return {
-      v$: useVuelidate()
+      v$: useVuelidate(),
     }
   },
   data: () => ({
@@ -117,21 +131,22 @@ export default defineComponent({
     inn: '',
     service: '',
     resume: '',
-    image: ''
+    image: '',
+    date: '',
   }),
   validations () {
     return {
-      lastname: { required, minLength: minLength(2) },
-      name: { required, minLength: minLength(2) },
-      password: { required, minLength: minLength(6) },
-      city: { required,  },
-      learn: { required,  },
-      inn: { required, minLength: minLength(12), maxLength: maxLength(12) },
-      service: { required,  },
-      email: { required, email: email }
+      lastname: { required, minLength: minLength(2), },
+      name: { required, minLength: minLength(2), },
+      password: { required, minLength: minLength(6), },
+      city: { required, },
+      learn: { required, },
+      inn: { required, minLength: minLength(12), maxLength: maxLength(12), },
+      service: { required, },
+      email: { required, email, },
     }
   },
-  components: { AddPhoto, UiButton },
+  components: { AddPhoto, UiButton, },
   props: {},
   computed: {},
   methods: {
@@ -140,12 +155,23 @@ export default defineComponent({
     },
     async sendForm () {
       const isError = await this.v$.$validate()
-      if(isError) return
+      if (isError) return false
 
-      const { lastname, name, email, password, birsday, city, learn, inn, service, resume, image } = this
-
-    }
+      // const {
+      //   lastname,
+      //   name,
+      //   email,
+      //   password,
+      //   birsday,
+      //   city,
+      //   learn,
+      //   inn,
+      //   service,
+      //   resume,
+      //   image,
+      // } = this
+    },
   },
-  mounted () {}
+  mounted () {},
 })
 </script>

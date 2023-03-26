@@ -1,33 +1,35 @@
 <template>
   <div class="ui-select">
-    <div 
+    <div
       class="ui-select-header"
       :class="{
-        placehloder: !value || !value.length
+        placehloder: !value || !value.length,
       }"
       @click="targetToSelect"
     >
       {{ value && value.length ? value : placehlod }}
-      <img 
-        src="~/shared/assets/images/arrow_down.png" 
+      <img
+        src="~/shared/assets/images/arrow_down.png"
         alt=""
         :class="{
-          rotate: showBody
+          rotate: showBody,
         }"
-      >
+      />
     </div>
-    <ul 
+    <ul
       class="ui-select-body"
       :class="{
-        show: showBody
+        show: showBody,
       }"
     >
-      <li 
-        v-for="item in items"
-        :key="item[itemKey]"
+      <li
+        v-for="item in items as Item[]"
+        :key="item.id"
         @click="selectItem(item)"
         class="ui-select-body-item"
-      >{{ item[itemText] }}</li>
+      >
+        {{ item.value }}
+      </li>
     </ul>
   </div>
 </template>
@@ -35,37 +37,44 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
+interface Item {
+  id: number
+  value: string
+}
+
+const items: Item[] = [
+  { id: 1, value: 'Cat1', },
+  { id: 2, value: 'Cat2', },
+  { id: 3, value: 'Cat3', },
+  { id: 4, value: 'Cat4', },
+  { id: 5, value: 'Cat5', },
+  { id: 6, value: 'Cat6', },
+]
+
 export default defineComponent({
   name: 'UiSelect',
   data: () => ({
     value: '',
-    showBody: false
+    showBody: false,
   }),
   components: {},
   props: {
     placehlod: {
       type: String,
-      default: 'Введите данные'
+      default: 'Введите данные',
     },
     items: {
       type: Array,
-      default: [
-        { id: 1, value: 'Cat1' },
-        { id: 2, value: 'Cat2' },
-        { id: 3, value: 'Cat3' },
-        { id: 4, value: 'Cat4' },
-        { id: 5, value: 'Cat5' },
-        { id: 6, value: 'Cat6' },
-      ]
+      default: items,
     },
     itemText: {
       type: String,
-      default: 'value'
+      default: 'value',
     },
     itemKey: {
       type: String,
-      default: 'id'
-    }
+      default: 'id',
+    },
   },
   computed: {},
   methods: {
@@ -77,9 +86,9 @@ export default defineComponent({
       this.value = item[this.itemText]
 
       this.$emit('select', item)
-    }
+    },
   },
-  mounted () {}
+  mounted () {},
 })
 </script>
 
@@ -92,7 +101,7 @@ export default defineComponent({
 
   border: 1px solid var(--color-border);
   border-radius: 20px;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .ui-select-header {
@@ -106,7 +115,7 @@ export default defineComponent({
   cursor: pointer;
 
   img {
-    transition: all .2s;
+    transition: all 0.2s;
   }
 
   img.rotate {
@@ -141,7 +150,7 @@ export default defineComponent({
   pointer-events: none;
   opacity: 0;
   transform: translateY(-10px);
-  transition: all .2s;
+  transition: all 0.2s;
 
   &.show {
     opacity: 1;
@@ -153,7 +162,7 @@ export default defineComponent({
     width: 100%;
     border-bottom: 1px solid var(--color-alternative);
     padding: 10px;
-    transition: all .1s;
+    transition: all 0.1s;
     cursor: pointer;
 
     &:hover {
