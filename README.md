@@ -3,9 +3,12 @@
 Архитектура видётся по методологии Feature-Sliced Design [documentation](https://feature-sliced.design/ru/)
 
 Стек:
-> vue [documentation](https://vuejs.org/)
-> typescript [documentation](https://www.typescriptlang.org/)
-> scss [documentation](https://sass-scss.ru/)
+> vue 
+[documentation](https://vuejs.org/)
+> typescript 
+[documentation](https://www.typescriptlang.org/)
+> scss 
+[documentation](https://sass-scss.ru/)
 
 ## Запуск проекта
 
@@ -32,9 +35,12 @@ $ npm run format
 
 На этом уровне проекта располагаются инструменты для глобального декларирования, которые не используются более низких слоях.
 
-> layout - шаблон с повторяющимися элементами на страницах (навигация, шапка и прочее), в которые встраиваются компоненты страниц в зависимости от роутера
-> router - инструмент, созданной при помощи vue-router [documentation](https://router.vuejs.org/), который отлавливает url пользователя и в зависимости от него отдаёт необходимую страницу. Кроме этого, предоставляет возможность для использования удобных элементов навигации по приложению
-> store - глобальное хранилище данных и состояния vuex [documentation](https://vuex.vuejs.org/)
+> layout
+ шаблон с повторяющимися элементами на страницах (навигация, шапка и прочее), в которые встраиваются компоненты страниц в зависимости от роутера
+> router
+ инструмент, созданной при помощи vue-router [documentation](https://router.vuejs.org/), который отлавливает url пользователя и в зависимости от него отдаёт необходимую страницу. Кроме этого, предоставляет возможность для использования удобных элементов навигации по приложению
+> store
+ глобальное хранилище данных и состояния vuex [documentation](https://vuex.vuejs.org/)
 
 # Pages Slice
 
