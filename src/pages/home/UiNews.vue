@@ -35,19 +35,22 @@ export default defineComponent({
       return this.$store.getters.getArticles
     },
   },
-  data: () => ({}),
+  data: () => ({
+    defaultImageUrl: require('shared/assets/images/no_image.jpg').default,
+  }),
   methods: {
     async getImageUrl (imgName: string, el: any) {
       try {
-        const response = await fetch(require(`shared/assets/images/${imgName}`))
+        const imageUrl = require(`shared/assets/images/${imgName}`).default
+        const response = await this.axios.get(imageUrl)
 
         if (response.status !== 200) {
-          el.setAttribute('src', require('shared/assets/images/no_image.jpg').default)
+          throw response.status
         }
 
-        el.setAttribute('src', require(`shared/assets/images/${imgName}`).default)
+        el.setAttribute('src', imageUrl)
       } catch (error) {
-        el.setAttribute('src', require('shared/assets/images/no_image.jpg').default)
+        el.setAttribute('src', this.defaultImageUrl)
         throw error
       }
     },
