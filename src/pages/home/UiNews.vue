@@ -3,6 +3,7 @@
     <div
       class="news__title"
       v-if="news.length"
+      ref="div"
     >
     Статьи
   </div>
@@ -14,8 +15,8 @@
       :to="article.href"
     >
       <img
-        :src="imgUrls[article.id - 1]"
         class="article__img"
+        :ref="el => getImageUrl(article.imgName, el)"
       >
       <div class="article__subtitle">{{ article.title }}</div>
     </router-link>
@@ -34,25 +35,25 @@ export default defineComponent({
       return this.$store.getters.getArticles
     },
   },
-  data: () => ({
-    imgUrls: [] as Array<string>,
-  }),
+  data: () => ({}),
   methods: {
-    async getImgUrl (imgName: string) {
+    async getImageUrl (imgName: string, el: any) {
       try {
-        const request = await fetch(require('shared/assets/images/' + imgName).default)
-        this.imgUrls.push(await request.url)
-      } catch {
-        const request = await fetch(require('shared/assets/images/default.jpg').default)
-        this.imgUrls.push(await request.url)
+        const response = await fetch(require(`shared/assets/images/${imgName}`))
+
+        if (response.status !== 200) {
+          el.setAttribute('src', require('shared/assets/images/no_image.jpg').default)
+        }
+
+        el.setAttribute('src', require(`shared/assets/images/${imgName}`).default)
+      } catch (error) {
+        el.setAttribute('src', require('shared/assets/images/no_image.jpg').default)
+        throw error
       }
     },
   },
   async mounted () {
     this.$store.dispatch('fetchArticles')
-    this.news.forEach(article => {
-      this.getImgUrl(article.imgName)
-    })
   },
 })
 </script>
@@ -70,21 +71,19 @@ export default defineComponent({
   margin-bottom: 15px;
   cursor: pointer;
   transition: 0.1s all;
-}
-
-.article__img {
-  width: 100%;
-  height: 103px;
-  background: #d9d9d9;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  object-fit: cover;
-}
-
-.article__subtitle {
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 20px;
-  color: var(--color-font-alternative);
+  &__img {
+    width: 100%;
+    height: 103px;
+    background: #d9d9d9;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+  }
+  &__subtitle {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    color: var(--color-font-alternative);
+  }
 }
 </style>

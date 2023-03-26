@@ -21,7 +21,7 @@ const newsStore = {
       {
         id: 2,
         title: 'Как не потерять работу',
-        imgName: 'settings.png',
+        imgName: '#',
         href: '/',
       },
     ] as Article[],
