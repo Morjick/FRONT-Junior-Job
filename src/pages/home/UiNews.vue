@@ -1,42 +1,62 @@
 <template>
   <section class="news">
-    <div class="news__title">Статьи</div>
-
-    <a
-      class="article"
-      href="#"
-      v-for="news in newsArr as News[]"
-      :key="news.id"
+    <div
+      class="news__title"
+      v-if="news.length"
+      ref="div"
     >
-      <div class="article__img"></div>
-      <!-- <img :src="imgSrc" :alt="imgAlt" class="article__img"> -->
-      <div class="article__subtitle">{{ news.title }}</div>
-    </a>
+    Статьи
+  </div>
+
+    <router-link
+      class="article"
+      v-for="article in news"
+      :key="article.id"
+      :to="article.href"
+    >
+      <img
+        class="article__img"
+        :ref="el => getImageUrl(article.imgName, el)"
+      >
+      <div class="article__subtitle">{{ article.title }}</div>
+    </router-link>
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
-interface News {
-  id: number
-  title: string
-}
-
-const NewsArr: News[] = [
-  {
-    id: 1,
-    title: 'title',
-  },
-]
+import { Article } from './news.store'
 
 export default defineComponent({
   name: 'UiNews',
-  props: {
-    newsArr: {
-      type: Array,
-      default: NewsArr,
+  props: {},
+  computed: {
+    news (): Article[] {
+      return this.$store.getters.getArticles
     },
+  },
+  data: () => ({
+    defaultImageUrl: require('shared/assets/images/no_image.jpg').default,
+  }),
+  methods: {
+    async getImageUrl (imgName: string, el: any) {
+      try {
+        const imageUrl = require(`shared/assets/images/${imgName}`).default
+        const response = await this.axios.get(imageUrl)
+
+        if (response.status !== 200) {
+          throw response.status
+        }
+
+        el.setAttribute('src', imageUrl)
+      } catch (error) {
+        el.setAttribute('src', this.defaultImageUrl)
+        throw error
+      }
+    },
+  },
+  async mounted () {
+    this.$store.dispatch('fetchArticles')
   },
 })
 </script>
@@ -54,24 +74,19 @@ export default defineComponent({
   margin-bottom: 15px;
   cursor: pointer;
   transition: 0.1s all;
-}
-
-.article:hover {
-  transform: scale(1.05);
-}
-
-.article__img {
-  width: 100%;
-  height: 103px;
-  background: #d9d9d9;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.article__subtitle {
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 20px;
-  color: var(--color-font-alternative);
+  &__img {
+    width: 100%;
+    height: 103px;
+    background: #d9d9d9;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+  }
+  &__subtitle {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    color: var(--color-font-alternative);
+  }
 }
 </style>
