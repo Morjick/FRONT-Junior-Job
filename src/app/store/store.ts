@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import { notificationStore } from 'pages/notification/notification.store'
 
 interface usersStore {
   users: object[]
@@ -24,6 +25,7 @@ const userStore = {
 const store = createStore({
   modules: {
     users: userStore,
+    notification: notificationStore,
   },
 })
 
