@@ -20,6 +20,7 @@ import { AdminArticlesPage } from 'pages/admin/articles'
 import { CreateArticlesPage } from 'pages/admin/articles/create'
 import { EditArticlesPage } from 'pages/admin/articles/edit'
 import { CategoriesPage } from 'pages/admin/categories'
+import { NotificationPage } from 'pages/notification'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -33,6 +34,7 @@ export const router = createRouter({
         { component: searchResultsPage, path: '/search-result', },
         { component: ArticlesPage, path: '/articles', },
         { component: Profile, path: '/profile', },
+        { component: NotificationPage, path: '/notification', },
       ],
     },
     {

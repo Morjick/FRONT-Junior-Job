@@ -22,7 +22,7 @@
         src="~/shared/assets/images/send.png"
         alt="click to send message"
         class="message__send-btn"
-      >
+      />
     </div>
   </div>
  </div>
