@@ -21,6 +21,8 @@ app.config.errorHandler = function (err: any, vm: any, info: any) {
     } else if (errCode === 403) {
       void router.push('/auth')
     }
+  } else {
+    console.error(err)
   }
 }
 
