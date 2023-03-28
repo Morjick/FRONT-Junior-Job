@@ -11,14 +11,16 @@ const app = createApp({
 })
 
 app.config.errorHandler = function (err: any, vm: any, info: any) {
-  const errCode = Number(err.match(/\d/g).join(''))
+  if (err.search(/\d/g) !== -1) {
+    const errCode = Number(err.match(/\d/g).join(''))
 
-  if (errCode >= 500 && errCode <= 600) {
-    void router.push('/server-error')
-  } else if (errCode >= 305 && errCode <= 401) {
-    void router.push('')
-  } else if (errCode === 403) {
-    void router.push('/auth')
+    if (errCode >= 500 && errCode <= 600) {
+      void router.push('/server-error')
+    } else if (errCode >= 305 && errCode <= 401) {
+      void router.push('')
+    } else if (errCode === 403) {
+      void router.push('/auth')
+    }
   }
 }
 
