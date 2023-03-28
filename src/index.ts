@@ -10,6 +10,18 @@ const app = createApp({
   render: () => h(App),
 })
 
+app.config.errorHandler = function (err: any, vm: any, info: any) {
+  const errCode = Number(err.match(/\d/g).join(''))
+
+  if (errCode >= 500 && errCode <= 600) {
+    void router.push('/server-error')
+  } else if (errCode >= 305 && errCode <= 401) {
+    void router.push('')
+  } else if (errCode === 403) {
+    void router.push('/auth')
+  }
+}
+
 axios.defaults.baseURL = ''
 
 app.use(router)

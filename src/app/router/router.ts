@@ -74,7 +74,7 @@ export const router = createRouter({
       path: '/:pathMatch(.*)*',
       children: [
         { component: NotFound, path: '', },
-        { component: ServerError, path: '', },
+        { component: ServerError, path: '/server-error', },
       ],
     },
     {
