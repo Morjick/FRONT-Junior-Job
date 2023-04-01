@@ -1,7 +1,7 @@
 interface IError {
-  name: string
+  error: string
   message: string
-  stack: string
+  status: number
 }
 
 export { type IError }

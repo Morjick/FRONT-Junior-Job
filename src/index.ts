@@ -11,28 +11,37 @@ const app = createApp({
   render: () => h(App),
 })
 
-try {
-  app.config.errorHandler = (err: IError | any): void => {
-    const errCode = Number(err.message.match(/\d/g)?.join(''))
-    if (errCode >= 500 && errCode <= 600) {
-      void router.push('/server-error')
-    } else if (errCode >= 305 && errCode <= 401) {
-      void router.push('')
-    } else if (errCode === 403) {
-      void router.push('/auth')
-    } else {
-      throw err
+function createErrorHandler (): any {
+  try {
+    app.config.errorHandler = () => {
+      void router.push('/')
     }
+  } catch (error: any) {
+    void router.push('/server-error')
+    return error
   }
-} catch (error: IError | any) {
-  throw error.message
 }
+
+createErrorHandler()
 
 axios.defaults.baseURL = ''
 axios.interceptors.response.use(
   (res: any) => res,
-  (err: IError | any) => {
-    throw new Error(err)
+  async (err: IError | any) => {
+    try {
+      if (err.status >= 500 && err.status <= 600) {
+        void router.push('/server-error')
+      } else if (err.status >= 305 && err.status <= 401) {
+        void router.push('')
+      } else if (err.status === 404) {
+        void router.push('/auth')
+      } else {
+        return err
+      }
+    } catch (error: any) {
+      void router.push('/server-error')
+      return error
+    }
   }
 )
 
@@ -42,3 +51,5 @@ app.use(VueAxios, axios)
 app.use(CKEditor)
 
 app.mount('#app')
+
+export default app
