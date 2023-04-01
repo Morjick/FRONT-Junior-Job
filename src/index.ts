@@ -51,5 +51,3 @@ app.use(VueAxios, axios)
 app.use(CKEditor)
 
 app.mount('#app')
-
-export default app
