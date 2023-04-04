@@ -22,7 +22,7 @@ v-if="v$.$error">
 
     <input
       class="ui-input"
-      placeholder="Имя"
+      placeholder="Отчество"
       v-model="v$.patronomic.$model"
       :class="{ error: v$.patronomic.$error }"
     />
@@ -92,16 +92,20 @@ export default defineComponent({
       v$: useVuelidate(),
     }
   },
-  data: () => ({}),
+  data: () => ({
+    lastname: '',
+    name: '',
+    patronomic: '',
+    email: '',
+    password: '',
+    city: '',
+  }),
   validations () {
     return {
       lastname: { required, minLength: minLength(2), },
       name: { required, minLength: minLength(2), },
       password: { required, minLength: minLength(6), },
       city: { required, },
-      learn: { required, },
-      inn: { required, minLength: minLength(12), maxLength: maxLength(12), },
-      service: { required, },
       email: { required, email, },
       patronomic: { required, },
     }

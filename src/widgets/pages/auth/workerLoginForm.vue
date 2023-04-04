@@ -38,7 +38,7 @@ v-if="v$.email.$errors[0]">
     />
 
     <router-link
-      to="/auth?form=worker&methods=singup"
+      to="/join?methods=singup"
       style="width: 100%; margin: 0 auto; text-align: center; font-size: 25px"
       >Зарегистрироваться</router-link
     >
@@ -64,7 +64,10 @@ export default defineComponent({
       email: { required, email, },
     }
   },
-  data: () => ({}),
+  data: () => ({
+    email: '',
+    password: '',
+  }),
   components: { UiButton, },
   props: {},
   computed: {},
