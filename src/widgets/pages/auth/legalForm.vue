@@ -68,7 +68,12 @@ import UiButton from 'widgets/ui/UiButton.vue'
 
 export default defineComponent({
   name: 'legalForm',
-  data: () => ({}),
+  data: () => ({
+    name: '',
+    inn: '',
+    email: '',
+    city: '',
+  }),
   setup () {
     return {
       v$: useVuelidate(),
