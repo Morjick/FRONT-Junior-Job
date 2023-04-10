@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import { newsStore } from 'pages/home/news.store'
+import { themeSwitcher } from './themeSwitcher.store'
 
 interface usersStore {
   users: object[]
@@ -26,6 +27,7 @@ const store = createStore({
   modules: {
     users: userStore,
     news: newsStore,
+    theme: themeSwitcher,
   },
 })
 

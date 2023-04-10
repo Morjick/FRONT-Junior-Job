@@ -12,15 +12,18 @@ import { useVuelidate } from '@vuelidate/core'
 export default defineComponent({
   name: 'AppComponent',
   components: {},
+  computed: {
+    theme (): string {
+      return this.$store.getters.getTheme
+    },
+  },
   setup () {
     return {
       v$: useVuelidate(),
     }
   },
   data () {
-    return {
-      theme: 'light',
-    }
+    return {}
   },
   methods: {},
 })
