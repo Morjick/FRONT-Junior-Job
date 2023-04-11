@@ -8,13 +8,8 @@ const themeSwitcher = {
   },
   mutations: {
     switchTheme (state: themeSwitcherI) {
-      if (state.theme === 'light') {
-        state.theme = 'dark'
-        localStorage.setItem('theme', 'dark')
-      } else {
-        state.theme = 'light'
-        localStorage.setItem('theme', 'light')
-      }
+      state.theme = state.theme === 'light' ? 'dark' : 'light'
+      localStorage.setItem('theme', state.theme)
     },
   },
   getters: {
@@ -25,5 +20,6 @@ const themeSwitcher = {
 }
 
 export {
-  themeSwitcher
+  themeSwitcher,
+  type themeSwitcherI
 }
