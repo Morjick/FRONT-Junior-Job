@@ -8,14 +8,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useVuelidate } from '@vuelidate/core'
-import { themeSwitcherI } from './app/store/themeSwitcher.store'
+import { theme } from './app/store/themeSwitcher.store'
 
 export default defineComponent({
   name: 'AppComponent',
   components: {},
   computed: {
-    theme (): themeSwitcherI['theme'] {
-      return this.$store.getters.getTheme || 'light'
+    theme (): theme {
+      return this.$store.getters.getTheme || theme.light
     },
   },
   setup () {
