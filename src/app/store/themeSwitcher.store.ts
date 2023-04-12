@@ -3,7 +3,7 @@ enum theme {
   light = 'light'
 }
 
-interface themeSwitcherI {
+interface themeStateI {
   theme: theme
 }
 
@@ -12,13 +12,13 @@ const themeSwitcher = {
     theme: localStorage.getItem('theme') ? localStorage.getItem('theme') : theme.light,
   },
   mutations: {
-    switchTheme (state: themeSwitcherI) {
+    switchTheme (state: themeStateI) {
       state.theme = state.theme === theme.light ? theme.dark : theme.light
       localStorage.setItem('theme', state.theme)
     },
   },
   getters: {
-    getTheme (state: themeSwitcherI) {
+    getTheme (state: themeStateI) {
       return state.theme
     },
   },
