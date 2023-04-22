@@ -41,7 +41,6 @@ export default defineComponent({
   align-items: center;
   color: var(--color-main);
   background-color: var(--color-alternative);
-  padding: 15px 35px;
   min-height: 60px;
   min-width: 274px;
   border-radius: 20px;
@@ -51,6 +50,12 @@ export default defineComponent({
     background: none;
     color: var(--color-alternative);
     font-size: 25px;
+  }
+  &_small {
+    padding: 0;
+    min-width: 0;
+    width: 175px;
+    min-height: 40px;
   }
 }
 </style>
