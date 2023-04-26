@@ -4,7 +4,7 @@ import App from './App.vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import CKEditor from '@ckeditor/ckeditor5-vue'
-import { type IError } from 'widgets/interface/error'
+import { type IError } from 'shared/interface/error'
 import 'shared/assets/styles/main.scss'
 
 const app = createApp({

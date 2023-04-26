@@ -1,6 +1,6 @@
 interface IReview {
   review: string
-  userId: number
+  rating: number
 }
 
 export { type IReview }
