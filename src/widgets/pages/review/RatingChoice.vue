@@ -1,24 +1,24 @@
 <template>
   <div class="rating-choice">
-    <div
+    <ui-star
+      :is-filled="currentRating <= selectedRating ? true : false"
       class="rating-choice__star"
-      v-for="currentRating in maxRating"
+      v-for="currentRating in 5"
       :key="currentRating"
-      :class="{
-        'rating-choice__star-active': currentRating <= selectedRating
-      }"
       @click="selectRating(currentRating)"
-    >
-      &#9733;
-    </div>
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import UiStar from './UiStar.vue'
 
 export default defineComponent({
   name: 'RatingChoice',
+  components: {
+    UiStar,
+  },
   props: {
     isNeedToReset: {
       type: Boolean,
@@ -26,7 +26,6 @@ export default defineComponent({
     },
   },
   data: () => ({
-    maxRating: 5,
     selectedRating: 0,
   }),
   methods: {
@@ -49,13 +48,7 @@ export default defineComponent({
 .rating-choice {
   display: flex;
   &__star {
-    color: var(--color-placeholder);
-    cursor: pointer;
-    transition: .2s all;
-    font-size: 25px;
-    &-active {
-      color: var(--color-accent);
-    }
+    margin-right: 2px;
   }
 }
 </style>

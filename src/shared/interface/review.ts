@@ -1,5 +1,6 @@
 interface IReview {
-  review: string
+  userId: number
+  content: string
   rating: number
 }
 
