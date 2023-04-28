@@ -73,11 +73,12 @@ export default defineComponent({
       this.isNeedToResetRating = true
       this.selectedRating = 0
 
-      if (!review.rating || !review.content) {
+      if (!review.rating) {
         this.isEmptyField = true
         return false
       } else {
         this.isEmptyField = false
+        console.log(review)
         this.$emit('send-review', review)
       }
     },
