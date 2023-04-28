@@ -78,7 +78,6 @@ export default defineComponent({
         return false
       } else {
         this.isEmptyField = false
-        console.log(review)
         this.$emit('send-review', review)
       }
     },
