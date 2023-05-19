@@ -3,6 +3,7 @@
     v-bind:class="'navigation' + ' ' + showingClass"
     @click="hideNav"
     ref="closeArea"
+    v-if="screen < 700"
   >
     <div class="navigation__sidebar">
       <!-- Вход/регистрация -->
@@ -25,8 +26,7 @@
         </div>
       </div>
 
-      <!-- Список с ссылками -->
-      <nav class="navigation__nav">
+      <nav class="navigation__desktop">
         <ul class="navigation__list">
           <!-- Уведомления -->
           <li class="navigation__element">
@@ -91,6 +91,63 @@ class="navigation__element-link">
       </nav>
     </div>
   </div>
+
+  <nav
+    class="nav-desktop"
+    v-else
+  >
+    <ul class="nav-desktop__list">
+      <li class="nav-desktop__list-item">
+        <a href="#">
+          <img
+            src="~/shared/assets/images/work.png"
+            class="nav-desktop__img"
+          />
+          вакансии
+        </a>
+      </li>
+
+      <li class="nav-desktop__list-item">
+        <a href="#">
+          <img
+            src="~/shared/assets/images/add_card.png"
+            class="nav-desktop__img"
+          />
+          кошелек
+        </a>
+      </li>
+
+      <li class="nav-desktop__list-item">
+        <a href="#">
+          <img
+            src="~/shared/assets/images/star.png"
+            class="nav-desktop__img"
+          />
+          избранное
+        </a>
+      </li>
+
+      <li class="nav-desktop__list-item">
+        <a href="#">
+          <img
+            src="~/shared/assets/images/note.png"
+            class="nav-desktop__img"
+          />
+          статьи
+        </a>
+      </li>
+
+      <li class="nav-desktop__list-item">
+        <a href="#">
+          <img
+            src="~/shared/assets/images/settings.png"
+            class="nav-desktop__img"
+          />
+          настройки
+        </a>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
@@ -106,10 +163,20 @@ export default defineComponent({
       }
     },
   },
+  computed: {
+    screen () {
+      return this.$store.getters.getScreenWidth
+    },
+  },
+  created () {
+    window.addEventListener('resize', () => this.$store.commit('updateScreenWidth'))
+  },
 })
 </script>
 
 <style lang="scss">
+@use '~shared/assets/styles/mixin.scss' as mixin;
+
 .navigation {
   display: block;
   width: 100vw;
@@ -122,68 +189,88 @@ export default defineComponent({
   overflow: hidden;
   z-index: 1;
   transition: 0.3s all;
+  &.navigation_show {
+    left: 0;
+  }
+  &__sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--color-main);
+    padding: 30px 15px 0 15px;
+    width: 260px;
+    height: 100%;
+  }
+  &__user-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  &__user-icon {
+    width: 36px;
+    height: 36px;
+    margin-right: 15px;
+  }
+  &__user-account {
+    display: flex;
+    flex-direction: column;
+  }
+  &__user-account a {
+    font-weight: 400;
+    font-size: 25px;
+    text-decoration: none;
+  }
+  &__element {
+    margin-bottom: 30px;
+  }
+  &__element-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  &__element-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 15px;
+  }
+  &__element-text {
+    font-weight: 400;
+    font-size: 25px;
+    color: var(--color-font-alternative);
+  }
+  &__element:last-child {
+    margin-bottom: 0;
+  }
 }
 
-.navigation.navigation_show {
-  left: 0;
-}
-
-.navigation__sidebar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: var(--color-main);
-  padding: 30px 15px 0 15px;
-  width: 260px;
-  height: 100%;
-}
-
-.navigation__user-wrapper {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.navigation__user-icon {
-  width: 36px;
-  height: 36px;
-  margin-right: 15px;
-}
-
-.navigation__user-account {
-  display: flex;
-  flex-direction: column;
-}
-
-.navigation__user-account a {
-  font-weight: 400;
-  font-size: 25px;
-  text-decoration: none;
-}
-
-.navigation__element {
-  margin-bottom: 30px;
-}
-
-.navigation__element-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.navigation__element-icon {
-  width: 28px;
-  height: 28px;
-  margin-right: 15px;
-}
-
-.navigation__element-text {
-  font-weight: 400;
-  font-size: 25px;
-  color: var(--color-font-alternative);
-}
-
-.navigation__element:last-child {
-  margin-bottom: 0;
+.nav-desktop {
+  &__list {
+    display: flex;
+    @include mixin.adaptive(tablet) {
+      justify-content: space-between;
+    }
+    @include mixin.adaptive(desktop) {
+      justify-content: flex-start;
+    }
+  }
+  &__list-item {
+    @include mixin.adaptive(desktop) {
+      margin-right: 70px;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__list-item a {
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 18px;
+    color: var(--color-font-alternative)
+  }
+  &__img {
+    margin-right: 5px;
+  }
 }
 </style>

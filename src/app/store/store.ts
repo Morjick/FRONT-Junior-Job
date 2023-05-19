@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 import { newsStore } from 'pages/home/news.store'
 import { themeSwitcher } from './themeSwitcher.store'
+import { screenStore } from './screenStore.store'
 
 interface usersStore {
   users: object[]
@@ -28,6 +29,7 @@ const store = createStore({
     users: userStore,
     news: newsStore,
     theme: themeSwitcher,
+    screen: screenStore,
   },
 })
 
