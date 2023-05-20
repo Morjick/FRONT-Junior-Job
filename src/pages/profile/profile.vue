@@ -1,38 +1,40 @@
 <template>
   <section class="profile">
-    <div class="profile__main-info">
-      <img
-        src="~shared/assets/images/temp-home-logo.png"
-        alt="user"
-        class="profile__main-info-img"
-      />
+      <div class="profile__wrapp">
+        <div class="profile__main-info">
+        <img
+          src="~shared/assets/images/temp-home-logo.png"
+          alt="user"
+          class="profile__main-info-img"
+        />
 
-      <div class="profile__main-info-text">
-        <div class="profile__main-info-name">
-          {{ userData.surname }} {{ userData.name }}
+        <div class="profile__main-info-text">
+          <div class="profile__main-info-name">
+            {{ userData.surname }} {{ userData.name }}
+          </div>
+          <ui-rating :rating="userData.rating" />
         </div>
-        <ui-rating :rating="userData.rating" />
-      </div>
-    </div>
-
-    <div class="profile__sub-info">
-      <div class="profile__sub">
-        <img
-          src="~shared/assets/images/location.png"
-          alt="location"
-          class="profile__sub-img"
-        />
-        <div class="profile__sub-text">{{ userData.location }}</div>
       </div>
 
-      <div class="profile__sub"
-v-if="userData.subInfo">
-        <img
-          src="~shared/assets/images/check.png"
-          alt="check"
-          class="profile__sub-img"
-        />
-        <div class="profile__sub-text">{{ userData.subInfo }}</div>
+      <div class="profile__sub-info">
+        <div class="profile__sub">
+          <img
+            src="~shared/assets/images/location.png"
+            alt="location"
+            class="profile__sub-img"
+          />
+          <div class="profile__sub-text">{{ userData.location }}</div>
+        </div>
+
+        <div class="profile__sub"
+  v-if="userData.subInfo">
+          <img
+            src="~shared/assets/images/check.png"
+            alt="check"
+            class="profile__sub-img"
+          />
+          <div class="profile__sub-text">{{ userData.subInfo }}</div>
+        </div>
       </div>
     </div>
 
@@ -129,8 +131,19 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@use '~shared/assets/styles/mixin.scss' as mixin;
+
 .profile {
   padding: 20px;
+  @include mixin.adaptive(tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    padding: 20px 30px;
+  }
+  @include mixin.adaptive(desktop) {
+    padding: 20px 50px;
+  }
   &__main-info {
     width: 100%;
     display: flex;
@@ -140,10 +153,20 @@ export default defineComponent({
     top: 100px;
     left: 50%;
     transform: translateX(-50%);
+    @include  mixin.adaptive(tablet) {
+      position: inherit;
+      transform: translateX(0);
+      justify-content: flex-start;
+      margin-bottom: 20px;
+    }
     &-img {
       margin-right: 15px;
       width: 70px;
       height: 70px;
+      @include mixin.adaptive(tablet) {
+        width: 110px;
+        height: 110px;
+      }
     }
     &-name {
       font-family: 'Marmelad';

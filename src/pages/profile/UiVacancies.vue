@@ -30,12 +30,17 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@use '~shared/assets/styles/mixin.scss' as mixin;
+
 .vacancies {
   &__title {
     font-weight: 400;
     font-size: 25px;
     color: var(--color-font-alternative);
     margin-bottom: 10px;
+    @include mixin.adaptive(tablet) {
+      margin-bottom: 20px;
+    }
   }
   &__vacancy {
     margin-bottom: 15px;

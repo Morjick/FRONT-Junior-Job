@@ -132,6 +132,9 @@ export default {
   }
   &__space {
     height: 70px;
+    @include mixin.adaptive(tablet) {
+      height: 0;
+    }
   }
 }
 
