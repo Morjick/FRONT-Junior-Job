@@ -49,6 +49,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@use '~shared/assets/styles/mixin.scss' as mixin;
+
   .letter {
     width: 50%;
     min-height: 30px;
@@ -56,6 +58,12 @@ export default defineComponent({
     align-self: flex-end;
     display: flex;
     align-items: flex-end;
+    @include mixin.adaptive(tablet) {
+      width: 40%;
+    }
+    @include mixin.adaptive(desktop) {
+      width: 30%;
+    }
     &__content {
       min-height: 30px;
       width: 100%;
