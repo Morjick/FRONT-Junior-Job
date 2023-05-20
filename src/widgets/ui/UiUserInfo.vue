@@ -11,7 +11,7 @@
     </router-link>
 
     <router-link
-      to="/message"
+      to="/message-list"
       class="account__chat"
     >
       <img
