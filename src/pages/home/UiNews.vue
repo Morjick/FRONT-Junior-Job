@@ -16,7 +16,7 @@
     >
       <img
         class="article__img"
-        :ref="el => getImageUrl(article.imgName, el)"
+        :ref="el => getImageUrl(article.avatar, el)"
       >
       <div class="article__subtitle">{{ article.title }}</div>
     </router-link>
@@ -31,7 +31,7 @@ export default defineComponent({
   name: 'UiNews',
   props: {},
   computed: {
-    news (): Article[] {
+    news (): Promise<Article[]> {
       return this.$store.getters.getArticles
     },
   },
@@ -39,9 +39,9 @@ export default defineComponent({
     defaultImageUrl: require('shared/assets/images/no_image.jpg').default,
   }),
   methods: {
-    async getImageUrl (imgName: string, el: any) {
+    async getImageUrl (avatar: string, el: any) {
       try {
-        const imageUrl = require(`shared/assets/images/${imgName}`).default
+        const imageUrl = require(`shared/assets/images/${avatar}`).default
         const response = await this.axios.get(imageUrl)
 
         if (response.status !== 200) {
