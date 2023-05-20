@@ -11,10 +11,14 @@
         <span></span>
       </div>
 
-      <logotype
-        theme="light"
-        class="pages__logo"
-      />
+      <div class="pages__header-wrapper">
+        <logotype
+          theme="light"
+          class="pages__logo"
+        />
+
+        <ui-user-info v-if="screen >= 700"/>
+      </div>
 
       <ui-navigation :showingClass="showingClass"
         @hideNav="hideNav"
@@ -40,6 +44,7 @@ v-if="$route.path === '/profile'"></div>
 import Logotype from 'widgets/global/Logotype.vue'
 import UiNavigation from 'widgets/ui/UiNavigation.vue'
 import UiSearchForm from 'widgets/ui/UiSearchForm.vue'
+import UiUserInfo from 'widgets/ui/UiUserInfo.vue'
 
 export default {
   name: 'DefaultLayout',
@@ -47,6 +52,7 @@ export default {
     UiNavigation,
     Logotype,
     UiSearchForm,
+    UiUserInfo,
   },
   data () {
     return {
@@ -104,12 +110,19 @@ export default {
     padding: 0 30px;
     @include mixin.adaptive(tablet) {
       padding: 20px 30px;
-      height: 180px;
+      height: 185px;
       display: block;
       background-color: var(--color-main);
     }
     @include mixin.adaptive(desktop) {
       padding: 20px 50px;
+    }
+    &-wrapper {
+      @include mixin.adaptive(tablet) {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+      }
     }
   }
   &__body {
