@@ -1,3 +1,5 @@
+import axios from "axios"
+
 interface Article {
   id: number
   title: string
@@ -11,20 +13,7 @@ interface NewsStoreI {
 
 const newsStore = {
   state: {
-    news: [
-      {
-        id: 1,
-        title: 'Как искать работу',
-        imgName: '#',
-        href: '/',
-      },
-      {
-        id: 2,
-        title: 'Как не потерять работу',
-        imgName: '#',
-        href: '/',
-      },
-    ] as Article[],
+    news: []
   },
   getters: {
     getArticles (state: NewsStoreI): Article[] {
@@ -32,13 +21,16 @@ const newsStore = {
     },
   },
   actions: {
-    async fetchArticles (action: any) {
+    async fetchArticles({commit}: any) {
+      const {data} = await axios.get('/article')
 
-    },
+      commit('updateNews', data)
+    }
   },
   mutations: {
-    updateNews (state: NewsStoreI, news: Article[]) {
-      state.news = news
+    updateNews (state: NewsStoreI, data: any) {
+      
+      state.news = data
     },
   },
 }
