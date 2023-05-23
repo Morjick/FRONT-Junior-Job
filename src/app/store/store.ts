@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import { notificationStore } from 'pages/notification/notification.store'
 import { newsStore } from 'pages/home/news.store'
 import { themeSwitcher } from './themeSwitcher.store'
 import { screenStore } from './screenStore.store'
@@ -27,6 +28,7 @@ const userStore = {
 const store = createStore({
   modules: {
     users: userStore,
+    notification: notificationStore,
     news: newsStore,
     theme: themeSwitcher,
     screen: screenStore,
