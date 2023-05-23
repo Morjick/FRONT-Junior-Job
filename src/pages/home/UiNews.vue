@@ -62,6 +62,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@use '~shared/assets/styles/mixin.scss' as mixin;
+
 .news__title {
   font-weight: 600;
   font-size: 25px;
@@ -81,6 +83,9 @@ export default defineComponent({
     border-radius: 10px;
     margin-bottom: 10px;
     object-fit: cover;
+    @include mixin.adaptive(desktop) {
+      height: 150px;
+    }
   }
   &__subtitle {
     font-weight: 400;

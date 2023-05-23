@@ -4,10 +4,17 @@
       class="home__search"
       :data="cities"
       :dataProperty="cityProperty"
+      v-if="screen < 700"
     />
-    <div class="home__subtitle">Новые вакансии</div>
-    <ui-new-items :newItems="newVacancies" />
-    <ui-news :newsArr="newsArr" />
+
+    <div class="home__wrapp">
+      <div class="home__vacancy">
+        <div class="home__subtitle">Новые вакансии</div>
+        <ui-new-items :newItems="newVacancies" />
+      </div>
+
+      <ui-news :newsArr="newsArr" />
+    </div>
   </section>
 </template>
 
@@ -69,8 +76,44 @@ export default defineComponent({
     cities: Cities.getCity((element: any) => element, ['name_with_type', ]),
     cityProperty: 'name_with_type',
   }),
-  computed: {},
+  computed: {
+    screen () {
+      return this.$store.getters.getScreenWidth
+    },
+  },
   methods: {},
-  mounted () {},
+  created () {
+    window.addEventListener('resize', () => this.$store.commit('updateScreenWidth'))
+  },
 })
 </script>
+
+<style lang="scss">
+@use '~shared/assets/styles/mixin.scss' as mixin;
+
+.home {
+  padding: 0 20px;
+  @include mixin.adaptive(desktop) {
+    padding: 0 50px;
+  }
+  &__search {
+    margin: 0 auto;
+    transform: translateY(-50%);
+  }
+  &__subtitle {
+    font-weight: 600;
+    font-size: 25px;
+    color: var(--color-helper);
+    margin-bottom: 10px;
+    @include mixin.adaptive(tablet) {
+      margin-bottom: 15px;
+    }
+  }
+  &__wrapp {
+    @include mixin.adaptive(tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+</style>

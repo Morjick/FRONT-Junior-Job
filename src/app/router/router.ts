@@ -7,7 +7,7 @@ import EmptyLayout from '../layout/empty.vue'
 import ErrorLayout from '../layout/error.vue'
 import AdminLayout from '../layout/admin.vue'
 import MessageLayout from '../layout/message.vue'
-import { MessagePage } from 'pages/message'
+import { MessagePage, MessageList } from 'pages/message'
 import { JoinPage } from 'pages/join'
 import { AuthPage } from 'pages/auth'
 import { JoinVariable } from 'pages/joinVariable'
@@ -34,6 +34,7 @@ export const router = createRouter({
         { component: searchResultsPage, path: '/search-result', },
         { component: ArticlesPage, path: '/articles', },
         { component: Profile, path: '/profile', },
+        { component: MessageList, path: '/message-list', },
         { component: NotificationPage, path: '/notification', },
       ],
     },

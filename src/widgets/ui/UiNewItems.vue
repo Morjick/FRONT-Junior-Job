@@ -59,9 +59,6 @@ export default defineComponent({
   &:last-child {
     margin-bottom: 0;
   }
-  &:hover {
-    transform: scale(1.05);
-  }
   &__img {
     width: 50px;
     height: 50px;
