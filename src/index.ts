@@ -24,7 +24,7 @@ function createErrorHandler (): any {
 
 createErrorHandler()
 
-axios.defaults.baseURL = ''
+axios.defaults.baseURL = 'http://localhost:8080'
 axios.interceptors.response.use(
   (res: any) => res,
   async (err: IError | any) => {
