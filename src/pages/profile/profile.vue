@@ -12,7 +12,6 @@
           <div class="profile__main-info-name">
             {{ userData.surname }} {{ userData.name }}
           </div>
-          <ui-rating :rating="userData.rating" />
         </div>
       </div>
 
@@ -25,20 +24,17 @@
           />
           <div class="profile__sub-text">{{ userData.location }}</div>
         </div>
-
-        <div class="profile__sub"
-  v-if="userData.subInfo">
-          <img
-            src="~shared/assets/images/check.png"
-            alt="check"
-            class="profile__sub-img"
-          />
-          <div class="profile__sub-text">{{ userData.subInfo }}</div>
-        </div>
       </div>
     </div>
 
     <div class="profile__descr">{{ userData.descr }}</div>
+    <div class="compliance-container">
+      <div
+        v-for="item in compliance"
+        :key="item"
+        class="compliance-item"
+      >{{ item }}</div>
+    </div>
 
     <ui-reviews :reviews="userData.reviews"
 class="profile__dynamic-info" />
@@ -46,15 +42,18 @@ class="profile__dynamic-info" />
       :vacancies="userData.vacancies"
       class="profile__dynamic-info"
     />
-    <ui-button :text="btnText" />
-    <ui-button :text="userData.favorites"
-:classMod="classMod" />
+    <div>
+      <ui-button :text="btnText" />
+      <ui-button
+        :text="userData.favorites"
+        :classMod="classMod"
+      />
+    </div>
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import UiRating from 'widgets/ui/UiRating.vue'
 import UiReviews from './UiReviews.vue'
 import UiButton from 'widgets/ui/UiButton.vue'
 import UiVacancies from './UiVacancies.vue'
@@ -120,9 +119,43 @@ export default defineComponent({
     },
     btnText: 'Написать',
     classMod: 'ui-button_invisible',
+    compliance: [
+      'Вежливость',
+      'Грамотная устная речь',
+      'Грамотная письменная речь',
+      'Общение с клиентами',
+      'Навыки презентации',
+      'Харизма',
+      'Коммуникабельность',
+      'Публичные выступления',
+      'Уборка',
+      'Готовка',
+      'Шитье',
+      'Рукоделие',
+      'Уход за  домашними животными',
+      'Уход за детьм',
+      'Уход за пожилыми людьми',
+      'Фотосъемка',
+      'Видеосъемка',
+      'Видеомонтаж',
+      'Работа с фотографиями',
+      'Управляю транспортным средством, требующим специальных прав',
+      'Управляю транспортным средством, не требующим специальных прав',
+      'Работа с компьютером',
+      'Работа с документами',
+      'MS Office',
+      'Программирование',
+      'Дизайн',
+      'Работа с продукцией',
+      'Учет',
+      'Есть медкнижка',
+      'Работа с сельско-хозяйственными культурами',
+      'Работа с кормовыми животными',
+      'Ремонт',
+      'Строительство',
+    ],
   }),
   components: {
-    UiRating,
     UiReviews,
     UiButton,
     UiVacancies,
@@ -132,6 +165,20 @@ export default defineComponent({
 
 <style lang="scss">
 @use '~shared/assets/styles/mixin.scss' as mixin;
+
+.compliance-container {
+  margin-bottom: 20px;
+}
+
+.compliance-item {
+  display: inline-block;
+  background: var(--color-font-alternative);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 16px;
+  color: var(--admin-alternative-color-font);
+  margin: 0 5px 5px 0;
+}
 
 .profile {
   padding: 20px;

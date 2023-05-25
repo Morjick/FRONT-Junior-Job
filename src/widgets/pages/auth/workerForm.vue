@@ -42,13 +42,12 @@ v-if="v$.$error">
       :class="{ error: v$.password.$error }"
     />
 
-    <p></p>
-
     <input
       type="date"
       class="ui-input"
       placeholder="Дата рождения"
       v-model="date"
+      style="margin-bottom: 35px;"
     />
     <input
       class="ui-input"
@@ -78,12 +77,24 @@ v-if="v$.$error">
       v-model="v$.inn.$model"
       :class="{ error: v$.inn.$error }"
     />
-    <input
-      class="ui-input"
-      placeholder="Предлагаемая услуга"
-      v-model="v$.service.$model"
-      :class="{ error: v$.service.$error }"
+
+    <ui-select
+      :multiselect="true"
+      :items="compliance"
+      itemText=""
+      itemKey=""
+      style="margin-bottom: 20px;"
+      placehlod="Компетенции"
+      @select="addCompliance"
     />
+
+    <div class="compliance-container">
+      <div
+        v-for="item in checkCompliance"
+        :key="item"
+        class="compliance-item"
+      >{{ item }}</div>
+    </div>
 
     <textarea placeholder="Резюме"></textarea>
 
@@ -109,9 +120,12 @@ v-if="v$.$error">
 <script lang="ts">
 import { defineComponent } from 'vue'
 import UiButton from 'widgets/ui/UiButton.vue'
+import UiSelectVue from 'widgets/ui/UiSelect.vue'
 import AddPhoto from './addPhoto.vue'
 import { useVuelidate } from '@vuelidate/core'
 import { email, maxLength, minLength, required } from '@vuelidate/validators'
+
+const UiSelect: any = UiSelectVue
 
 export default defineComponent({
   name: 'workerForm',
@@ -133,6 +147,42 @@ export default defineComponent({
     resume: '',
     image: '',
     date: '',
+    compliance: [
+      'Вежливость',
+      'Грамотная устная речь',
+      'Грамотная письменная речь',
+      'Общение с клиентами',
+      'Навыки презентации',
+      'Харизма',
+      'Коммуникабельность',
+      'Публичные выступления',
+      'Уборка',
+      'Готовка',
+      'Шитье',
+      'Рукоделие',
+      'Уход за  домашними животными',
+      'Уход за детьм',
+      'Уход за пожилыми людьми',
+      'Фотосъемка',
+      'Видеосъемка',
+      'Видеомонтаж',
+      'Работа с фотографиями',
+      'Управляю транспортным средством, требующим специальных прав',
+      'Управляю транспортным средством, не требующим специальных прав',
+      'Работа с компьютером',
+      'Работа с документами',
+      'MS Office',
+      'Программирование',
+      'Дизайн',
+      'Работа с продукцией',
+      'Учет',
+      'Есть медкнижка',
+      'Работа с сельско-хозяйственными культурами',
+      'Работа с кормовыми животными',
+      'Ремонт',
+      'Строительство',
+    ],
+    checkCompliance: [] as any[],
   }),
   validations () {
     return {
@@ -146,7 +196,7 @@ export default defineComponent({
       email: { required, email, },
     }
   },
-  components: { AddPhoto, UiButton, },
+  components: { AddPhoto, UiButton, UiSelect, },
   props: {},
   computed: {},
   methods: {
@@ -171,7 +221,27 @@ export default defineComponent({
       //   image,
       // } = this
     },
+    addCompliance (compliance: any, item: any) {
+      this.checkCompliance.push(item)
+      this.compliance = [...compliance, ]
+    },
   },
   mounted () {},
 })
 </script>
+
+<style lang="scss">
+.compliance-container {
+  margin-bottom: 20px;
+}
+
+.compliance-item {
+  display: inline-block;
+  background: var(--color-font-alternative);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 16px;
+  color: var(--admin-alternative-color-font);
+  margin: 0 5px 5px 0;
+}
+</style>

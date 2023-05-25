@@ -7,6 +7,7 @@ import EmptyLayout from '../layout/empty.vue'
 import ErrorLayout from '../layout/error.vue'
 import AdminLayout from '../layout/admin.vue'
 import MessageLayout from '../layout/message.vue'
+import TxtLayout from '../layout/txt.vue'
 import { MessagePage, MessageList } from 'pages/message'
 import { JoinPage } from 'pages/join'
 import { AuthPage } from 'pages/auth'
@@ -21,6 +22,7 @@ import { CreateArticlesPage } from 'pages/admin/articles/create'
 import { EditArticlesPage } from 'pages/admin/articles/edit'
 import { CategoriesPage } from 'pages/admin/categories'
 import { NotificationPage } from 'pages/notification'
+import personalData from 'pages/personalData.vue'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -45,6 +47,13 @@ export const router = createRouter({
         { component: JoinPage, path: '', },
         { component: AuthPage, path: '/auth', },
         { component: JoinVariable, path: '/join-variable', },
+      ],
+    },
+    {
+      component: TxtLayout,
+      path: '/txt',
+      children: [
+        { component: personalData, path: '/personal-data', },
       ],
     },
     {

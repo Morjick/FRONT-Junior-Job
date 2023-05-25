@@ -1,6 +1,18 @@
 <template>
-  <label :for="name"
-class="ui-checkbox">
+  <div
+    :for="name"
+    class="ui-checkbox"
+  >
+    <div
+      class="ui-checkbox-button"
+      @click="check"
+    >
+      <img
+        src="~/shared/assets/images/check.png"
+        alt=""
+        v-if="checked"
+      />
+    </div>
     <input
       type="checkbox"
       :value="modelValue"
@@ -9,11 +21,11 @@ class="ui-checkbox">
       @change="onChange"
       :id="name"
     />
-    <img src="~/shared/assets/images/approve.png"
-alt=""
-v-if="checked" />
-    <p>{{ label }}</p>
-  </label>
+    <p
+      v-html="label"
+      @click="check"
+    ></p>
+  </div>
 </template>
 
 <script lang="ts">
@@ -46,6 +58,10 @@ export default defineComponent({
     onInput (event: any) {
       this.$emit('update:modelValue', event.target.checked)
     },
+    check () {
+      // @ts-ignore
+      this.check = !this.check
+    },
   },
   mounted () {},
 })
@@ -58,16 +74,19 @@ export default defineComponent({
   justify-content: center;
 
   position: relative;
+  width: 100%;
 
-  width: 25px;
-  height: 25px;
-
-  border: 1px solid var(--admin-color-primery);
-  border-radius: 2px;
-  cursor: pointer;
-
-  img {
+  .ui-checkbox-button {
     width: 25px;
+    height: 25px;
+
+    border: 1px solid var(--admin-color-primery);
+    border-radius: 2px;
+    cursor: pointer;
+
+    img {
+      width: 25px;
+    }
   }
 
   input {
@@ -75,9 +94,8 @@ export default defineComponent({
   }
 
   p {
-    width: 200px;
-    position: absolute;
-    left: 30px;
+    width: 100%;
+    margin: 0 0 0 10px;
   }
 }
 </style>

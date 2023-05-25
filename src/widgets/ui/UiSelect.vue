@@ -17,6 +17,7 @@
       />
     </div>
     <ul
+      v-if="!mulriselect"
       class="ui-select-body"
       :class="{
         show: showBody,
@@ -28,7 +29,28 @@
         @click="selectItem(item)"
         class="ui-select-body-item"
       >
-        {{ item.value }}
+        {{ isStringObject ? item.value : item }}
+      </li>
+    </ul>
+    <ul
+      v-if="!mulriselect"
+      class="ui-select-body"
+      :class="{
+        show: showBody,
+      }"
+    >
+      <li
+        v-for="item in items as Item[]"
+        :key="item.id"
+        class="ui-select-body-item"
+        @click="addItem(item)"
+      >
+        <img
+          v-if="result.findIndex(el => el.id === item.id) > 0"
+          src="~/shared/assets/images/check.png"
+          alt=""
+        >
+        <span>{{ isStringObject ? item.value : item }}</span>
       </li>
     </ul>
   </div>
@@ -56,6 +78,7 @@ export default defineComponent({
   data: () => ({
     value: '',
     showBody: false,
+    result: [] as Item[],
   }),
   components: {},
   props: {
@@ -75,17 +98,47 @@ export default defineComponent({
       type: String,
       default: 'id',
     },
+    mulriselect: {
+      type: Boolean,
+      default: false,
+    },
+    isStringObject: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {},
   methods: {
     targetToSelect () {
       this.showBody = !this.showBody
+
+      if (!this.showBody && this.mulriselect) {
+        this.$emit('select', this.result)
+      }
     },
     selectItem (item: any) {
       this.showBody = false
       this.value = item[this.itemText]
 
       this.$emit('select', item)
+    },
+    addItem (item: Item) {
+      const results = [...this.result, ]
+      results.push(item)
+
+      this.result = results
+      const filterItems = this.items.filter((el: any) => {
+        return el !== item
+      })
+      this.$emit('select', filterItems, item)
+    },
+    isCheck (item: Item) {
+      const isCheck = this.result.findIndex(el => el.id === item.id)
+      if (isCheck && isCheck > 0) {
+        return true
+      }
+
+      return false
     },
   },
   mounted () {},
