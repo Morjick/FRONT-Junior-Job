@@ -25,7 +25,10 @@
         src="~/shared/assets/images/account_circle.png"
         class="account__image"
       />
-      <div class="account__info">
+      <div
+        class="account__info"
+        v-if="!isAuth"
+      >
         <router-link
           to="/auth?form=all&methods=singin"
           class="account__enter"
@@ -39,6 +42,12 @@
         Регистрация
         </router-link>
       </div>
+      <div
+        class="account__info"
+        v-else
+      >
+        {{ getMainUser.firstname }} {{ getMainUser.lastname }}
+      </div>
     </div>
   </div>
 </template>
@@ -49,7 +58,14 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'UiUserInfo',
   props: {},
-  computed: {},
+  computed: {
+    isAuth () {
+      return this.$store.getters.isAuth
+    },
+    getMainUser () {
+      return this.$store.getters.getMainUser
+    },
+  },
   data: () => ({}),
   methods: {},
 })

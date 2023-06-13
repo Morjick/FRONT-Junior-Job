@@ -1,9 +1,9 @@
-import axios from "axios"
+import axios from 'axios'
 
 interface Article {
   id: number
   title: string
-  imgName: string
+  avatar: string
   href: string
 }
 
@@ -13,7 +13,7 @@ interface NewsStoreI {
 
 const newsStore = {
   state: {
-    news: []
+    news: [],
   },
   getters: {
     getArticles (state: NewsStoreI): Article[] {
@@ -21,15 +21,14 @@ const newsStore = {
     },
   },
   actions: {
-    async fetchArticles({commit}: any) {
-      const {data} = await axios.get('/article')
+    async fetchArticles ({ commit, }: any) {
+      const { data, } = await axios.get('articles/get-many')
 
       commit('updateNews', data)
-    }
+    },
   },
   mutations: {
     updateNews (state: NewsStoreI, data: any) {
-      
       state.news = data
     },
   },

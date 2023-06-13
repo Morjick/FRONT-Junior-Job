@@ -10,7 +10,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useVuelidate } from '@vuelidate/core'
-import { theme } from './app/store/themeSwitcher.store'
+import { theme } from './app/store/modules/themeSwitcher.store'
 
 export default defineComponent({
   name: 'AppComponent',
@@ -28,7 +28,19 @@ export default defineComponent({
   data () {
     return {}
   },
-  methods: {},
-  mounted () {},
+  methods: {
+    isAutorisation () {
+      const token = localStorage.getItem('jj-token')
+
+      if (token) {
+        this.axios.defaults.headers.common.Authorization = `Bearer ${token}`
+      }
+
+      this.$store.dispatch('checkToken')
+    },
+  },
+  mounted () {
+    this.isAutorisation()
+  },
 })
 </script>

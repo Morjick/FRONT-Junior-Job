@@ -11,11 +11,6 @@
     />
 
     <worker-login-form v-if="formWatcher.methods == 'singin'" />
-
-    <ui-checkbox
-      :label="checkboxString"
-      style="margin: 20px 40px;"
-    />
     <br>
     <br>
     <br>

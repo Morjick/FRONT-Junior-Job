@@ -31,7 +31,7 @@ export default defineComponent({
   name: 'UiNews',
   props: {},
   computed: {
-    news (): Promise<Article[]> {
+    news (): Article[] {
       return this.$store.getters.getArticles
     },
   },

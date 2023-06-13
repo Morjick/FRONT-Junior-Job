@@ -96,7 +96,10 @@ v-if="v$.$error">
       >{{ item }}</div>
     </div>
 
-    <textarea placeholder="Резюме"></textarea>
+    <textarea
+      placeholder="Резюме"
+      v-model="about"
+    ></textarea>
 
     <p>
       Чтобы откликнуться на вакансии, необходимо авторизоваться через приложение
@@ -147,6 +150,8 @@ export default defineComponent({
     resume: '',
     image: '',
     date: '',
+    implication: 'physical',
+    about: '',
     compliance: [
       'Вежливость',
       'Грамотная устная речь',
@@ -207,19 +212,24 @@ export default defineComponent({
       const isError = await this.v$.$validate()
       if (isError) return false
 
-      // const {
-      //   lastname,
-      //   name,
-      //   email,
-      //   password,
-      //   birsday,
-      //   city,
-      //   learn,
-      //   inn,
-      //   service,
-      //   resume,
-      //   image,
-      // } = this
+      const candidate = {
+        firstname: this.name,
+        lastname: this.lastname,
+        email: this.email,
+        password: this.password,
+        implication: 'physical',
+        birthday: this.birsday,
+        learn: this.learn,
+        inn: this.inn,
+        city: this.city,
+        about: this.about,
+        role: 'USER',
+      }
+
+      const { data, }: any = await this.axios.post('/auth/sing-up', candidate)
+      this.$store.commit('setMainUserData', data.user)
+      this.$store.commit('setToken', data.token)
+      localStorage.setItem('jj-token', data.token)
     },
     addCompliance (compliance: any, item: any) {
       this.checkCompliance.push(item)

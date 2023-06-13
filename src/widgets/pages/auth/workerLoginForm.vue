@@ -1,8 +1,16 @@
 <template>
   <div class="workerLoginForm worker-form">
-    <p class="validation-error-label"
-v-if="v$.email.$errors[0]">
+    <p
+      class="validation-error-label"
+      v-if="v$.email.$errors[0]"
+    >
       Введите корректный email
+    </p>
+    <p
+      class="validation-error-label"
+      v-if="error.length"
+    >
+      {{ error }}
     </p>
     <input
       class="ui-input"
@@ -67,12 +75,25 @@ export default defineComponent({
   data: () => ({
     email: '',
     password: '',
+    error: '',
   }),
   components: { UiButton, },
   props: {},
   computed: {},
   methods: {
-    async sendForm () {},
+    async sendForm () {
+      const response: any = await this.axios.post('auth/sing-in', {
+        email: this.email, password: this.password,
+      })
+
+      if (!response.response?.data?.ok) {
+        this.error = response.data.message
+        return
+      }
+
+      localStorage.setItem('jj-token', response.data.token)
+      this.$store.dispatch('login', response.data)
+    },
   },
   mounted () {},
 })
