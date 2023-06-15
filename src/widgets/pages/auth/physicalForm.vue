@@ -81,7 +81,7 @@ v-if="v$.$error">
 <script lang="ts">
 import { defineComponent } from 'vue'
 import useVuelidate from '@vuelidate/core'
-import { email, maxLength, minLength, required } from '@vuelidate/validators'
+import { email, minLength, required } from '@vuelidate/validators'
 import UiButton from 'widgets/ui/UiButton.vue'
 import AddPhoto from './addPhoto.vue'
 

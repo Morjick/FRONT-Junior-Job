@@ -23,9 +23,7 @@ import WorkerFormI from 'widgets/pages/auth/workerForm.vue'
 import WorkerLoginFormI from 'widgets/pages/auth/workerLoginForm.vue'
 import PhysicalFormI from 'widgets/pages/auth/physicalForm.vue'
 import LegalFormI from 'widgets/pages/auth/legalForm.vue'
-import UiCheckboxVue from 'widgets/ui/UiCheckbox.vue'
 
-const UiCheckbox: any = UiCheckboxVue
 const WorkerForm: any = WorkerFormI
 const WorkerLoginForm: any = WorkerLoginFormI
 const PhysicalForm: any = PhysicalFormI
@@ -38,7 +36,6 @@ export default defineComponent({
     WorkerLoginForm,
     PhysicalForm,
     LegalForm,
-    UiCheckbox,
   },
   data: () => ({
     // eslint-disable-next-line max-len
