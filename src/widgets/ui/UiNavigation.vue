@@ -42,14 +42,16 @@
 
           <!-- Вакансии -->
           <li class="navigation__element">
-            <a href="#"
-                class="navigation__element-link">
+            <router-link
+              to="/vacancy"
+              class="navigation__element-link"
+            >
               <img
                 src="~/shared/assets/images/work.png"
                 class="navigation__element-icon"
               />
               <div class="navigation__element-text">Вакансии</div>
-            </a>
+            </router-link>
           </li>
 
           <!-- Статьи -->
@@ -98,14 +100,17 @@ class="navigation__element-link">
   >
     <ul class="nav-desktop__list">
       <li class="nav-desktop__list-item">
-        <a href="#">
-          <img
-            src="~/shared/assets/images/work.png"
-            class="nav-desktop__img"
-          />
-          вакансии
-        </a>
-      </li>
+            <router-link
+              to="/vacancy"
+              class="navigation__element-link"
+            >
+              <img
+                src="~/shared/assets/images/work.png"
+                class="nav-desktop__img"
+              />
+              <div class="navigation__element-text">Вакансии</div>
+            </router-link>
+          </li>
 
       <li class="nav-desktop__list-item">
         <a href="#">

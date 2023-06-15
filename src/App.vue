@@ -41,6 +41,8 @@ export default defineComponent({
   },
   mounted () {
     this.isAutorisation()
+    this.$store.dispatch('fetchCategory')
+    this.$store.dispatch('fetchVacancy')
   },
 })
 </script>

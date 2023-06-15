@@ -16,7 +16,7 @@
     >
       <img
         class="article__img"
-        :ref="el => getImageUrl(article.avatar, el)"
+        :ref="(el: any) => getImageUrl(article.avatar, el)"
       >
       <div class="article__subtitle">{{ article.title }}</div>
     </router-link>

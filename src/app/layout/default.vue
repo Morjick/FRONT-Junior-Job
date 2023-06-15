@@ -20,7 +20,8 @@
         <ui-user-info v-if="screen >= 700"/>
       </div>
 
-      <ui-navigation :showingClass="showingClass"
+      <ui-navigation
+        :showingClass="showingClass"
         @hideNav="hideNav"
         class="pages__nav"
       />
@@ -31,8 +32,10 @@
       />
     </div>
 
-    <div class="pages__space"
-v-if="$route.path === '/profile'"></div>
+    <div
+      class="pages__space"
+      v-if="$route.path === '/profile'"
+    ></div>
 
     <div class="pages__body">
       <router-view />

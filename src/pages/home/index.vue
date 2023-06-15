@@ -33,46 +33,7 @@ export default defineComponent({
     UiNewItems,
   },
   data: () => ({
-    newsArr: [
-      {
-        imgSrc: '#',
-        imgAlt: '#',
-        articleTitle: 'Как стать востребованным сотрудником?',
-        id: 0,
-      },
-      {
-        imgSrc: '#',
-        imgAlt: '#',
-        articleTitle: 'Самые необычные профессии',
-        id: 1,
-      },
-    ],
-    newVacancies: [
-      {
-        imgSrc: '#',
-        imgAlt: '#',
-        title: 'ООО «Демидовский огурец»',
-        timing: 'Ежедневно 10:00-15:00',
-        task: 'Собирать продукцию...',
-        id: 0,
-      },
-      {
-        imgSrc: '#',
-        imgAlt: '#',
-        title: 'Пятерочка',
-        timing: 'По будням 9:00-16:00',
-        task: 'Улыбаться клиентам у входа в...',
-        id: 1,
-      },
-      {
-        imgSrc: '#',
-        imgAlt: '#',
-        title: 'Елена',
-        timing: 'Вторник 17:00-17:30',
-        task: 'Выгуливать двух собачек...',
-        id: 2,
-      },
-    ],
+    newsArr: [],
     cities: Cities.getCity((element: any) => element, ['name_with_type', ]),
     cityProperty: 'name_with_type',
   }),
@@ -80,11 +41,15 @@ export default defineComponent({
     screen () {
       return this.$store.getters.getScreenWidth
     },
+    newVacancies () {
+      return this.$store.getters.getVacancy
+    },
   },
   methods: {},
   created () {
     window.addEventListener('resize', () => this.$store.commit('updateScreenWidth'))
   },
+  mounted () { },
 })
 </script>
 

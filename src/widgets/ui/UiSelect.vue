@@ -24,23 +24,23 @@
       }"
     >
       <li
-        v-for="item in items as Item[]"
+        v-for="item in items as any[]"
         :key="item.id"
         @click="selectItem(item)"
         class="ui-select-body-item"
       >
-        {{ isStringObject ? item.value : item }}
+        {{ isStringObject ? item[itemText] : item }}
       </li>
     </ul>
     <ul
-      v-if="!mulriselect"
+      v-if="mulriselect"
       class="ui-select-body"
       :class="{
         show: showBody,
       }"
     >
       <li
-        v-for="item in items as Item[]"
+        v-for="(item) in items as any[]"
         :key="item.id"
         class="ui-select-body-item"
         @click="addItem(item)"
@@ -50,7 +50,7 @@
           src="~/shared/assets/images/check.png"
           alt=""
         >
-        <span>{{ isStringObject ? item.value : item }}</span>
+        <span>{{ isStringObject ? item[itemText] : item }}</span>
       </li>
     </ul>
   </div>
@@ -64,14 +64,7 @@ interface Item {
   value: string
 }
 
-const items: Item[] = [
-  { id: 1, value: 'Cat1', },
-  { id: 2, value: 'Cat2', },
-  { id: 3, value: 'Cat3', },
-  { id: 4, value: 'Cat4', },
-  { id: 5, value: 'Cat5', },
-  { id: 6, value: 'Cat6', },
-]
+const items: Item[] = []
 
 export default defineComponent({
   name: 'UiSelect',

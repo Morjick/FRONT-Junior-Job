@@ -86,7 +86,7 @@ export default defineComponent({
         email: this.email, password: this.password,
       })
 
-      if (!response.response?.data?.ok) {
+      if (response.response?.data?.ok === false) {
         this.error = response.data.message
         return
       }

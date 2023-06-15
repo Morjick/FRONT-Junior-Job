@@ -23,6 +23,8 @@ import { EditArticlesPage } from 'pages/admin/articles/edit'
 import { CategoriesPage } from 'pages/admin/categories'
 import { NotificationPage } from 'pages/notification'
 import personalData from 'pages/personalData.vue'
+import { VacancyCreate } from 'pages/vacancyCreate'
+import { Vacancy } from 'pages/vacancy'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -38,6 +40,8 @@ export const router = createRouter({
         { component: Profile, path: '/profile', },
         { component: MessageList, path: '/message-list', },
         { component: NotificationPage, path: '/notification', },
+        { component: VacancyCreate, path: '/vacancy-create', },
+        { component: Vacancy, path: '/vacancy', },
       ],
     },
     {
