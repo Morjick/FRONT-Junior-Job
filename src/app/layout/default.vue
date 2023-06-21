@@ -34,7 +34,7 @@
 
     <div
       class="pages__space"
-      v-if="$route.path === '/profile'"
+      v-if="$route.path === '/profile' || $route.path === '/wallet'"
     ></div>
 
     <div class="pages__body">

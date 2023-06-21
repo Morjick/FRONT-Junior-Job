@@ -4,6 +4,7 @@ import { newsStore } from 'pages/home/news.store'
 import { themeSwitcher } from './modules/themeSwitcher.store'
 import { screenStore } from './modules/screenStore.store'
 import { AuthStore } from './modules/auth.store'
+import { paymentStore } from '../../pages/wallet/payment.store'
 
 interface usersStore {
   users: object[]
@@ -34,6 +35,7 @@ const store = createStore({
     theme: themeSwitcher,
     screen: screenStore,
     auth: AuthStore,
+    payment: paymentStore,
   },
 })
 
