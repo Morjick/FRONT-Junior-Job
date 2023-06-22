@@ -143,13 +143,16 @@ class="navigation__element-link">
       </li>
 
       <li class="nav-desktop__list-item">
-        <a href="#">
+        <router-link 
+        to="/settings"
+        
+        >
           <img
             src="~/shared/assets/images/settings.png"
             class="nav-desktop__img"
           />
           настройки
-        </a>
+        </router-link>
       </li>
     </ul>
   </nav>
