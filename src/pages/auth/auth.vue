@@ -37,10 +37,7 @@ export default defineComponent({
     PhysicalForm,
     LegalForm,
   },
-  data: () => ({
-    // eslint-disable-next-line max-len
-    checkboxString: 'Даю согласие на обработку своих <br> <router-link class="personal-data" to="/personal-data">персональных данных</router-link>',
-  }),
+  data: () => ({}),
   props: {},
   computed: {
     formWatcher () {
