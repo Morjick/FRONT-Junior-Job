@@ -26,6 +26,7 @@ import personalData from 'pages/personalData.vue'
 import { VacancyCreate } from 'pages/vacancyCreate'
 import { Vacancy } from 'pages/vacancy'
 import { Wallet } from 'pages/wallet'
+import { Categories } from 'pages/categories'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -44,6 +45,7 @@ export const router = createRouter({
         { component: VacancyCreate, path: '/vacancy-create', },
         { component: Vacancy, path: '/vacancy', },
         { component: Wallet, path: '/wallet', },
+        { component: Categories, path: '/categories', },
       ],
     },
     {
