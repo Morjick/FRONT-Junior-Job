@@ -7,10 +7,10 @@
       >
 
       <div class="wallet__balance-wrapp">
-        <div class="wallet__balance">{{ balance }}₽</div>
+        <div class="wallet__balance">{{ balance }}&#8381;</div>
 
         <ui-button
-          :text="'Пополнить'"
+          text="Пополнить"
           class="wallet__button"
         />
       </div>
@@ -52,8 +52,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import UiButton from 'widgets/ui/UiButton.vue'
 import { paymentOperationsI } from './payment.store'
+import UiButtonI from 'widgets/ui/UiButton.vue'
+
+const UiButton: any = UiButtonI
 
 export default defineComponent({
   name: 'WalletPage',
@@ -79,7 +81,7 @@ export default defineComponent({
 
 .wallet {
   padding: 0 30px;
-  transform: translateY(-97px);
+  transform: translateY(var(--half-big-logo));
   @include mixin.adaptive(tablet) {
     transform: translateY(0);
     padding-top: 20px;
@@ -104,7 +106,7 @@ export default defineComponent({
   &__balance {
     font-weight: 400;
     font-size: 50px;
-    color: #000000;
+    color: var(--color-title);
     text-align: center;
     @include mixin.adaptive(tablet) {
       text-align: left;

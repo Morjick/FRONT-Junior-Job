@@ -1,6 +1,6 @@
 enum operationType {
-  replenish = 'replenish',
-  waste = 'waste'
+  REPLENISH = 'replenish',
+  WASTE = 'waste'
 }
 
 interface paymentOperationsI {
@@ -16,7 +16,7 @@ interface paymentStateI {
 }
 
 const paymentStore = {
-  state: {
+  state: (): paymentStateI => ({
     paymentHistory: [
       {
         operationType: 'waste',
@@ -47,9 +47,9 @@ const paymentStore = {
         id: 4,
       },
     ] as paymentOperationsI[],
-  },
+  }),
   getters: {
-    getPaymentHistory (state: paymentStateI) {
+    getPaymentHistory (state: paymentStateI): paymentOperationsI[] {
       return state.paymentHistory
     },
   },
