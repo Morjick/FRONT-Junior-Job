@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
-import { notificationStore } from 'pages/notification/notification.store'
-import { newsStore } from 'pages/home/news.store'
+import { notificationStore } from './modules/notification.store'
+import { newsStore } from './modules/news.store'
 import { themeSwitcher } from './modules/themeSwitcher.store'
 import { screenStore } from './modules/screenStore.store'
 import { AuthStore } from './modules/auth.store'

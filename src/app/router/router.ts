@@ -1,7 +1,6 @@
 import { ArticlesPage } from 'pages/articles'
 import { createRouter, createWebHistory } from 'vue-router'
 import { HomePage } from 'pages/home'
-import { AboutPage } from 'pages/about'
 import DefaultLayout from '../layout/default.vue'
 import EmptyLayout from '../layout/empty.vue'
 import ErrorLayout from '../layout/error.vue'
@@ -35,7 +34,6 @@ export const router = createRouter({
       path: '/',
       children: [
         { component: HomePage, path: '/', },
-        { component: AboutPage, path: '/about', },
         { component: searchResultsPage, path: '/search-result', },
         { component: ArticlesPage, path: '/articles', },
         { component: Profile, path: '/profile', },

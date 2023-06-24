@@ -54,9 +54,9 @@ class="profile__dynamic-info" />
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import UiReviews from './UiReviews.vue'
+import UiReviews from 'widgets/ui/UiReviews.vue'
 import UiButton from 'widgets/ui/UiButton.vue'
-import UiVacancies from './UiVacancies.vue'
+import UiVacancies from 'widgets/ui/UiVacancies.vue'
 
 export default defineComponent({
   name: 'ProfilePage',

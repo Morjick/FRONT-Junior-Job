@@ -31,7 +31,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import UiInput from 'widgets/ui/UiInput.vue'
-import UiLetter from './UiLetter.vue'
+import UiLetter from 'widgets/ui/UiLetter.vue'
 
 interface Message {
   name: string,
