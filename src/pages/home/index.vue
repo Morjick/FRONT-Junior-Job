@@ -13,7 +13,7 @@
         <ui-new-items :newItems="newVacancies" />
       </div>
 
-      <ui-news :newsArr="newsArr" />
+      <ui-news />
     </div>
   </section>
 </template>
@@ -21,7 +21,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import UiSearchForm from 'widgets/ui/UiSearchForm.vue'
-import UiNews from './UiNews.vue'
+import UiNews from 'widgets/ui/UiNews.vue'
 import UiNewItems from 'widgets/ui/UiNewItems.vue'
 import Cities from 'cities-info'
 

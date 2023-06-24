@@ -1,12 +1,12 @@
 <template>
   <div class="articles">
-    <ui-news :newsArr="newsArr" />
+    <ui-news />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import UiNews from 'pages/home/UiNews.vue'
+import UiNews from 'widgets/ui/UiNews.vue'
 
 export default defineComponent({
   name: 'ArticlesPage',
