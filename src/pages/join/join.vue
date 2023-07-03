@@ -30,6 +30,7 @@ name="form"
 type="radio" />
       <span>Юридическое лицо</span>
     </label>
+    <UiSwitchBubble/>
   </div>
 </template>
 

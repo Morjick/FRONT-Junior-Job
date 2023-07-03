@@ -143,9 +143,9 @@ class="navigation__element-link">
       </li>
 
       <li class="nav-desktop__list-item">
-        <router-link 
+        <router-link
         to="/settings"
-        
+
         >
           <img
             src="~/shared/assets/images/settings.png"

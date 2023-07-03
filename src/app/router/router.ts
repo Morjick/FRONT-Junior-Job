@@ -25,7 +25,7 @@ import { NotificationPage } from 'pages/notification'
 import personalData from 'pages/personalData.vue'
 import { VacancyCreate } from 'pages/vacancyCreate'
 import { Vacancy } from 'pages/vacancy'
-import { SettingsPage }  from 'pages/settings'
+import { SettingsPage } from 'pages/settings'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -43,7 +43,7 @@ export const router = createRouter({
         { component: NotificationPage, path: '/notification', },
         { component: VacancyCreate, path: '/vacancy-create', },
         { component: Vacancy, path: '/vacancy', },
-        { component: SettingsPage, path:'/settings',},
+        { component: SettingsPage, path: '/settings', },
       ],
     },
     {
