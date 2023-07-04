@@ -52,7 +52,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { paymentOperationsI } from './payment.store'
+import { paymentOperationsI } from 'app/store/modules/payment.store'
 import UiButtonI from 'widgets/ui/UiButton.vue'
 
 const UiButton: any = UiButtonI

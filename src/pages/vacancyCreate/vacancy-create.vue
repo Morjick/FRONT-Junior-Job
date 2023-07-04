@@ -41,7 +41,7 @@
 </template>
 
 <script lang="ts">
-import { Category } from 'pages/home/news.store'
+import { Category } from 'app/store/modules/news.store'
 import { defineComponent } from 'vue'
 import UiButtonVue from 'widgets/ui/UiButton.vue'
 import UiInputVue from 'widgets/ui/UiInput.vue'

@@ -13,7 +13,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'UiLetter',
+  name: 'letterForMessage',
   data: () => ({}),
   components: {},
   props: {

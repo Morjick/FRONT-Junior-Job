@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { Vacancy } from 'pages/home/news.store'
+import { Vacancy } from 'app/store/modules/news.store'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
