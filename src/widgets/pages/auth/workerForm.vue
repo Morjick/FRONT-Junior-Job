@@ -1,6 +1,28 @@
 <template>
   <div @loadImage="setImage"
 class="worker-form">
+    <div class="annotation"
+      style="margin: 0;
+      position: absolute;
+      margin-left: 25%;
+      width: 350px;
+      height: 100px;
+      border: 1px solid var(--color-border);
+      border-radius: 15px;"
+    >
+    <p style="
+    color: #AAA2D8;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    width: 329.472px;
+    margin: 0;
+    ">
+      Оставьте заявку на регистрацию, мы рассмотрим ее в ручном режиме и поможем
+      настроить работу индивидуально
+    </p>
+    </div>
     <add-photo @loadImage="setImage" />
     <p class="validation-error-label"
 v-if="v$.$error">

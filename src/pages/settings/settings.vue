@@ -8,29 +8,29 @@
             src="~/shared/assets/images/arrow_back_ios.png">
         </div>
    </div>
-   <div class="bodyGeneral"
+   <div class="body_general"
     v-show="show">
-    <div class="Theme_box">
+    <div class="theme_box">
         <p class="theme_title">Тема</p>
-            <div class="white"
+            <div class="light"
                   @click.stop.prevent="switchTheme('light')"
             >
-                <input class="whiteInput"
+                <input class="light_input"
                 type="radio"
                 name="theme"
                 id="theme_one">
-                    <label class="whiteTheme"
+                    <label class="light_theme"
                     for="theme_one"
                     >Светлая</label>
             </div>
             <div class="darck"
                 @click.stop.prevent="switchTheme('dark')"
             >
-                <input class="darckInput"
+                <input class="darck_input"
                 name="theme"
                 type="radio"
                 id="theme_two">
-                    <label class="darckTheme"
+                    <label class="darck_theme"
                     for="theme_two"
                     @click.stop
                     >Темная</label>
@@ -38,7 +38,7 @@
     </div>
         <div class="notifications"
         @click="box=!box" >
-            <h2 class="title_1">Уведомления</h2>
+            <h2 class="title_one">Уведомления</h2>
             <div class="arrow_icon">
                 <img class="arrow"
                 :class="{'turn-arrow':box}"
@@ -48,37 +48,37 @@
         <div class="pyncts"
         v-show="box">
             <div class="box_one" >
-                <UiCheckbox  class="checkOne"
-                name="text1"/>
-                    <label class="pynctsTextOne"
-                    for="text1"
+                <UiCheckbox  class="check_one"
+                name="text_one"/>
+                    <label class="pyncts_text_one"
+                    for="text_one"
                     style="position: center;">
                          Вас выбрали исполнителем/На вашу вакансию откликнулись
                     </label>
             </div>
             <div class="box_two">
-                    <UiCheckbox  class="checkTwo"
-                    name="text2"/>
-                    <label class="pynctsTextTwo"
-                    for="text2">
+                    <UiCheckbox  class="check_two"
+                    name="text_two"/>
+                    <label class="pyncts_text_two"
+                    for="text_two">
                         Вакансия, на которую вы откликались, закрыта работодателем
                     </label>
             </div>
             <div class="box_three" >
                 <UiCheckbox type="checkbox"
-                class="checkThree"
-                name="text3" />
-                    <label class="pynctsTextThree"
-                    for="text3">
+                class="check_three"
+                name="text_three" />
+                    <label class="pyncts_text_three"
+                    for="text_three">
                         Новые сообщения
                     </label>
             </div>
             <div class="box_four" >
                 <UiCheckbox type="checkbox"
-                class="checkFour"
-                name="text4"/>
-                    <label class="pynctsTextFour"
-                    for="text4">
+                class="check_four"
+                name="text_four"/>
+                    <label class="pyncts_text_four"
+                    for="text_four">
                         Новые вакансии/соискатели
                     </label>
             </div>
@@ -93,7 +93,7 @@
                 src="~/shared/assets/images/arrow_back_ios.png">
             </div>
    </div>
-   <div class="bodyAccount"
+   <div class="body_account"
    v-show="account"
    style="width: 100%; height: 180px; margin-left: 80px;">
         <div
@@ -108,7 +108,7 @@
             style="color:#604D9E;padding-top: 30px; padding-right: 30px;"
         >Изменить пароль</button>
     </div>
-    <div class="Help"
+    <div class="help"
         @click="help=!help" >
             <h1 class="title">Помощь</h1>
             <div class="arrow_icon">
@@ -117,7 +117,7 @@
             src="~/shared/assets/images/arrow_back_ios.png">
         </div>
     </div>
-   <div class="bodyHelp"
+   <div class="body_help"
         v-show="help"
         style="margin-left:80px;"
     >
@@ -194,7 +194,7 @@ export default defineComponent({
         font-size: 30px ;
     };
 
-    .title_1{
+    .title_one{
         display: inline-block;
         padding: 0 40px;
         margin-right: 5px;
@@ -212,7 +212,7 @@ export default defineComponent({
     transform: rotate(180deg);
     };
 
-    .bodyGeneral{
+    .body_general{
 
         display: inline-block;
     };
@@ -233,18 +233,18 @@ export default defineComponent({
         display: inline-block;
         padding-left: 80px;
     };
-    .white{
+    .light{
 
         display: inline-block;
 
     };
-    .whiteInput{
+    .light_input{
         display: none;
         opacity: 0;
 
     };
 
-    .whiteTheme{
+    .light_theme{
         margin-left: 180px;
         color: #604D9E;
         display: inline-block;
@@ -252,7 +252,7 @@ export default defineComponent({
 
     };
 
-    .darckInput{
+    .darck_input{
         display: none;
         opacity: 0;
     };
@@ -260,7 +260,7 @@ export default defineComponent({
 
         display: inline-block;
     };
-    .darckTheme{
+    .darck_theme{
         margin-left: 30px;
         color:#604D9E;
         display: inline-block;
@@ -284,10 +284,10 @@ export default defineComponent({
 
     };
 
-    .pynctsTextOne ,
-    .pynctsTextTwo ,
-    .pynctsTextThree ,
-    .pynctsTextFour{
+    .pyncts_text_one ,
+    .pyncts_text_two ,
+    .pyncts_text_three ,
+    .pyncts_text_four{
 
        display: block;
        padding-left: 50px;
@@ -295,10 +295,10 @@ export default defineComponent({
         cursor: pointer;
     };
 
-    .checkOne,
-    .checkTwo,
-    .checkThree,
-    .checkFour{
+    .check_one,
+    .check_two,
+    .check_three,
+    .check_four{
 
         position:absolute;
         padding-right:50px ;
