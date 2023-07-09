@@ -4,17 +4,17 @@
 
     <div
       class="categories__list"
-      v-for="{id, title, icon, hash} in categories"
-      :key="id"
+      v-for="category in categories"
+      :key="category.id"
     >
-      <router-link :to="`/vacancy/${hash}?category=${id}`">
+      <router-link :to="`/vacancy/${category.hash}?category=${category.id}`">
         <div class="categories__item category">
           <img
-            :ref="(el: any) => getImageUrl(icon, el)"
+            :ref="(el: any) => getImageUrl(category.icon, el)"
             class="category__logo"
           >
 
-          <h3 class="category__title">{{ title }}</h3>
+          <h3 class="category__title">{{ category.title }}</h3>
         </div>
       </router-link>
     </div>
@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Category } from 'pages/home/news.store'
+import { CategoryI } from 'pages/home/news.store'
 
 export default defineComponent({
   name: 'CategoriesPage',
@@ -33,17 +33,18 @@ export default defineComponent({
   }),
   props: {},
   computed: {
-    categories (): Category[] {
+    categories (): CategoryI[] {
       return this.$store.getters.getCategory
     },
   },
   methods: {
     async getImageUrl (image: string, el: any) {
       try {
-        const imageUrl = `http://junior-job.ru/api/images/get-image/${image}`
+        const imageUrl = `images/get-image/${image}`
         const response = await this.axios.get(imageUrl)
 
         if (response.status !== 200) {
+          el.setAttribute('src', this.defaultImageUrl)
           throw response.status
         }
 
@@ -79,7 +80,7 @@ export default defineComponent({
   min-height: 145px;
   background-color: var(--admin-main--background-color);
   border-radius: 10px;
-  box-shadow: 0px 4px 10px 0px rgba(44, 27, 71, 0.15);
+  box-shadow: var(--shadow);
   padding-top: 20px;
   cursor: pointer;
   &__logo {

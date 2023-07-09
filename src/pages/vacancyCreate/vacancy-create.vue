@@ -41,7 +41,7 @@
 </template>
 
 <script lang="ts">
-import { Category } from 'pages/home/news.store'
+import { CategoryI } from 'pages/home/news.store'
 import { defineComponent } from 'vue'
 import UiButtonVue from 'widgets/ui/UiButton.vue'
 import UiInputVue from 'widgets/ui/UiInput.vue'
@@ -65,7 +65,7 @@ export default defineComponent({
   components: { UiInput, UiSelect, UiTextArea, UiButton, },
   props: {},
   computed: {
-    categories (): Category[] {
+    categories (): CategoryI[] {
       return this.$store.getters.getCategory
     },
   },
