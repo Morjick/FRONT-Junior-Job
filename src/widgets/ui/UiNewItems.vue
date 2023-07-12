@@ -1,28 +1,29 @@
 <template>
   <section class="new-items">
-    <a
+    <div
       href="#"
       class="item"
-      v-for="{ title, timing, task, id } in newItems"
-      :key="id"
+      v-for="newsItrem in (newItems as Vacancy[])"
+      :key="newsItrem.id"
+      @click="pushToCavancyPage(newsItrem)"
     >
       <img
         src="~/shared/assets/images/temp-home-logo.png"
         alt=""
         class="item__img"
       />
-      <!-- <div class="vacancy__img"></div> -->
 
       <div class="item__text">
-        <div class="item__title">{{ title }}</div>
-        <div class="item__time">{{ timing }}</div>
-        <div class="item__task">{{ task }}</div>
+        <div class="item__title">{{ newsItrem.title }}</div>
+        <!-- <div class="item__time">{{ newsItrem.timing }}</div>
+        <div class="item__task">{{ newsItrem.task }}</div> -->
       </div>
-    </a>
+    </div>
   </section>
 </template>
 
 <script lang="ts">
+import { Vacancy } from 'app/store/modules/news.store'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -30,7 +31,12 @@ export default defineComponent({
   props: {
     newItems: {
       type: Array,
-      default: () => [],
+      default: () => [] as Vacancy[],
+    },
+  },
+  methods: {
+    pushToCavancyPage (vacancy: Vacancy) {
+      this.$router.push(`/vacancy/${vacancy.href}`)
     },
   },
 })

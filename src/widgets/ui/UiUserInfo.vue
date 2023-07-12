@@ -1,7 +1,7 @@
 <template>
   <div class="user-info">
     <router-link
-      to="/"
+      to="/notification"
       class="account__notifications"
     >
       <img

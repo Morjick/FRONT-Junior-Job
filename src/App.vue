@@ -43,6 +43,7 @@ export default defineComponent({
     this.isAutorisation()
     this.$store.dispatch('fetchCategory')
     this.$store.dispatch('fetchVacancy')
+    this.$store.dispatch('getNotification')
   },
 })
 </script>

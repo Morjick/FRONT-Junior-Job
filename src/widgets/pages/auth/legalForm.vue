@@ -33,7 +33,10 @@ v-if="v$.$error">
       :class="{ error: v$.inn.$error }"
     />
 
-    <textarea placeholder="Контактная информация"></textarea>
+    <textarea
+      placeholder="Контактная информация"
+      v-model="contact"
+    ></textarea>
 
     <input
       class="ui-input"
@@ -49,7 +52,10 @@ v-if="v$.$error">
       :class="{ error: v$.city.$error }"
     />
 
-    <textarea placeholder="Какая помощь необходима?"></textarea>
+    <textarea
+      placeholder="Какая помощь необходима?"
+      v-model="about"
+    ></textarea>
 
     <ui-button
       text="Зарегистрироваться"
@@ -73,6 +79,8 @@ export default defineComponent({
     inn: '',
     email: '',
     city: '',
+    contact: '',
+    about: '',
   }),
   setup () {
     return {
@@ -93,7 +101,24 @@ export default defineComponent({
   props: {},
   computed: {},
   methods: {
-    async sendForm () {},
+    async sendForm () {
+      const candidate = {
+        firstname: this.name,
+        email: this.email,
+        implication: 'legal',
+        city: this.city,
+        role: 'USER',
+        abuot: this.about,
+      }
+
+      const { data, }: any = await this.axios.post('/auth/sing-up', candidate)
+      this.$store.commit('setMainUserData', data.user)
+      this.$store.commit('setToken', data.token)
+      this.$store.commit('setIsAuth', true)
+      localStorage.setItem('jj-token', data.token)
+
+      this.$router.push('/')
+    },
   },
   mounted () {},
 })

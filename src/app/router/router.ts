@@ -1,4 +1,4 @@
-import { ArticlesPage } from 'pages/articles'
+import { ArticlesPage, ArticlesTargetPage } from 'pages/articles'
 import { createRouter, createWebHistory } from 'vue-router'
 import { HomePage } from 'pages/home'
 import { AboutPage } from 'pages/about'
@@ -24,7 +24,7 @@ import { CategoriesPage } from 'pages/admin/categories'
 import { NotificationPage } from 'pages/notification'
 import personalData from 'pages/personalData.vue'
 import { VacancyCreate } from 'pages/vacancyCreate'
-import { Vacancy } from 'pages/vacancy'
+import { Vacancy, VacancyTarget } from 'pages/vacancy'
 import { Wallet } from 'pages/wallet'
 import { Categories } from 'pages/categories'
 
@@ -39,11 +39,13 @@ export const router = createRouter({
         { component: AboutPage, path: '/about', },
         { component: searchResultsPage, path: '/search-result', },
         { component: ArticlesPage, path: '/articles', },
+        { component: ArticlesTargetPage, path: '/articles/:href', },
         { component: Profile, path: '/profile', },
         { component: MessageList, path: '/message-list', },
         { component: NotificationPage, path: '/notification', },
         { component: VacancyCreate, path: '/vacancy-create', },
         { component: Vacancy, path: '/vacancy', },
+        { component: VacancyTarget, path: '/vacancy/:href', },
         { component: Wallet, path: '/wallet', },
         { component: Categories, path: '/categories', },
       ],

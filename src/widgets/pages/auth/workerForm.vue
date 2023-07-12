@@ -229,7 +229,10 @@ export default defineComponent({
       const { data, }: any = await this.axios.post('/auth/sing-up', candidate)
       this.$store.commit('setMainUserData', data.user)
       this.$store.commit('setToken', data.token)
+      this.$store.commit('setIsAuth', true)
       localStorage.setItem('jj-token', data.token)
+
+      this.$router.push('/')
     },
     addCompliance (compliance: any, item: any) {
       this.checkCompliance.push(item)

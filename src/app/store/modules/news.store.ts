@@ -8,7 +8,9 @@ interface Article {
   body: string
   avatar: string
   href: string
-  autor: UserI
+  createdAt: string
+  updatedAt: string
+  author: UserI
 }
 
 interface Vacancy {
@@ -17,10 +19,20 @@ interface Vacancy {
   href: string
   avatar: string
   show: boolean
+  body: string
   autorId: number
+  author: UserI
+  response: any[]
   categoryId: number
   createdAt: string
   updatedAt: string
+}
+
+interface ResponseI {
+  id: number
+  body: string
+  autorId: number
+  vacancyId: number
 }
 
 interface CategoryI {
@@ -88,5 +100,6 @@ export {
   type Article,
   type NewsStoreI,
   type CategoryI,
-  type Vacancy
+  type Vacancy,
+  type ResponseI
 }

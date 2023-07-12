@@ -7,7 +7,10 @@
   >
     <div class="navigation__sidebar">
       <!-- Вход/регистрация -->
-      <div class="navigation__user-wrapper">
+      <div
+        v-if="!isAuth"
+        class="navigation__user-wrapper"
+      >
         <img
           src="~/shared/assets/images/account_circle.png"
           class="navigation__user-icon"
@@ -25,6 +28,10 @@
           >
         </div>
       </div>
+      <div
+        class="account__info"
+        v-else
+      >{{ getMainUser.firstname }} {{ getMainUser.lastname }}</div>
 
       <nav class="navigation__desktop">
         <ul class="navigation__list">
@@ -66,28 +73,43 @@
             </router-link>
           </li>
 
-          <!-- Мои отзывы -->
           <li class="navigation__element">
-            <a href="#"
-class="navigation__element-link">
+            <router-link to="/message-list"
+              class="navigation__element-link">
+              <img
+                src="~/shared/assets/images/chat_bubble.png"
+                class="navigation__element-icon"
+              />
+              <div class="navigation__element-text">Сообщения</div>
+            </router-link>
+          </li>
+
+          <!-- Мои отзывы -->
+          <!-- <li class="navigation__element">
+            <router-link
+              to="/"
+              class="navigation__element-link"
+            >
               <img
                 src="~/shared/assets/images/star.png"
                 class="navigation__element-icon"
               />
               <div class="navigation__element-text">Мои отзывы</div>
-            </a>
-          </li>
+            </router-link>
+          </li> -->
 
           <!-- Настройки -->
           <li class="navigation__element">
-            <a href="#"
-class="navigation__element-link">
+            <router-link
+              to="/settings"
+              class="navigation__element-link"
+            >
               <img
                 src="~/shared/assets/images/settings.png"
                 class="navigation__element-icon"
               />
               <div class="navigation__element-text">Настройки</div>
-            </a>
+            </router-link>
           </li>
         </ul>
       </nav>
@@ -112,7 +134,7 @@ class="navigation__element-link">
             </router-link>
           </li>
 
-      <li class="nav-desktop__list-item">
+      <!-- <li class="nav-desktop__list-item">
         <a href="#">
           <img
             src="~/shared/assets/images/add_card.png"
@@ -120,9 +142,9 @@ class="navigation__element-link">
           />
           кошелек
         </a>
-      </li>
+      </li> -->
 
-      <li class="nav-desktop__list-item">
+      <!-- <li class="nav-desktop__list-item">
         <a href="#">
           <img
             src="~/shared/assets/images/star.png"
@@ -130,26 +152,26 @@ class="navigation__element-link">
           />
           избранное
         </a>
-      </li>
+      </li> -->
 
       <li class="nav-desktop__list-item">
-        <a href="#">
+        <router-link to="/articles">
           <img
             src="~/shared/assets/images/note.png"
             class="nav-desktop__img"
           />
           статьи
-        </a>
+        </router-link>
       </li>
 
       <li class="nav-desktop__list-item">
-        <a href="#">
+        <router-link to="/settings">
           <img
             src="~/shared/assets/images/settings.png"
             class="nav-desktop__img"
           />
           настройки
-        </a>
+        </router-link>
       </li>
     </ul>
   </nav>
@@ -171,6 +193,12 @@ export default defineComponent({
   computed: {
     screen () {
       return this.$store.getters.getScreenWidth
+    },
+    isAuth () {
+      return this.$store.getters.isAuth
+    },
+    getMainUser () {
+      return this.$store.getters.getMainUser
     },
   },
   created () {
@@ -205,6 +233,12 @@ export default defineComponent({
     padding: 30px 15px 0 15px;
     width: 260px;
     height: 100%;
+
+    .account__info {
+      margin: 20px 0;
+      font-weight: bold;
+      font-size: 24px;
+    }
   }
   &__user-wrapper {
     display: flex;
