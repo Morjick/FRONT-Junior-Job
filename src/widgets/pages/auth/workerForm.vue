@@ -224,8 +224,11 @@ export default defineComponent({
       this.$router.push('/')
     },
     addCompliance (compliance: any, item: any) {
+      if (!compliance || !item) {
+        return false
+      }
       this.checkCompliance.push(item)
-      this.compliance = [...compliance, ]
+      this.compliance = [ ...this.compliance, ]
     },
   },
   mounted () {},
@@ -234,6 +237,7 @@ export default defineComponent({
 
 <style lang="scss">
 .compliance-container {
+  max-width: 300px;
   margin-bottom: 20px;
 }
 

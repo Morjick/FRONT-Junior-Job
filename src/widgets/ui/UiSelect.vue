@@ -17,7 +17,7 @@
       />
     </div>
     <ul
-      v-if="!mulriselect"
+      v-if="!multiselect"
       class="ui-select-body"
       :class="{
         show: showBody,
@@ -33,14 +33,14 @@
       </li>
     </ul>
     <ul
-      v-if="mulriselect"
+      v-if="multiselect"
       class="ui-select-body"
       :class="{
         show: showBody,
       }"
     >
       <li
-        v-for="(item) in items as any[]"
+        v-for="(item) in items"
         :key="item.id"
         class="ui-select-body-item"
         @click="addItem(item)"
@@ -80,8 +80,8 @@ export default defineComponent({
       default: 'Введите данные',
     },
     items: {
-      type: Array,
-      default: items,
+      type: Array<Item>,
+      default: items as Item[],
     },
     itemText: {
       type: String,
@@ -91,7 +91,7 @@ export default defineComponent({
       type: String,
       default: 'id',
     },
-    mulriselect: {
+    multiselect: {
       type: Boolean,
       default: false,
     },
@@ -105,7 +105,7 @@ export default defineComponent({
     targetToSelect () {
       this.showBody = !this.showBody
 
-      if (!this.showBody && this.mulriselect) {
+      if (!this.showBody && this.multiselect) {
         this.$emit('select', this.result)
       }
     },
@@ -113,9 +113,12 @@ export default defineComponent({
       this.showBody = false
       this.value = item[this.itemText]
 
-      this.$emit('select', item)
+      // this.$emit('select', item)
     },
     addItem (item: Item) {
+      if (!item) {
+        return false
+      }
       const results = [...this.result, ]
       results.push(item)
 
@@ -182,6 +185,8 @@ export default defineComponent({
 }
 
 .ui-select-body {
+  max-height: 300px;
+
   position: absolute;
   top: calc(100% + 5px);
 
@@ -189,7 +194,9 @@ export default defineComponent({
   border: 1px solid var(--color-alternative);
   border-radius: 10px;
   background: var(--color-main);
+
   overflow: hidden;
+  overflow-y: auto;
 
   z-index: 4;
 
