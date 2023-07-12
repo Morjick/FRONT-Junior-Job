@@ -101,17 +101,6 @@ v-if="v$.$error">
       v-model="about"
     ></textarea>
 
-    <p>
-      Чтобы откликнуться на вакансии, необходимо авторизоваться через приложение
-      «Мой налог»
-    </p>
-
-    <img
-      style="cursor: pointer; pointer-events: all"
-      src="~/shared/assets/images/singin-in-MyPay.png"
-      alt=""
-    />
-
     <ui-button
       text="Зарегистрироваться"
       style="font-weight: bold; margin: 10px 0"

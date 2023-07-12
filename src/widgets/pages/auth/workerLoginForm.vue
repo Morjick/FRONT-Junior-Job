@@ -33,12 +33,6 @@
       :class="{ error: v$.password.$error }"
     />
 
-    <img
-      style="cursor: pointer; pointer-events: all"
-      src="~/shared/assets/images/singin-in-MyPay.png"
-      alt=""
-    />
-
     <ui-button
       text="Войти"
       style="font-weight: bold; margin: 10px 0"
