@@ -36,9 +36,9 @@
       >{{ item }}</div>
     </div>
 
-    <ui-reviews :reviews="userData.reviews"
+    <reviews-in-profile :reviews="userData.reviews"
 class="profile__dynamic-info" />
-    <ui-vacancies
+    <vacancies-in-profile
       :vacancies="userData.vacancies"
       class="profile__dynamic-info"
     />
@@ -54,9 +54,9 @@ class="profile__dynamic-info" />
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import UiReviews from './UiReviews.vue'
+import reviewsInProfile from 'widgets/pages/profile/reviewsInProfile.vue'
 import UiButton from 'widgets/ui/UiButton.vue'
-import UiVacancies from './UiVacancies.vue'
+import vacanciesInProfile from 'widgets/pages/profile/vacanciesInProfile.vue'
 
 export default defineComponent({
   name: 'ProfilePage',
@@ -156,9 +156,9 @@ export default defineComponent({
     ],
   }),
   components: {
-    UiReviews,
+    reviewsInProfile,
     UiButton,
-    UiVacancies,
+    vacanciesInProfile,
   },
 })
 </script>

@@ -39,7 +39,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { notificationI } from './notification.store'
+import { notificationI } from 'app/store/modules/notification.store'
 
 export default defineComponent({
   name: 'NotificationPage',

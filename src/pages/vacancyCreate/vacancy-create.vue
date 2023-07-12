@@ -69,7 +69,7 @@
 </template>
 
 <script lang="ts">
-import { CategoryI } from 'pages/home/news.store'
+import { CategoryI } from 'app/store/modules/news.store'
 import { defineComponent } from 'vue'
 import UiButtonVue from 'widgets/ui/UiButton.vue'
 import UiInputVue from 'widgets/ui/UiInput.vue'

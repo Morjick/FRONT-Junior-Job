@@ -1,7 +1,7 @@
 <template>
  <div class="message">
   <div class="message__letter-list">
-    <ui-letter
+    <letter-for-message
       v-for="{name, text, time, author, id} in messages"
       :key="id"
       :name="name"
@@ -31,7 +31,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import UiInput from 'widgets/ui/UiInput.vue'
-import UiLetter from './UiLetter.vue'
+import letterForMessage from 'widgets/pages/message/letterForMessage.vue'
 
 interface Message {
   name: string,
@@ -46,7 +46,7 @@ export default defineComponent({
   props: {},
   components: {
     UiInput,
-    UiLetter,
+    letterForMessage,
   },
   data: () => ({
     inputPlaceholder: 'Сообщение' as string,

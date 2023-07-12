@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Article } from './news.store'
+import { Article } from 'app/store/modules/news.store'
 
 export default defineComponent({
   name: 'UiNews',
