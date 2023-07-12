@@ -17,20 +17,35 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'VacancyPage',
-  data: () => ({}),
+  data: () => ({
+    vacancy: [] as Vacancy[],
+  }),
   components: {},
   props: {},
-  computed: {
-    vacancy (): Vacancy[] {
-      return this.$store.getters.getVacancy
-    },
-  },
+  computed: {},
   methods: {
     pushToCavancyPage (vacancy: Vacancy) {
       this.$router.push(`/vacancy/${vacancy.href}`)
     },
+    async getVacancy () {
+      try {
+        const query = []
+
+        if (this.$route.query.title) {
+          query.push(`title=${this.$route.query.title}`)
+        }
+
+        const { data, } = await this.axios.get(`/vacancy/search?${query.join('&')}`)
+
+        this.vacancy = data.vacancies
+      } catch (e) {
+        return e
+      }
+    },
   },
-  mounted () {},
+  mounted () {
+    this.getVacancy()
+  },
 })
 </script>
 
