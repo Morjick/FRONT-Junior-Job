@@ -4,15 +4,19 @@
       type="text"
       class="search__input"
       placeholder="Поиск вакансий"
-      @input="elasticSearch"
-      v-model="inputValue"
+      @input="searchDelayHandler"
+      v-model="title"
       @keyup.enter="search"
     />
 
-    <div @click="search"
-class="search__link">
-      <img src="~/shared/assets/images/search.png"
-class="search__icon" />
+    <div
+      @click="search"
+      class="search__link"
+    >
+      <img
+        src="~/shared/assets/images/search.png"
+        class="search__icon"
+      />
       <use xlink:href="icons/symbol-defs.svg#icon-search"></use>
     </div>
 
@@ -45,32 +49,40 @@ export default defineComponent({
     },
   },
   data: () => ({
-    inputValue: '',
+    title: '' as string,
     visibleData: [] as Array<string>,
+    debounceTimeount: null as any,
   }),
   methods: {
     search () {
-      if (this.inputValue) {
-        this.$router.push('/search-result')
-        this.$emit('getRequest', this.inputValue)
+      if (this.title) {
+        this.$router.push(`/vacancy?title=${this.title}`)
+        this.$emit('getRequest', this.title)
       }
     },
-    elasticSearch (): void {
-      this.visibleData = []
-      // const count: number = 0
-
-      this.data.forEach(() => {
-        // if (item[this.dataProperty].toLowerCase().search(this.inputValue.toLowerCase())
-        // !== -1 && this.inputValue.length > 0 && count < 5) {
-        //   this.visibleData.push(item[this.dataProperty])
-        //   count++
-        // }
-      })
-    },
     useAutocomplete (event: any): void {
-      this.inputValue = event.target.innerText
+      this.title = event.target.innerText
       this.search()
     },
+    searchDelayHandler () {
+      if (this.debounceTimeount) {
+        clearTimeout(this.debounceTimeount)
+      }
+
+      this.debounceTimeount = setTimeout(() => {
+        this.$router.resolve(`/vacancy?title=${this.title}`)
+      }, 500)
+    },
+    getTitle () {
+      const { title, } = this.$route.query
+
+      if (title && title.length) {
+        this.title = String(title)
+      }
+    },
+  },
+  mounted () {
+    this.getTitle()
   },
 })
 </script>

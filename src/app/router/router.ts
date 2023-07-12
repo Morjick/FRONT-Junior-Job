@@ -27,6 +27,7 @@ import { VacancyCreate } from 'pages/vacancyCreate'
 import { Vacancy, VacancyTarget } from 'pages/vacancy'
 import { Wallet } from 'pages/wallet'
 import { Categories } from 'pages/categories'
+import { SettingsPage } from 'pages/settings'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -57,6 +58,7 @@ export const router = createRouter({
         { component: JoinPage, path: '', },
         { component: AuthPage, path: '/auth', },
         { component: JoinVariable, path: '/join-variable', },
+        { component: SettingsPage, path: '/settings', },
       ],
     },
     {

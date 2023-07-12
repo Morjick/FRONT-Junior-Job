@@ -8,12 +8,14 @@ interface themeStateI {
 }
 
 const themeSwitcher = {
-  state: {
-    theme: localStorage.getItem('theme') ? localStorage.getItem('theme') : theme.light,
-  },
+  state: (): themeStateI => ({
+    theme: localStorage.getItem('theme')
+      ? (localStorage.getItem('theme') === theme.light ? theme.light : theme.dark)
+      : theme.light,
+  }),
   mutations: {
-    switchTheme (state: themeStateI) {
-      state.theme = state.theme === theme.light ? theme.dark : theme.light
+    switchTheme (state: themeStateI, payload: theme) {
+      state.theme = payload
       localStorage.setItem('theme', state.theme)
     },
   },
@@ -26,5 +28,6 @@ const themeSwitcher = {
 
 export {
   themeSwitcher,
-  theme
+  type theme,
+  type theme as ThemeEnum
 }
