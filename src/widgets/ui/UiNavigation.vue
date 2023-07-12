@@ -35,6 +35,20 @@
 
       <nav class="navigation__desktop">
         <ul class="navigation__list">
+          <!-- Вакансии -->
+          <li class="navigation__element">
+            <router-link
+              to="/categories"
+              class="navigation__element-link"
+            >
+              <img
+                src="~/shared/assets/images/work.png"
+                class="navigation__element-icon"
+              />
+              <div class="navigation__element-text">Вакансии</div>
+            </router-link>
+          </li>
+
           <!-- Уведомления -->
           <li class="navigation__element">
             <router-link
@@ -44,20 +58,6 @@
                 src="~/shared/assets/images/notifications.png"
                 class="navigation__element-icon">
               <div class="navigation__element-text">Уведомления</div>
-            </router-link>
-          </li>
-
-          <!-- Вакансии -->
-          <li class="navigation__element">
-            <router-link
-              to="/vacancy"
-              class="navigation__element-link"
-            >
-              <img
-                src="~/shared/assets/images/work.png"
-                class="navigation__element-icon"
-              />
-              <div class="navigation__element-text">Вакансии</div>
             </router-link>
           </li>
 
@@ -84,20 +84,6 @@
             </router-link>
           </li>
 
-          <!-- Мои отзывы -->
-          <!-- <li class="navigation__element">
-            <router-link
-              to="/"
-              class="navigation__element-link"
-            >
-              <img
-                src="~/shared/assets/images/star.png"
-                class="navigation__element-icon"
-              />
-              <div class="navigation__element-text">Мои отзывы</div>
-            </router-link>
-          </li> -->
-
           <!-- Настройки -->
           <li class="navigation__element">
             <router-link
@@ -123,7 +109,7 @@
     <ul class="nav-desktop__list">
       <li class="nav-desktop__list-item">
             <router-link
-              to="/vacancy"
+              to="/categories"
               class="navigation__element-link"
             >
               <img
@@ -133,26 +119,6 @@
               <div class="navigation__element-text">Вакансии</div>
             </router-link>
           </li>
-
-      <!-- <li class="nav-desktop__list-item">
-        <a href="#">
-          <img
-            src="~/shared/assets/images/add_card.png"
-            class="nav-desktop__img"
-          />
-          кошелек
-        </a>
-      </li> -->
-
-      <!-- <li class="nav-desktop__list-item">
-        <a href="#">
-          <img
-            src="~/shared/assets/images/star.png"
-            class="nav-desktop__img"
-          />
-          избранное
-        </a>
-      </li> -->
 
       <li class="nav-desktop__list-item">
         <router-link to="/articles">

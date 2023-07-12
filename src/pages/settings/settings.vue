@@ -27,13 +27,18 @@
       </div>
     </div>
 
-    <div class="settings-accordion">
-      <p class="settings-accordion-title">Аккаунт</p>
+    <div
+      class="settings-accordion"
+      v-if=" mainUser?.email"
+    >
+      <p
+        class="settings-accordion-title"
+      >Аккаунт</p>
 
       <div class="settings-accordion-body">
         <div class="settings-accordion-item">
           <span>Email:</span>
-          <span class="themeActive">{{ mainUser.email }}</span>
+          <span class="themeActive">{{ mainUser?.email }}</span>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@
       v-for="category in categories"
       :key="category.id"
     >
-      <router-link :to="`/vacancy/${category.hash}?category=${category.id}`">
+      <router-link :to="`/vacancy?category=${category.id}`">
         <div class="categories__item category">
           <img
             :ref="(el: any) => getImageUrl(category.icon, el)"
