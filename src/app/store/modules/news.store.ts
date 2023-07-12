@@ -23,7 +23,7 @@ interface Vacancy {
   updatedAt: string
 }
 
-interface Category {
+interface CategoryI {
   id: number
   title: string
   icon: string
@@ -33,7 +33,7 @@ interface Category {
 interface NewsStoreI {
   news: Article[]
   vacancy: Vacancy[]
-  category: Category[]
+  category: CategoryI[]
 }
 
 const newsStore = {
@@ -46,7 +46,7 @@ const newsStore = {
     getArticles (state: NewsStoreI): Article[] {
       return state.news
     },
-    getCategory (state: NewsStoreI): Category[] {
+    getCategory (state: NewsStoreI): CategoryI[] {
       return state.category
     },
     getVacancy (state: NewsStoreI): Vacancy[] {
@@ -74,7 +74,7 @@ const newsStore = {
     updateNews (state: NewsStoreI, data: any) {
       state.news = data
     },
-    updateCategory (state: NewsStoreI, data: Category[]) {
+    updateCategory (state: NewsStoreI, data: CategoryI[]) {
       state.category = data
     },
     updateVacancy (state: NewsStoreI, data: Vacancy[]) {
@@ -87,6 +87,6 @@ export {
   newsStore,
   type Article,
   type NewsStoreI,
-  type Category,
+  type CategoryI,
   type Vacancy
 }

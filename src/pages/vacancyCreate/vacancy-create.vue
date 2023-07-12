@@ -32,6 +32,34 @@
         placeholder="Описание"
       />
 
+      <div class="checkbox">
+        <input
+          type="checkbox"
+          id="experience"
+          class="checkbox__input"
+        >
+        <label
+          for="experience"
+          class="checkbox__label"
+        >
+          Необходим опыт работы
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <input
+          type="checkbox"
+          id="near"
+          class="checkbox__input"
+        >
+        <label
+          for="near"
+          class="checkbox__label"
+        >
+          Рядом с вами
+        </label>
+      </div>
+
       <ui-button
         text="Отправить"
         @click="createVacancy"
@@ -41,7 +69,7 @@
 </template>
 
 <script lang="ts">
-import { Category } from 'app/store/modules/news.store'
+import { CategoryI } from 'app/store/modules/news.store'
 import { defineComponent } from 'vue'
 import UiButtonVue from 'widgets/ui/UiButton.vue'
 import UiInputVue from 'widgets/ui/UiInput.vue'
@@ -65,7 +93,7 @@ export default defineComponent({
   components: { UiInput, UiSelect, UiTextArea, UiButton, },
   props: {},
   computed: {
-    categories (): Category[] {
+    categories (): CategoryI[] {
       return this.$store.getters.getCategory
     },
   },
@@ -110,6 +138,22 @@ export default defineComponent({
     & div {
       margin-bottom: 20px;
     }
+  }
+}
+.checkbox {
+  display: flex;
+  width: 305px;
+  margin: 0 auto;
+  &__input {
+    min-width: 24px;
+    min-height: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  &__label {
+    font-size: 25px;
+    color: var(--color-alternative);
+    cursor: pointer;
   }
 }
 </style>
