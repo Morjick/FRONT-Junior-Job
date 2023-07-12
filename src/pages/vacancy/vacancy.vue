@@ -4,6 +4,7 @@
       v-for="item in vacancy"
       :key="item.id"
       class="vacancy-item"
+      @click="pushToCavancyPage(item)"
     >
       {{ item.title }}
     </div>
@@ -24,7 +25,11 @@ export default defineComponent({
       return this.$store.getters.getVacancy
     },
   },
-  methods: {},
+  methods: {
+    pushToCavancyPage (vacancy: Vacancy) {
+      this.$router.push(`/vacancy/${vacancy.href}`)
+    },
+  },
   mounted () {},
 })
 </script>
@@ -42,6 +47,8 @@ export default defineComponent({
     font-weight: 400;
     font-size: 25px;
     line-height: 30px;
+
+    cursor: pointer;
   }
 }
 </style>

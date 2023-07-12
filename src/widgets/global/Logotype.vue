@@ -1,6 +1,8 @@
 <template>
-  <div @click="pushToMain"
-class="logotype-component">
+  <div
+    @click="pushToMain"
+    class="logotype-component"
+  >
     <img
       v-if="theme == 'default' || screen >= 700"
       src="~/shared/assets/images/logo.png"
@@ -56,6 +58,7 @@ export default defineComponent({
 .logotype-component {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .logotype-component img {

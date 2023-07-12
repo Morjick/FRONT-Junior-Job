@@ -12,7 +12,7 @@
       class="article"
       v-for="article in news"
       :key="article.id"
-      :to="article.href"
+      :to="`/articles/${article.href}`"
     >
       <img
         class="article__img"

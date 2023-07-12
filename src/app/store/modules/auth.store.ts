@@ -22,6 +22,7 @@ interface UserI {
   age?: number
   birsday?: string
   token?: string
+  avatar?: string
 }
 
 interface AuthStoreI {

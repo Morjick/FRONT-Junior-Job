@@ -57,18 +57,10 @@ v-if="v$.$error">
       :class="{ error: v$.city.$error }"
     />
 
-    <textarea placeholder="Какая помощь необходима?"></textarea>
-
-    <p style="margin: 20px 0 30px">
-      Чтобы создавать вакансии, <br />
-      необходимо авторизоваться <br />
-      через Госуслуги
-    </p>
-    <img
-      style="cursor: pointer; pointer-events: all"
-      src="~/shared/assets/images/singin-in-MyPay.png"
-      alt=""
-    />
+    <textarea
+      placeholder="Какая помощь необходима?"
+      v-model="about"
+    ></textarea>
 
     <ui-button
       text="Зарегистрироваться"
@@ -99,6 +91,7 @@ export default defineComponent({
     email: '',
     password: '',
     city: '',
+    about: '',
   }),
   validations () {
     return {
@@ -115,8 +108,24 @@ export default defineComponent({
   computed: {},
   methods: {
     async sendForm () {
-      const isError = await this.v$.$validate()
-      if (isError) return false
+      const candidate = {
+        firstname: this.name,
+        lastname: this.lastname,
+        email: this.email,
+        password: this.password,
+        implication: 'physical',
+        city: this.city,
+        role: 'USER',
+        abuot: this.about,
+      }
+
+      const { data, }: any = await this.axios.post('/auth/sing-up', candidate)
+      this.$store.commit('setMainUserData', data.user)
+      this.$store.commit('setToken', data.token)
+      this.$store.commit('setIsAuth', true)
+      localStorage.setItem('jj-token', data.token)
+
+      this.$router.push('/')
     },
   },
   mounted () {},

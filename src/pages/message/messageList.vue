@@ -2,63 +2,41 @@
   <section class="message-list">
     <h2 class="message-list__title">Сообщения</h2>
 
-    <div
-      class="message-list__messages"
-      v-for="user in users"
-      :key="user.id"
-    >
-      <router-link
-        class="message-list__item"
-        to="/message"
+    <div v-if="users.length">
+      <div
+        class="message-list__messages"
+        v-for="user in users"
+        :key="user.id"
       >
-        <img
-          :src="user.avatar"
-          class="message-list__avatar"
+        <router-link
+          class="message-list__item"
+          to="/message"
         >
+          <img
+            :src="user.avatar"
+            class="message-list__avatar"
+          >
 
-        <div class="message-list__info">
-          <div class="message-list__name">{{ user.name }}</div>
-          <div class="message-list__last-message">{{ user.lastMessage }}</div>
-        </div>
-      </router-link>
+          <div class="message-list__info">
+            <div class="message-list__name">{{ user.firstname }}</div>
+            <div class="message-list__last-message">{{ user.lastname }}</div>
+          </div>
+        </router-link>
+      </div>
     </div>
+    <p v-else>У вас пока нет сообщений</p>
   </section>
 </template>
 
 <script lang="ts">
+import { UserI } from 'app/store/modules/auth.store'
 import { defineComponent } from 'vue'
-
-interface user {
-  name: string,
-  avatar?: string,
-  id: number,
-  lastMessage: string,
-}
 
 export default defineComponent({
   name: 'MessageList',
   props: {},
   data: () => ({
-    users: [
-      {
-        name: 'Чернявский Иван',
-        avatar: require('shared/assets/images/temp-home-logo.png').default,
-        lastMessage: 'Расскажите про свой опыт',
-        id: 0,
-      },
-      {
-        name: 'София Собачкина',
-        avatar: require('shared/assets/images/temp-home-logo.png').default,
-        lastMessage: 'Расскажите про свой опыт',
-        id: 1,
-      },
-      {
-        name: 'Чернявский Иван',
-        avatar: require('shared/assets/images/temp-home-logo.png').default,
-        lastMessage: 'Расскажите про свой опыт',
-        id: 2,
-      },
-    ] as Array<user>,
+    users: [] as UserI[],
   }),
   computed: {},
   methods: {},

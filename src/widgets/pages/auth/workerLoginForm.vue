@@ -92,7 +92,11 @@ export default defineComponent({
       }
 
       localStorage.setItem('jj-token', response.data.token)
-      this.$store.dispatch('login', response.data)
+      this.$store.commit('setMainUserData', response.user)
+      this.$store.commit('setToken', response.token)
+      this.$store.commit('setIsAuth', true)
+
+      this.$router.push('/')
     },
   },
   mounted () {},

@@ -22,8 +22,8 @@
 </template>
 
 <script lang="ts">
+import { CategoryI } from 'app/store/modules/news.store'
 import { defineComponent } from 'vue'
-import { CategoryI } from 'pages/home/news.store'
 
 export default defineComponent({
   name: 'CategoriesPage',

@@ -1,7 +1,7 @@
 <template>
   <div class="notification">
     <h1 class="notification-main">Уведомления</h1>
-    <div>
+    <div v-if="notification.length">
       <div
         class="notification-objects"
         v-for="item in notification"
@@ -34,6 +34,7 @@
         </div>
       </div>
     </div>
+    <p v-else>У вас пока нет уведомлений!</p>
   </div>
 </template>
 
@@ -51,8 +52,21 @@ export default defineComponent({
       return this.$store.getters.getNotifications
     },
   },
-  methods: {},
-  mounted () {},
+  methods: {
+    async getNotification () {
+      try {
+        const { data, }: any = await this.axios.get('notification/get-many')
+        const notifications = data.notifications
+
+        console.log(notifications)
+      } catch (e) {
+        return e
+      }
+    },
+  },
+  mounted () {
+    this.getNotification()
+  },
 })
 </script>
 

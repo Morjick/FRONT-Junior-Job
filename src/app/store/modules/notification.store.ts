@@ -1,3 +1,6 @@
+import axios from 'axios'
+import { type ActionContext } from 'vuex'
+
 interface notificationI {
   id: number
   text: string
@@ -11,28 +14,24 @@ interface notificationStoreI {
 
 const notificationStore = {
   state: (): notificationStoreI => ({
-    notification: [
-      {
-        text: 'Елена выбрала вас исполнителем',
-        id: 1,
-        icon: 'change',
-      },
-      {
-        text: 'Елена выбрала вас исполнителем',
-        id: 2,
-        icon: 'done',
-        callback: true,
-      },
-      {
-        text: 'Елена выбрала вас исполнителем',
-        id: 3,
-        icon: 'article',
-      },
-    ],
+    notification: [],
   }),
   getters: {
     getNotifications (state: notificationStoreI): notificationI[] {
       return state.notification
+    },
+  },
+  actions: {
+    async getNotification (context: ActionContext<'S', 'R'>) {
+      const { data, }: any = await axios.get('notification/get-many')
+      const notifications = data.notifications
+
+      context.commit('setNotifications', notifications)
+    },
+  },
+  mutations: {
+    setNotifications (state: notificationStoreI, payload: notificationI[]) {
+      state.notification = payload
     },
   },
 }
