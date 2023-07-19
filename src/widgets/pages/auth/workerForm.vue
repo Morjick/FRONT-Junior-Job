@@ -83,7 +83,7 @@ v-if="v$.$error">
       :items="compliance"
       itemText=""
       itemKey=""
-      style="margin-bottom: 20px;"
+      style="margin-bottom: 20px; color: var(--color-alternative)"
       placehlod="Компетенции"
       @select="addCompliance"
     />
@@ -236,6 +236,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+.ui-input {
+  color: var(--color-alternative);
+}
+
 .compliance-container {
   max-width: 300px;
   margin-bottom: 20px;

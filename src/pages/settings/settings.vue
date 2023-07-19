@@ -2,7 +2,10 @@
   <div class="settings">
     <h1>Настройки</h1>
 
-    <div class="settings-accordion">
+    <div
+      class="settings-accordion"
+      v-if="false"
+    >
       <p class="settings-accordion-title">Общие</p>
       <div class="settings-accordion-body">
         <div class="settings-accordion-item">

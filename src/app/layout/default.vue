@@ -95,7 +95,7 @@ export default {
     }
   }
   &__search {
-    width: 80%;
+    width: 600px;
     height: 40px;
     & input {
       min-width: 94%;
