@@ -25,11 +25,13 @@ import shortNews from 'widgets/pages/news/shortNews.vue'
 import UiNewItems from 'widgets/ui/UiNewItems.vue'
 import Cities from 'cities-info'
 
+const ShortNews: any = shortNews
+
 export default defineComponent({
   name: 'HomePage',
   components: {
     UiSearchForm,
-    shortNews,
+    ShortNews,
     UiNewItems,
   },
   data: () => ({

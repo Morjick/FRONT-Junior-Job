@@ -5,6 +5,7 @@ import { themeSwitcher } from './modules/themeSwitcher.store'
 import { screenStore } from './modules/screenStore.store'
 import { AuthStore } from './modules/auth.store'
 import { paymentStore } from './modules/payment.store'
+import { StaticStore } from './modules/static.store'
 
 interface usersStore {
   users: object[]
@@ -36,6 +37,7 @@ const store = createStore({
     screen: screenStore,
     auth: AuthStore,
     payment: paymentStore,
+    static: StaticStore,
   },
 })
 

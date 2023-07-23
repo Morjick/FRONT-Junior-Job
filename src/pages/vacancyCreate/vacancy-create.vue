@@ -3,6 +3,11 @@
     <h1 class="vacancy-title">Создание вакансии</h1>
 
     <div class="vacancy-form">
+      <input
+        type="file"
+        @input="setvacancyAvatar"
+      >
+
       <ui-input
         v-model="title"
         placeholder="Название"
@@ -88,6 +93,7 @@ export default defineComponent({
     time: '',
     place: '',
     body: '',
+    avatar: '',
     category: null as any,
   }),
   components: { UiInput, UiSelect, UiTextArea, UiButton, },
@@ -107,6 +113,7 @@ export default defineComponent({
           title: this.title,
           show: true,
           category: this.category.id,
+          avatar: this.avatar,
         })
 
         this.$router.push('/')
@@ -115,6 +122,23 @@ export default defineComponent({
         // eslint-disable-next-line no-console
         console.log(e)
       }
+    },
+    async setvacancyAvatar (event: any) {
+      const image = event.target.files[0]
+
+      if (!image) return null
+
+      const formdata = new FormData()
+
+      formdata.append('file', image)
+
+      const { data, } = await this.axios.post('static/upload-image', formdata, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+
+      this.avatar = data.image.name
     },
   },
   mounted () { },
@@ -132,6 +156,7 @@ export default defineComponent({
     font-weight: 400;
     font-size: 25px;
     line-height: 31px;
+    margin-bottom: 20px;
   }
 
   &-form {

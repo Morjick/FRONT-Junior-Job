@@ -39,7 +39,7 @@ export default defineComponent({
   components: {},
   props: {
     modelValue: {
-      type: String,
+      type: Boolean,
     },
     name: {
       type: String,
@@ -53,14 +53,14 @@ export default defineComponent({
   computed: {},
   methods: {
     onChange (event: any) {
-      this.$emit('update:modelValue', event.target.checked)
+      this.$emit('update:modelValue', Boolean(event.target.checked))
     },
     onInput (event: any) {
-      this.$emit('update:modelValue', event.target.checked)
+      this.$emit('update:modelValue', Boolean(event.target.checked))
     },
     check () {
-      // @ts-ignore
-      this.check = !this.check
+      this.checked = !this.checked
+      this.$emit('update:modelValue', this.checked)
     },
   },
   mounted () {},

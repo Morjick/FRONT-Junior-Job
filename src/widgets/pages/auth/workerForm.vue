@@ -1,9 +1,13 @@
 <template>
-  <div @loadImage="setImage"
-class="worker-form">
+  <div
+    @loadImage="setImage"
+    class="worker-form"
+  >
     <add-photo @loadImage="setImage" />
-    <p class="validation-error-label"
-v-if="v$.$error">
+    <p
+      class="validation-error-label"
+      v-if="v$.$error"
+    >
       Заполните все обязательные поля
     </p>
 
@@ -177,6 +181,7 @@ export default defineComponent({
       'Строительство',
     ],
     checkCompliance: [] as any[],
+    avatar: '' as string,
   }),
   validations () {
     return {
@@ -194,8 +199,19 @@ export default defineComponent({
   props: {},
   computed: {},
   methods: {
-    setImage (image: string) {
+    async setImage (image: any) {
+      const formdata = new FormData()
+
+      formdata.append('file', image)
+
+      const { data, } = await this.axios.post('static/upload-image', formdata, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+
       this.image = image
+      this.avatar = data.image.name
     },
     async sendForm () {
       const isError = await this.v$.$validate()
@@ -213,6 +229,7 @@ export default defineComponent({
         city: this.city,
         about: this.about,
         role: 'USER',
+        avatar: this.avatar,
       }
 
       const { data, }: any = await this.axios.post('/auth/sing-up', candidate)

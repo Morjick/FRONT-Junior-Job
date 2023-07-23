@@ -41,14 +41,17 @@ export default defineComponent({
   methods: {
     async getImageUrl (avatar: string, el: any) {
       try {
-        const imageUrl = require(`shared/assets/images/${avatar}`).default
-        const response = await this.axios.get(imageUrl)
+        const isAvatar = await this.$store.dispatch('getImage', avatar)
 
-        if (response.status !== 200) {
-          throw response.status
+        if (isAvatar.status !== 200) {
+          const imageUrl = require(`shared/assets/images/${avatar}`).default
+          el.setAttribute('src', imageUrl + avatar)
+          return null
         }
 
-        el.setAttribute('src', imageUrl)
+        const imageUrl = await this.$store.getters.defaultImageUrl
+
+        el.setAttribute('src', imageUrl + avatar)
       } catch (error) {
         el.setAttribute('src', this.defaultImageUrl)
         throw error

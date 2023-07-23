@@ -4,10 +4,12 @@
 
     <div
       class="categories__list"
-      v-for="category in categories"
-      :key="category.id"
     >
-      <router-link :to="`/vacancy?category=${category.id}`">
+      <router-link
+        :to="`/vacancy?category=${category.id}`"
+        v-for="category in categories"
+        :key="category.id"
+      >
         <div class="categories__item category">
           <img
             :ref="(el: any) => getImageUrl(category.icon, el)"
@@ -40,15 +42,17 @@ export default defineComponent({
   methods: {
     async getImageUrl (image: string, el: any) {
       try {
-        const imageUrl = `images/get-image/${image}`
-        const response = await this.axios.get(imageUrl)
+        const isAvatar = await this.$store.dispatch('getImage', image)
 
-        if (response.status !== 200) {
-          el.setAttribute('src', this.defaultImageUrl)
-          throw response.status
+        if (isAvatar.status !== 200) {
+          const imageUrl = require(`shared/assets/images/${image}`).default
+          el.setAttribute('src', imageUrl + image)
+          return null
         }
 
-        el.setAttribute('src', imageUrl)
+        const imageUrl = await this.$store.getters.defaultImageUrl
+
+        el.setAttribute('src', imageUrl + image)
       } catch (error) {
         el.setAttribute('src', this.defaultImageUrl)
         throw error
