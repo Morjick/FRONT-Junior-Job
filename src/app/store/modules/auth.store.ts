@@ -73,6 +73,12 @@ const AuthStore = {
       context.commit('setToken', payload.token)
       context.commit('setIsAuth', payload.ok)
     },
+    async signOut (context: ActionContext<'S', 'R'>) {
+      context.commit('setMainUserData', {})
+      context.commit('setToken', null)
+      context.commit('setIsAuth', false)
+      localStorage.removeItem('jj-token')
+    },
   },
   mutations: {
     setMainUserData (state: AuthStoreI, user: UserI) {

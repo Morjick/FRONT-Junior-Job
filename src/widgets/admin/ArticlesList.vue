@@ -1,7 +1,7 @@
 <template>
   <div class="articles-list">
     <div
-      v-for="(item) in articles as articlesItem[]"
+      v-for="(item) in articles"
       :key="item.id"
       class="articles-list-item"
     >
@@ -9,7 +9,7 @@
       <span
         style="opacity: 0.4; margin-top: 10px"
         class="articles-list-item-info"
-        >Автор: {{ item.autor }}</span
+        >Автор: {{ item.author.firstname }} {{ item.author.lastname }}</span
       >
       <div class="articles-list-item-buttons">
         <ui-button
@@ -19,7 +19,8 @@
             max-width: 150px;
             min-width: 200px;
           "
-          text="Читать"
+          text="Удалить"
+          @click="deleteArticles(item)"
         />
         <ui-button
           style="
@@ -36,137 +37,34 @@
 </template>
 
 <script lang="ts">
+import { Article } from 'app/store/modules/news.store'
 import { defineComponent } from 'vue'
 import UiButton from 'widgets/ui/UiButton.vue'
 
-interface articlesItem {
-  id: number
-  title: string
-  body: string
-  autor: string
-}
-
-const articles: articlesItem[] = [
-  {
-    id: 1,
-    // eslint-disable-next-line max-len
-    title: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
-      Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
-      optio beatae officia possimus repudiandae. Quidem dolorem repellat 
-      earum suscipit doloremque iusto obcaecati.
-      Perspiciatis optio iusto dignissimos.`,
-    // eslint-disable-next-line max-len
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
-    autor: 'Matvey',
-  },
-  {
-    id: 2,
-    // eslint-disable-next-line max-len
-    title: 'Lorem ipsum dolor sit ame',
-    // eslint-disable-next-line max-len
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
-    autor: 'Not Matvey',
-  },
-  {
-    id: 1,
-    // eslint-disable-next-line max-len
-    title: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
-      Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
-      optio beatae officia possimus repudiandae. Quidem dolorem repellat 
-      earum suscipit doloremque iusto obcaecati.
-      Perspiciatis optio iusto dignissimos.`,
-    // eslint-disable-next-line max-len
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
-    autor: 'Matvey',
-  },
-  {
-    id: 2,
-    // eslint-disable-next-line max-len
-    title: 'Lorem ipsum dolor sit ame',
-    // eslint-disable-next-line max-len
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
-    autor: 'Not Matvey',
-  },
-  {
-    id: 1,
-    // eslint-disable-next-line max-len
-    title: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
-      Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
-      optio beatae officia possimus repudiandae. Quidem dolorem repellat 
-      earum suscipit doloremque iusto obcaecati.
-      Perspiciatis optio iusto dignissimos.`,
-    // eslint-disable-next-line max-len
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
-    autor: 'Matvey',
-  },
-  {
-    id: 2,
-    // eslint-disable-next-line max-len
-    title: 'Lorem ipsum dolor sit ame',
-    // eslint-disable-next-line max-len
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
-    autor: 'Not Matvey',
-  },
-  {
-    id: 1,
-    // eslint-disable-next-line max-len
-    title: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
-      Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
-      optio beatae officia possimus repudiandae. Quidem dolorem repellat 
-      earum suscipit doloremque iusto obcaecati.
-      Perspiciatis optio iusto dignissimos.`,
-    // eslint-disable-next-line max-len
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
-    autor: 'Matvey',
-  },
-  {
-    id: 2,
-    // eslint-disable-next-line max-len
-    title: 'Lorem ipsum dolor sit ame',
-    // eslint-disable-next-line max-len
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
-    autor: 'Not Matvey',
-  },
-  {
-    id: 1,
-    // eslint-disable-next-line max-len
-    title: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente.
-      Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur,
-      optio beatae officia possimus repudiandae. Quidem dolorem repellat 
-      earum suscipit doloremque iusto obcaecati.
-      Perspiciatis optio iusto dignissimos.`,
-    // eslint-disable-next-line max-len
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
-    autor: 'Matvey',
-  },
-  {
-    id: 2,
-    // eslint-disable-next-line max-len
-    title: 'Lorem ipsum dolor sit ame',
-    // eslint-disable-next-line max-len
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facere atque fugit dicta placeat beatae odit voluptatem harum, soluta enim sapiente. Commodi cumque tempore inventore, id odio sit fugiat reprehenderit, corporis maxime tenetur, optio beatae officia possimus repudiandae. Quidem dolorem repellat earum suscipit doloremque iusto obcaecati. Perspiciatis optio iusto dignissimos.',
-    autor: 'Not Matvey',
-  },
-]
-
 export default defineComponent({
   name: 'ArticlesList',
-  data: () => ({}),
+  data: () => ({
+    articles: [] as Article[],
+  }),
   components: { UiButton, },
-  props: {
-    articles: {
-      type: Array,
-      default: (): articlesItem[] => articles,
+  props: {},
+  computed: {},
+  methods: {
+    async getArticles () {
+      const { data, }: any = await this.axios.get('articles/get-many')
+
+      this.articles = data.articles
+    },
+    async deleteArticles (article: Article) {
+      if (!article || !article.id) return null
+      await this.axios.delete(`articles/delete-article?id=${article.id}`)
+
+      this.getArticles()
     },
   },
-  computed: {},
-  methods: {},
-  mounted () {},
+  mounted () {
+    this.getArticles()
+  },
 })
 </script>
 

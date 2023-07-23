@@ -23,8 +23,27 @@
     <div class="account">
       <img
         src="~/shared/assets/images/account_circle.png"
+        alt=""
         class="account__image"
-      />
+        v-if="!avatar || !avatar.length"
+      >
+      <img
+        :src="avatar"
+        alt=""
+        class="account__image"
+        v-else
+      >
+      <div
+        class="account__info"
+        v-if="isAuth"
+      >
+        {{ getMainUser.firstname }} {{ getMainUser.lastname }}
+        <br>
+        <span
+          class="account__exit"
+          @click="signOut"
+        >Выйти</span>
+      </div>
       <div
         class="account__info"
         v-if="!isAuth"
@@ -41,12 +60,6 @@
         >
         Регистрация
         </router-link>
-      </div>
-      <div
-        class="account__info"
-        v-else
-      >
-        {{ getMainUser.firstname }} {{ getMainUser.lastname }}
       </div>
     </div>
   </div>
@@ -65,9 +78,19 @@ export default defineComponent({
     getMainUser () {
       return this.$store.getters.getMainUser
     },
+    avatar (): string {
+      if (!this.$store.getters.getMainUser) return ''
+      return this.$store.getters.getImageUrl + this.$store.getters.getMainUser.avatar
+    },
   },
   data: () => ({}),
-  methods: {},
+  methods: {
+    signOut () {
+      this.$store.dispatch('signOut')
+    },
+  },
+  mounted () {
+  },
 })
 </script>
 
@@ -83,7 +106,6 @@ export default defineComponent({
   display: flex;
   align-items: center;
   &__image {
-    width: 45px;
     height: 45px;
     margin-right: 10px;
   }
@@ -96,6 +118,11 @@ export default defineComponent({
     font-weight: 400;
     font-size: 25px;
     color: var(--color-helper);
+  }
+  &__exit {
+    margin: 10px 0 0;
+    font-weight: bold;
+    cursor: pointer;
   }
 }
 </style>

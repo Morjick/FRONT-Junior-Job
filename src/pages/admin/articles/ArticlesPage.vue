@@ -19,8 +19,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import ArticlesList from 'widgets/admin/ArticlesList.vue'
+import ArticlesListVue from 'widgets/admin/ArticlesList.vue'
 import UiButton from 'widgets/ui/UiButton.vue'
+
+const ArticlesList: any = ArticlesListVue
 
 export default defineComponent({
   name: 'ArticlesPage',

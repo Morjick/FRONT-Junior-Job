@@ -56,7 +56,7 @@ export default defineComponent({
       {
         id: 2,
         title: 'Статьи',
-        path: 'articles',
+        path: '/admin/articles',
       },
       {
         id: 3,
