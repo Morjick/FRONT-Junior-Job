@@ -66,7 +66,7 @@ export default defineComponent({
       {
         id: 4,
         title: 'Вакансии',
-        path: 'jobs',
+        path: '/admin/jobs',
       },
       {
         id: 5,

@@ -3,20 +3,18 @@
     <div
       href="#"
       class="item"
-      v-for="newsItrem in (newItems as Vacancy[])"
-      :key="newsItrem.id"
-      @click="pushToCavancyPage(newsItrem)"
+      v-for="item in (newItems as Vacancy[])"
+      :key="item.id"
+      @click="pushToCavancyPage(item)"
     >
       <img
-        src="~/shared/assets/images/temp-home-logo.png"
+        :ref="(el: any) => getImage(item.avatar, el)"
         alt=""
         class="item__img"
       />
 
       <div class="item__text">
-        <div class="item__title">{{ newsItrem.title }}</div>
-        <!-- <div class="item__time">{{ newsItrem.timing }}</div>
-        <div class="item__task">{{ newsItrem.task }}</div> -->
+        <div class="item__title">{{ item.title }}</div>
       </div>
     </div>
   </section>
@@ -34,9 +32,34 @@ export default defineComponent({
       default: () => [] as Vacancy[],
     },
   },
+  data: () => ({
+    noImageUrl: require('shared/assets/images/no_image.jpg').default,
+  }),
+  computed: {
+    deafultImageUrl () {
+      return this.$store.getters.defaultImageUrl
+    },
+  },
   methods: {
     pushToCavancyPage (vacancy: Vacancy) {
       this.$router.push(`/vacancy/${vacancy.href}`)
+    },
+    async getImage (image: string, el: any) {
+      try {
+        const isAvatar = await this.$store.dispatch('getImage', image)
+
+        if (isAvatar.status !== 200) {
+          el.setAttribute('src', this.noImageUrl)
+          return null
+        }
+
+        const imageUrl = await this.$store.getters.defaultImageUrl
+
+        el.setAttribute('src', imageUrl + image)
+      } catch (e) {
+        el.setAttribute('src', this.noImageUrl)
+        return e
+      }
     },
   },
 })

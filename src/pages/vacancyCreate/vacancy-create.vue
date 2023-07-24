@@ -119,8 +119,7 @@ export default defineComponent({
         this.$router.push('/')
         return data
       } catch (e) {
-        // eslint-disable-next-line no-console
-        console.log(e)
+        return e
       }
     },
     async setvacancyAvatar (event: any) {

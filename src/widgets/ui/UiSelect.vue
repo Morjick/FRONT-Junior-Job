@@ -113,7 +113,7 @@ export default defineComponent({
       this.showBody = false
       this.value = item[this.itemText]
 
-      // this.$emit('select', item)
+      this.$emit('select', item)
     },
     addItem (item: Item) {
       if (!item) {
