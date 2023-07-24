@@ -5,7 +5,10 @@
       <span>{{ getDate(article.createdAt) }}</span>
     </div>
 
-    <p v-html="article.body"></p>
+    <div
+      v-html="article.body"
+      class="articles-target-body"
+    ></div>
 
     <p
       v-if="article.author"
@@ -71,6 +74,16 @@ export default defineComponent({
 <style lang="scss">
 .articles-target {
   padding: 20px 40px;
+
+  &-body {
+    overflow: hidden;
+
+    img {
+      @media (max-width: 500px) {
+        width: 100%;
+      }
+    }
+  }
 
   &-title {
     display: flex;

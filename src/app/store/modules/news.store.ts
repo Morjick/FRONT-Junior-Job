@@ -33,6 +33,7 @@ interface ResponseI {
   body: string
   autorId: number
   vacancyId: number
+  autor: UserI
 }
 
 interface CategoryI {
