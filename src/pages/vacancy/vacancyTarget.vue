@@ -24,7 +24,8 @@
         :key="response.id"
         class="vacancy-target-responses-item"
       >
-        <div class="vacancy-target-responses-item-avatar"></div>
+        <div class="vacancy-target-responses-item-avatar">
+        </div>
         <div class="vacancy-target-responses-item-info">
           <div
             class="name"
@@ -36,6 +37,13 @@
           >
             {{ response.body.length ? response.body : 'Автор не оставил сопроводительного письма' }}
           </div>
+        </div>
+        <div class="vacancy-target-responses-item-footer">
+          <ui-button
+            text="Выбрать исполнителем"
+            style="margin-left: auto; min-width: 70px; max-width: 200px; min-height: 50px;"
+            v-if="isMyResponse"
+          />
         </div>
       </div>
     </div>
@@ -137,6 +145,8 @@ export default defineComponent({
     border-bottom: 1px solid var(--color-alternative);
 
     &-info {
+      margin-bottom: 20px;
+
       .name {
         font-weight: bold;
         font-size: 20px;

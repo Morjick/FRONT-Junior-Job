@@ -6,7 +6,12 @@
       class="vacancy-item"
       @click="pushToCavancyPage(item)"
     >
-      {{ item.title }}
+      <img
+        :ref="(el: any) => getImage(item.avatar, el)"
+        alt=""
+        class="vacancy-item-avatar"
+      >
+      <p class="vacancy-item-title">{{ item.title }}</p>
     </div>
   </div>
 </template>
@@ -19,6 +24,7 @@ export default defineComponent({
   name: 'VacancyPage',
   data: () => ({
     vacancy: [] as Vacancy[],
+    noImageUrl: require('shared/assets/images/no_image.jpg').default,
   }),
   components: {},
   props: {},
@@ -42,6 +48,23 @@ export default defineComponent({
         return e
       }
     },
+    async getImage (image: string, el: any) {
+      try {
+        const isAvatar = await this.$store.dispatch('getImage', image)
+
+        if (isAvatar.status !== 200) {
+          el.setAttribute('src', this.noImageUrl)
+          return null
+        }
+
+        const imageUrl = await this.$store.getters.defaultImageUrl
+
+        el.setAttribute('src', imageUrl + image)
+      } catch (e) {
+        el.setAttribute('src', this.noImageUrl)
+        return e
+      }
+    },
   },
   mounted () {
     this.getVacancy()
@@ -54,16 +77,28 @@ export default defineComponent({
   padding: 27px 32px;
 
   &-item {
+    display: flex;
+
     margin-bottom: 24px;
 
-    color: var(--color-title);
-    font-family: 'Marmelad';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 30px;
-
     cursor: pointer;
+
+    &-avatar {
+      width: 75px;
+      height: 75px;
+
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    &-title {
+      color: var(--color-title);
+      font-family: 'Marmelad';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 30px;
+    }
   }
 }
 </style>

@@ -67,11 +67,18 @@ export default defineComponent({
 
 <style lang="scss">
 .new-items {
+  max-width: 500px;
+
   margin-bottom: 28px;
+  cursor: pointer;
+
   &__title {
     font-weight: 600;
     font-size: 25px;
     color: var(--color-font);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-bottom: 15px;
   }
   &__wrapp {
