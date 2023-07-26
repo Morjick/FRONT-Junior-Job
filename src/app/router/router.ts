@@ -29,6 +29,7 @@ import { Wallet } from 'pages/wallet'
 import { Categories } from 'pages/categories'
 import { SettingsPage } from 'pages/settings'
 import { JobsPage } from 'pages/admin/jobs'
+import { PersonPage } from 'pages/person'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -50,6 +51,7 @@ export const router = createRouter({
         { component: VacancyTarget, path: '/vacancy/:href', },
         { component: Wallet, path: '/wallet', },
         { component: Categories, path: '/categories', },
+        { component: PersonPage, path: '/person/:id', },
       ],
     },
     {

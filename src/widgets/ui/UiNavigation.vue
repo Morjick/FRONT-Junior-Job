@@ -61,6 +61,20 @@
             </router-link>
           </li>
 
+          <!-- Вакансии -->
+          <li class="navigation__element">
+            <router-link
+              to="/vacancy-create"
+              class="navigation__element-link"
+            >
+              <img
+                src="~/shared/assets/images/work.png"
+                class="navigation__element-icon"
+              />
+              <div class="navigation__element-text">Создать вакансию</div>
+            </router-link>
+          </li>
+
           <!-- Статьи -->
           <li class="navigation__element">
             <router-link to="/articles"
@@ -117,6 +131,19 @@
             class="nav-desktop__img"
           />
           <div class="navigation__element-text">Вакансии</div>
+        </router-link>
+      </li>
+
+      <li class="nav-desktop__list-item">
+        <router-link
+          to="/vacancy-create"
+          class="navigation__element-link"
+        >
+          <img
+            src="~/shared/assets/images/work.png"
+            class="nav-desktop__img"
+          />
+          <div class="navigation__element-text">Создать вакансию</div>
         </router-link>
       </li>
 

@@ -9,49 +9,59 @@
     <p v-if="vacancy.body">{{ vacancy.body }}</p>
     <p v-else>Создатель вакансии не оставил описание</p>
 
-    <h2 class="vacancy-target-candidate-title">Кандидаты:</h2>
+    <div v-if="vacancy.open">
+      <h2 class="vacancy-target-candidate-title">Кандидаты:</h2>
 
-    <div v-if="!responses.length">
-      <p>Нет откликов. Станьте первым!</p>
-    </div>
+      <div v-if="!responses.length">
+        <p>{{ isMyVacance ? 'Откликов пока нет' : 'Нет откликов. Станьте первым!' }}</p>
+      </div>
 
-    <div
-      class="vacancy-target-responses"
-      v-else
-    >
       <div
-        v-for="response in responses"
-        :key="response.id"
-        class="vacancy-target-responses-item"
+        class="vacancy-target-responses"
+        v-else
       >
-        <div class="vacancy-target-responses-item-avatar">
-        </div>
-        <div class="vacancy-target-responses-item-info">
-          <div
-            class="name"
-            v-if="response.autor?.firstname?.length"
-          >{{ response.autor.firstname }} {{ response.autor.lastname }}</div>
-          <div class="name">Нет имени</div>
-          <div
-            class="body"
-          >
-            {{ response.body.length ? response.body : 'Автор не оставил сопроводительного письма' }}
+        <div
+          v-for="response in responses"
+          :key="response.id"
+          class="vacancy-target-responses-item"
+        >
+          <div class="vacancy-target-responses-item-avatar">
+          </div>
+          <div class="vacancy-target-responses-item-info">
+            <div
+              class="name"
+              v-if="response.autor?.firstname?.length"
+            >{{ response.autor.firstname }} {{ response.autor.lastname }}</div>
+            <div
+              class="name"
+              v-else
+            >Нет имени</div>
+            <div
+              class="body"
+            >
+              {{ response.body ? response.body : 'Автор не оставил сопроводительного письма' }}
+            </div>
+          </div>
+          <div class="vacancy-target-responses-item-footer">
+            <ui-button
+              text="Выбрать исполнителем"
+              style="margin-left: auto; min-width: 70px; max-width: 200px; min-height: 50px;"
+              @click="setExecutor(response.autor)"
+              v-if="isMyVacance"
+            />
           </div>
         </div>
-        <div class="vacancy-target-responses-item-footer">
-          <ui-button
-            text="Выбрать исполнителем"
-            style="margin-left: auto; min-width: 70px; max-width: 200px; min-height: 50px;"
-            v-if="isMyResponse"
-          />
-        </div>
       </div>
+    </div>
+
+    <div v-else>
+      <p style="margin: 20px 0 0; font-weight: bold; font-size: 34px;">Исполнитель выбран</p>
     </div>
 
     <ui-button
       text="Откликнуться"
       style="margin: 10px 0; max-width: 300px;"
-      v-if="!isMyResponse"
+      v-if="!isMyResponse && !isMyVacance && vacancy.open"
       @click="addResponse"
     />
   </div>
@@ -83,17 +93,20 @@ export default defineComponent({
 
       return index >= 0
     },
+    isMyVacance () {
+      return this.vacancy.id !== this.mainUser.id
+    },
   },
   methods: {
     async getVacancy () {
       try {
-        const data: any =
+        const { data, }: any =
           await this.axios.get(`vacancy/get-vacance?href=${this.$route.params?.href}`)
 
-        const vacancy: Vacancy = data.data.vacancy
+        const vacancy: Vacancy = data.vacancy
 
         this.vacancy = vacancy
-        this.responses = vacancy.response
+        this.responses = data.reseponses
       } catch (e) {
         return false
       }
@@ -104,6 +117,20 @@ export default defineComponent({
           targetId: this.vacancy.id,
           body: this.body,
         })
+      } catch (e) {
+        return e
+      }
+    },
+    async setExecutor (executor: UserI) {
+      try {
+        const data = await this.axios.post('vacancy/set-executor', {
+          executorId: executor.id,
+          vacancyId: this.vacancy.id,
+        })
+
+        console.log(data)
+
+        this.getVacancy()
       } catch (e) {
         return e
       }

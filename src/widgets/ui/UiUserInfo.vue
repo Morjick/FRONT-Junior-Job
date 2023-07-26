@@ -80,7 +80,7 @@ export default defineComponent({
     },
     avatar (): string {
       if (!this.$store.getters.getMainUser) return ''
-      return this.$store.getters.getImageUrl + this.$store.getters.getMainUser.avatar
+      return this.$store.getters.defaultImageUrl + this.$store.getters.getMainUser.avatar
     },
   },
   data: () => ({}),

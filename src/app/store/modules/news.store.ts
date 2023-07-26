@@ -26,6 +26,7 @@ interface Vacancy {
   categoryId: number
   createdAt: string
   updatedAt: string
+  open: boolean
 }
 
 interface ResponseI {

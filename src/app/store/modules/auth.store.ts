@@ -11,7 +11,7 @@ interface UserI {
   id: number
   firstname: string
   lastname: string
-  emailt: string
+  email: string
   password: string
   implication: string
   learn: string
@@ -22,7 +22,7 @@ interface UserI {
   age?: number
   birsday?: string
   token?: string
-  avatar?: string
+  avatar: string
 }
 
 interface AuthStoreI {

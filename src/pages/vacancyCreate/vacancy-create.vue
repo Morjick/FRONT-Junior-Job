@@ -114,6 +114,7 @@ export default defineComponent({
           show: true,
           category: this.category.id,
           avatar: this.avatar,
+          body: this.body,
         })
 
         this.$router.push('/')

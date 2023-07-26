@@ -4,7 +4,10 @@
       Оставьте заявку на регистрацию, мы рассмотрим ее в ручном режиме и поможем
       настроить работу индивидуально
     </p>
-    <add-photo text="Добавьте логотип <br> копнании" />
+    <add-photo
+      @loadImage="setImage"
+      text="Добавьте логотип <br> копнании"
+    />
     <p class="validation-error-label"
 v-if="v$.$error">
       Заполните все обязательные поля
@@ -81,6 +84,8 @@ export default defineComponent({
     city: '',
     contact: '',
     about: '',
+    image: '',
+    avatar: '',
   }),
   setup () {
     return {
@@ -101,6 +106,20 @@ export default defineComponent({
   props: {},
   computed: {},
   methods: {
+    async setImage (image: any) {
+      const formdata = new FormData()
+
+      formdata.append('file', image)
+
+      const { data, } = await this.axios.post('static/upload-image', formdata, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+
+      this.image = image
+      this.avatar = data.image.name
+    },
     async sendForm () {
       const candidate = {
         firstname: this.name,
