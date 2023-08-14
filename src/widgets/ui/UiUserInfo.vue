@@ -3,6 +3,7 @@
     <router-link
       to="/notification"
       class="account__notifications"
+      v-if="isAuth"
     >
       <img
         src="~/shared/assets/images/notifications.png"
@@ -13,6 +14,7 @@
     <router-link
       to="/message-list"
       class="account__chat"
+      v-if="isAuth"
     >
       <img
         src="~/shared/assets/images/chat_bubble.png"

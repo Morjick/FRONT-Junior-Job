@@ -49,13 +49,13 @@ export default defineComponent({
         const isAvatar = await this.$store.dispatch('getImage', image)
 
         if (isAvatar.status !== 200) {
-          el.setAttribute('src', this.noImageUrl)
+          el?.setAttribute('src', this.noImageUrl)
           return null
         }
 
         const imageUrl = await this.$store.getters.defaultImageUrl
 
-        el.setAttribute('src', imageUrl + image)
+        el?.setAttribute('src', imageUrl + image)
       } catch (e) {
         el.setAttribute('src', this.noImageUrl)
         return e

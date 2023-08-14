@@ -6,12 +6,6 @@
     >
       Введите корректный email
     </p>
-    <p
-      class="validation-error-label"
-      v-if="error.length"
-    >
-      {{ error }}
-    </p>
     <input
       class="ui-input"
       placeholder="Email"
@@ -32,6 +26,12 @@
       v-model="v$.password.$model"
       :class="{ error: v$.password.$error }"
     />
+    <p
+      class="validation-error-label"
+      v-if="error.length"
+    >
+      {{ error }}
+    </p>
 
     <ui-button
       text="Войти"
@@ -76,19 +76,22 @@ export default defineComponent({
   computed: {},
   methods: {
     async sendForm () {
-      const response: any = await this.axios.post('auth/sing-in', {
-        email: this.email, password: this.password,
-      })
+      try {
+        const response: any = await this.axios.post('auth/sing-in', {
+          email: this.email, password: this.password,
+        })
 
-      if (response.response?.data?.ok === false) {
-        this.error = response.data.message
-        return
+        if (response.response?.data?.ok === false) {
+          this.error = response.response?.data?.message
+          return
+        }
+
+        localStorage.setItem('jj-token', response.data.token)
+        this.$store.dispatch('login', response.data)
+
+        this.$router.push('/')
+      } catch (e) {
       }
-
-      localStorage.setItem('jj-token', response.data.token)
-      this.$store.dispatch('login', response.data)
-
-      this.$router.push('/')
     },
   },
   mounted () {},

@@ -62,7 +62,10 @@
           </li>
 
           <!-- Вакансии -->
-          <li class="navigation__element">
+          <li
+            class="navigation__element"
+            v-if="isAuth"
+          >
             <router-link
               to="/vacancy-create"
               class="navigation__element-link"
@@ -134,7 +137,10 @@
         </router-link>
       </li>
 
-      <li class="nav-desktop__list-item">
+      <li
+        class="nav-desktop__list-item"
+        v-if="isAuth"
+      >
         <router-link
           to="/vacancy-create"
           class="navigation__element-link"

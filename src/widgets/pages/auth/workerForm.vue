@@ -4,30 +4,24 @@
     class="worker-form"
   >
     <add-photo @loadImage="setImage" />
-    <p
-      class="validation-error-label"
-      v-if="v$.$error"
-    >
-      Заполните все обязательные поля
-    </p>
 
     <input
       class="ui-input"
-      placeholder="Фамилия"
+      placeholder="Фамилия *"
       v-model="v$.lastname.$model"
       :class="{ error: v$.lastname.$error }"
     />
 
     <input
       class="ui-input"
-      placeholder="Имя"
+      placeholder="Имя *"
       v-model="v$.name.$model"
       :class="{ error: v$.name.$error }"
     />
 
     <input
       class="ui-input"
-      placeholder="Email"
+      placeholder="Email *"
       v-model="v$.email.$model"
       :class="{ error: v$.email.$error }"
     />
@@ -41,27 +35,28 @@
     <input
       type="password"
       class="ui-input"
-      placeholder="Пароль"
+      placeholder="Пароль *"
       v-model="v$.password.$model"
       :class="{ error: v$.password.$error }"
     />
 
+    <span class="label">Введите дату рождение</span>
     <input
       type="date"
       class="ui-input"
-      placeholder="Дата рождения"
+      placeholder="Дата рождения *"
       v-model="date"
       style="margin-bottom: 35px;"
     />
     <input
       class="ui-input"
-      placeholder="Город"
+      placeholder="Город *"
       v-model="v$.city.$model"
       :class="{ error: v$.city.$error }"
     />
     <input
       class="ui-input"
-      placeholder="Место учёбы"
+      placeholder="Место учёбы *"
       v-model="v$.learn.$model"
       :class="{ error: v$.learn.$error }"
     />
@@ -105,6 +100,13 @@
       v-model="about"
     ></textarea>
 
+    <p
+      class="validation-error-label"
+      style="max-width: 300px;"
+      v-if="errorMessage.length"
+    >
+      {{ errorMessage }}
+    </p>
     <ui-button
       text="Зарегистрироваться"
       style="font-weight: bold; margin: 10px 0"
@@ -182,6 +184,7 @@ export default defineComponent({
     ],
     checkCompliance: [] as any[],
     avatar: '' as string,
+    errorMessage: '',
   }),
   validations () {
     return {
@@ -214,31 +217,40 @@ export default defineComponent({
       this.avatar = data.image.name
     },
     async sendForm () {
-      const isError = await this.v$.$validate()
-      if (isError) return false
+      try {
+        const isError = await this.v$.$validate()
+        if (isError) return false
 
-      const candidate = {
-        firstname: this.name,
-        lastname: this.lastname,
-        email: this.email,
-        password: this.password,
-        implication: 'physical',
-        birthday: this.birsday,
-        learn: this.learn,
-        inn: this.inn,
-        city: this.city,
-        about: this.about,
-        role: 'USER',
-        avatar: this.avatar,
+        const candidate = {
+          firstname: this.name,
+          lastname: this.lastname,
+          email: this.email,
+          password: this.password,
+          implication: 'physical',
+          birthday: this.birsday,
+          learn: this.learn,
+          inn: this.inn,
+          city: this.city,
+          about: this.about,
+          role: 'USER',
+          avatar: this.avatar,
+        }
+
+        const data: any = await this.axios.post('/auth/sing-up', candidate)
+
+        if (!data?.response?.data.ok) {
+          this.errorMessage = data?.response?.data.message
+          return
+        }
+
+        this.$store.commit('setMainUserData', data.data.user)
+        this.$store.commit('setToken', data.data.token)
+        this.$store.commit('setIsAuth', true)
+        localStorage.setItem('jj-token', data.data.token)
+
+        this.$router.push('/')
+      } catch (e) {
       }
-
-      const { data, }: any = await this.axios.post('/auth/sing-up', candidate)
-      this.$store.commit('setMainUserData', data.user)
-      this.$store.commit('setToken', data.token)
-      this.$store.commit('setIsAuth', true)
-      localStorage.setItem('jj-token', data.token)
-
-      this.$router.push('/')
     },
     addCompliance (compliance: any, item: any) {
       if (!compliance || !item) {
@@ -260,6 +272,11 @@ export default defineComponent({
 .compliance-container {
   max-width: 300px;
   margin-bottom: 20px;
+}
+
+.label {
+  color: var(--color-primery);
+  margin: 10px 5px 5px;
 }
 
 .compliance-item {

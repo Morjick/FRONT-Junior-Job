@@ -12,7 +12,7 @@
     <div v-if="vacancy.open">
       <h2 class="vacancy-target-candidate-title">Кандидаты:</h2>
 
-      <div v-if="!responses.length">
+      <div v-if="!responses?.length">
         <p>{{ isMyVacance ? 'Откликов пока нет' : 'Нет откликов. Станьте первым!' }}</p>
       </div>
 
@@ -89,11 +89,15 @@ export default defineComponent({
       return this.$store.getters.getMainUser
     },
     isMyResponse () {
+      if (!this.mainUser?.id) {
+        return false
+      }
       const index = this.responses.findIndex(el => el.autorId === this.mainUser.id)
 
       return index >= 0
     },
     isMyVacance () {
+      if (!this.mainUser?.id) return false
       return this.vacancy.id !== this.mainUser.id
     },
   },
@@ -123,12 +127,10 @@ export default defineComponent({
     },
     async setExecutor (executor: UserI) {
       try {
-        const data = await this.axios.post('vacancy/set-executor', {
+        await this.axios.post('vacancy/set-executor', {
           executorId: executor.id,
           vacancyId: this.vacancy.id,
         })
-
-        console.log(data)
 
         this.getVacancy()
       } catch (e) {

@@ -8,28 +8,28 @@ v-if="v$.$error">
 
     <input
       class="ui-input"
-      placeholder="Фамилия"
+      placeholder="Фамилия *"
       v-model="v$.lastname.$model"
       :class="{ error: v$.lastname.$error }"
     />
 
     <input
       class="ui-input"
-      placeholder="Имя"
+      placeholder="Имя *"
       v-model="v$.name.$model"
       :class="{ error: v$.name.$error }"
     />
 
     <input
       class="ui-input"
-      placeholder="Отчество"
+      placeholder="Отчество *"
       v-model="v$.patronomic.$model"
       :class="{ error: v$.patronomic.$error }"
     />
 
     <input
       class="ui-input"
-      placeholder="Email"
+      placeholder="Email *"
       v-model="v$.email.$model"
       :class="{ error: v$.email.$error }"
     />
@@ -43,7 +43,7 @@ v-if="v$.$error">
     <input
       type="password"
       class="ui-input"
-      placeholder="Пароль"
+      placeholder="Пароль *"
       v-model="v$.password.$model"
       :class="{ error: v$.password.$error }"
     />
@@ -52,7 +52,7 @@ v-if="v$.$error">
 
     <input
       class="ui-input"
-      placeholder="Город"
+      placeholder="Город *"
       v-model="v$.city.$model"
       :class="{ error: v$.city.$error }"
     />
@@ -62,6 +62,13 @@ v-if="v$.$error">
       v-model="about"
     ></textarea>
 
+    <p
+      class="validation-error-label"
+      style="max-width: 300px;"
+      v-if="errorMessage.length"
+    >
+      {{ errorMessage }}
+    </p>
     <ui-button
       text="Зарегистрироваться"
       style="font-weight: bold; margin: 10px 0"
@@ -94,6 +101,7 @@ export default defineComponent({
     about: '',
     image: '',
     avatar: '',
+    errorMessage: '',
   }),
   validations () {
     return {
@@ -124,25 +132,33 @@ export default defineComponent({
       this.avatar = data.image.name
     },
     async sendForm () {
-      const candidate = {
-        firstname: this.name,
-        lastname: this.lastname,
-        email: this.email,
-        password: this.password,
-        implication: 'physical',
-        city: this.city,
-        role: 'USER',
-        abuot: this.about,
-        avatar: this.avatar,
-      }
+      try {
+        const candidate = {
+          firstname: this.name,
+          lastname: this.lastname,
+          email: this.email,
+          password: this.password,
+          implication: 'physical',
+          city: this.city,
+          role: 'USER',
+          abuot: this.about,
+          avatar: this.avatar,
+        }
 
-      const { data, }: any = await this.axios.post('/auth/sing-up', candidate)
-      this.$store.commit('setMainUserData', data.user)
-      this.$store.commit('setToken', data.token)
-      this.$store.commit('setIsAuth', true)
-      localStorage.setItem('jj-token', data.token)
+        const data: any = await this.axios.post('/auth/sing-up', candidate)
 
-      this.$router.push('/')
+        if (!data?.response?.data.ok) {
+          this.errorMessage = data?.response?.data.message
+          return
+        }
+
+        this.$store.commit('setMainUserData', data.data.user)
+        this.$store.commit('setToken', data.data.token)
+        this.$store.commit('setIsAuth', true)
+        localStorage.setItem('jj-token', data.data.token)
+
+        this.$router.push('/')
+      } catch {}
     },
   },
   mounted () {},
